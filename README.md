@@ -442,13 +442,13 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 - **Documentation**: Check the [documentation](apps/cap/docs/)
 - **Issues**: Report bugs on [GitHub Issues](https://github.com/QuietWire-Civic-AI/Civic_Attestation_Platform/issues)
 - **Discussions**: Join community discussions
-- **Email**: info@quietwire.ai
+- **Email**: cap@quietwire.ai
 
 ### Community
 
 - **Website**: [quietwire.ai](https://quietwire.ai)
 - **Documentation**: Full documentation available in the repository
-- **Support**: Contact us at cap@QuietWire-Civic-AI.ai for assistance
+- **Support**: Contact us at cap@quietwire.ai for assistance
 
 ## 📄 License
 
