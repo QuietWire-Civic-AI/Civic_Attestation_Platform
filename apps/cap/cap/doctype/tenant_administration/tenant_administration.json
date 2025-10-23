@@ -1,0 +1,206 @@
+"_comment": "Project: QuietWire CAP (Civic AI Canon Platform) V 1.0.0 | Website: https://quietwire.ai | Authors: Ashraf Saleh Alhajj; Raasid (AI Companion) | SPDX-License-Identifier: Apache-2.0 | SPDX-FileCopyrightText: 2025 QuietWire | SPDX-FileContributor: Ashraf Saleh Alhajj | SPDX-FileContributor: Raasid (AI Companion)",
+  "actions": [],
+  "autoname": "format:TA-{YYYY}-{#####}",
+  "creation": "2025-10-23 13:34:00.000000",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "dashboard_section",
+    "dashboard_title",
+    "last_refresh",
+    "column_break_1",
+    "auto_refresh_enabled",
+    "refresh_interval",
+    "filters_section",
+    "status_filter",
+    "plan_filter",
+    "column_break_2",
+    "date_from",
+    "date_to",
+    "settings_section",
+    "show_charts",
+    "show_kpis",
+    "column_break_3",
+    "default_view",
+    "items_per_page",
+    "export_section",
+    "export_format",
+    "include_charts_in_export",
+    "column_break_4",
+    "export_filename",
+    "last_export_date"
+  ],
+  "fields": [
+    {
+      "fieldname": "dashboard_section",
+      "fieldtype": "Section Break",
+      "label": "Dashboard Settings"
+    },
+    {
+      "default": "Tenant Administration Dashboard",
+      "fieldname": "dashboard_title",
+      "fieldtype": "Data",
+      "label": "Dashboard Title",
+      "read_only": 1
+    },
+    {
+      "fieldname": "last_refresh",
+      "fieldtype": "Datetime",
+      "label": "Last Refresh",
+      "read_only": 1
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "1",
+      "fieldname": "auto_refresh_enabled",
+      "fieldtype": "Check",
+      "label": "Auto Refresh Enabled"
+    },
+    {
+      "default": "30",
+      "depends_on": "eval:doc.auto_refresh_enabled",
+      "fieldname": "refresh_interval",
+      "fieldtype": "Int",
+      "label": "Refresh Interval (seconds)"
+    },
+    {
+      "fieldname": "filters_section",
+      "fieldtype": "Section Break",
+      "label": "Filters"
+    },
+    {
+      "fieldname": "status_filter",
+      "fieldtype": "Select",
+      "label": "Status Filter",
+      "options": "All\nActive\nTrial\nInactive\nSuspended"
+    },
+    {
+      "fieldname": "plan_filter",
+      "fieldtype": "Select",
+      "label": "Plan Filter",
+      "options": "All\nTrial\nBasic\nProfessional\nEnterprise"
+    },
+    {
+      "fieldname": "column_break_2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "date_from",
+      "fieldtype": "Date",
+      "label": "Date From"
+    },
+    {
+      "fieldname": "date_to",
+      "fieldtype": "Date",
+      "label": "Date To"
+    },
+    {
+      "fieldname": "settings_section",
+      "fieldtype": "Section Break",
+      "label": "Display Settings"
+    },
+    {
+      "default": "1",
+      "fieldname": "show_charts",
+      "fieldtype": "Check",
+      "label": "Show Charts"
+    },
+    {
+      "default": "1",
+      "fieldname": "show_kpis",
+      "fieldtype": "Check",
+      "label": "Show KPIs"
+    },
+    {
+      "fieldname": "column_break_3",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "Overview",
+      "fieldname": "default_view",
+      "fieldtype": "Select",
+      "label": "Default View",
+      "options": "Overview\nTenant List\nUsage Monitoring\nResource Allocation"
+    },
+    {
+      "default": "20",
+      "fieldname": "items_per_page",
+      "fieldtype": "Int",
+      "label": "Items Per Page"
+    },
+    {
+      "collapsible": 1,
+      "fieldname": "export_section",
+      "fieldtype": "Section Break",
+      "label": "Export Settings"
+    },
+    {
+      "default": "PDF",
+      "fieldname": "export_format",
+      "fieldtype": "Select",
+      "label": "Export Format",
+      "options": "PDF\nExcel\nCSV\nJSON"
+    },
+    {
+      "default": "1",
+      "fieldname": "include_charts_in_export",
+      "fieldtype": "Check",
+      "label": "Include Charts in Export"
+    },
+    {
+      "fieldname": "column_break_4",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "tenant_admin_report",
+      "fieldname": "export_filename",
+      "fieldtype": "Data",
+      "label": "Export Filename"
+    },
+    {
+      "fieldname": "last_export_date",
+      "fieldtype": "Datetime",
+      "label": "Last Export Date",
+      "read_only": 1
+    }
+  ],
+  "index_web_pages_for_search": 1,
+  "issingle": 1,
+  "links": [],
+  "modified": "2025-10-23 13:34:00.000000",
+  "module": "CAP Core",
+  "name": "Tenant Administration",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "print": 1,
+      "read": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "email": 1,
+      "print": 1,
+      "read": 1,
+      "role": "CAP Admin",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "read": 1,
+      "role": "CAP Auditor"
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "states": [],
+  "track_changes": 1
+}

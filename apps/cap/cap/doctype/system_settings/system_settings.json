@@ -1,0 +1,658 @@
+"_comment": "Project: QuietWire CAP (Civic AI Canon Platform) V 1.0.0 | Website: https://quietwire.ai | Authors: Ashraf Saleh Alhajj; Raasid (AI Companion) | SPDX-License-Identifier: Apache-2.0 | SPDX-FileCopyrightText: 2025 QuietWire | SPDX-FileContributor: Ashraf Saleh Alhajj | SPDX-FileContributor: Raasid (AI Companion)",
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "field:name",
+ "creation": "2025-10-23 07:12:48",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "platform_section",
+  "platform_name",
+  "platform_version",
+  "environment",
+  "column_break_1",
+  "maintenance_mode",
+  "maintenance_message",
+  "ai_model_section",
+  "default_ai_provider",
+  "openai_api_key",
+  "azure_openai_endpoint",
+  "azure_openai_api_key",
+  "column_break_ai_1",
+  "default_chat_model",
+  "default_embedding_model",
+  "max_allowed_model_cost",
+  "global_rate_limit_per_minute",
+  "enable_model_fallback",
+  "security_section",
+  "encryption_algorithm",
+  "password_policy",
+  "require_mfa",
+  "session_timeout_minutes",
+  "column_break_security_1",
+  "enable_blockchain_verification",
+  "max_login_attempts",
+  "account_lockout_duration",
+  "password_expiry_days",
+  "notifications_section",
+  "enable_email_notifications",
+  "smtp_server",
+  "smtp_port",
+  "smtp_username",
+  "smtp_password",
+  "smtp_use_tls",
+  "column_break_notif_1",
+  "enable_slack_notifications",
+  "slack_webhook_url",
+  "enable_teams_notifications",
+  "teams_webhook_url",
+  "notification_email_from",
+  "storage_section",
+  "primary_storage_provider",
+  "s3_bucket_name",
+  "s3_region",
+  "s3_access_key_id",
+  "s3_secret_access_key",
+  "column_break_storage_1",
+  "azure_storage_account",
+  "azure_storage_key",
+  "azure_container_name",
+  "max_file_size_mb",
+  "allowed_file_types",
+  "compliance_section",
+  "active_compliance_frameworks",
+  "default_risk_tolerance",
+  "auto_violation_detection",
+  "policy_review_frequency_days",
+  "column_break_compliance_1",
+  "data_retention_days",
+  "evidence_retention_days",
+  "auto_archive_old_data",
+  "compliance_email_alerts",
+  "tenant_management_section",
+  "enable_multi_tenancy",
+  "default_tenant_plan",
+  "max_tenants",
+  "auto_suspend_inactive_tenants",
+  "column_break_tenant_1",
+  "inactive_tenant_days",
+  "tenant_data_isolation",
+  "allow_tenant_customization",
+  "billing_cycle",
+  "audit_section",
+  "enable_audit_logging",
+  "audit_retention_days",
+  "log_level",
+  "column_break_audit_1",
+  "enable_performance_monitoring",
+  "enable_error_tracking",
+  "auto_cleanup_logs"
+ ],
+ "fields": [
+  {
+   "fieldname": "platform_section",
+   "fieldtype": "Section Break",
+   "label": "Platform Information"
+  },
+  {
+   "fieldname": "platform_name",
+   "fieldtype": "Data",
+   "label": "Platform Name",
+   "default": "Civic AI Canon Platform",
+   "reqd": 1
+  },
+  {
+   "fieldname": "platform_version",
+   "fieldtype": "Data",
+   "label": "Version",
+   "default": "1.0.0",
+   "read_only": 1
+  },
+  {
+   "fieldname": "environment",
+   "fieldtype": "Select",
+   "label": "Environment",
+   "options": "Development\nStaging\nProduction",
+   "default": "Development",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "maintenance_mode",
+   "fieldtype": "Check",
+   "label": "Maintenance Mode",
+   "default": 0,
+   "description": "Enable to prevent users from accessing the system"
+  },
+  {
+   "fieldname": "maintenance_message",
+   "fieldtype": "Small Text",
+   "label": "Maintenance Message",
+   "depends_on": "eval:doc.maintenance_mode==1",
+   "description": "Message shown to users during maintenance"
+  },
+  {
+   "fieldname": "ai_model_section",
+   "fieldtype": "Section Break",
+   "label": "AI & Model Configuration",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "default_ai_provider",
+   "fieldtype": "Select",
+   "label": "Default AI Provider",
+   "options": "OpenAI\nAzure OpenAI\nCustom",
+   "default": "OpenAI",
+   "description": "Primary AI provider for the platform"
+  },
+  {
+   "fieldname": "openai_api_key",
+   "fieldtype": "Password",
+   "label": "OpenAI API Key",
+   "depends_on": "eval:doc.default_ai_provider=='OpenAI'",
+   "description": "Your OpenAI API key (stored encrypted)"
+  },
+  {
+   "fieldname": "azure_openai_endpoint",
+   "fieldtype": "Data",
+   "label": "Azure OpenAI Endpoint",
+   "depends_on": "eval:doc.default_ai_provider=='Azure OpenAI'",
+   "description": "Azure OpenAI service endpoint URL"
+  },
+  {
+   "fieldname": "azure_openai_api_key",
+   "fieldtype": "Password",
+   "label": "Azure OpenAI API Key",
+   "depends_on": "eval:doc.default_ai_provider=='Azure OpenAI'",
+   "description": "Your Azure OpenAI API key (stored encrypted)"
+  },
+  {
+   "fieldname": "column_break_ai_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "default_chat_model",
+   "fieldtype": "Link",
+   "label": "Default Chat Model",
+   "options": "AI Model",
+   "description": "Default model for chat interactions"
+  },
+  {
+   "fieldname": "default_embedding_model",
+   "fieldtype": "Link",
+   "label": "Default Embedding Model",
+   "options": "AI Model",
+   "description": "Default model for embeddings"
+  },
+  {
+   "fieldname": "max_allowed_model_cost",
+   "fieldtype": "Currency",
+   "label": "Max Allowed Model Cost",
+   "description": "Maximum cost per 1K tokens (USD)",
+   "precision": 4
+  },
+  {
+   "fieldname": "global_rate_limit_per_minute",
+   "fieldtype": "Int",
+   "label": "Global Rate Limit (per minute)",
+   "default": 100,
+   "description": "Maximum API calls per minute across platform"
+  },
+  {
+   "fieldname": "enable_model_fallback",
+   "fieldtype": "Check",
+   "label": "Enable Model Fallback",
+   "default": 1,
+   "description": "Automatically fallback to alternative model on failure"
+  },
+  {
+   "fieldname": "security_section",
+   "fieldtype": "Section Break",
+   "label": "Security Settings",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "encryption_algorithm",
+   "fieldtype": "Select",
+   "label": "Encryption Algorithm",
+   "options": "AES-256\nRSA-4096\nChaCha20-Poly1305",
+   "default": "AES-256",
+   "description": "Algorithm for encrypting sensitive data"
+  },
+  {
+   "fieldname": "password_policy",
+   "fieldtype": "Select",
+   "label": "Password Policy",
+   "options": "Standard\nStrong\nCustom",
+   "default": "Strong",
+   "description": "Password complexity requirements"
+  },
+  {
+   "fieldname": "require_mfa",
+   "fieldtype": "Check",
+   "label": "Require Multi-Factor Authentication",
+   "default": 0,
+   "description": "Force MFA for all users"
+  },
+  {
+   "fieldname": "session_timeout_minutes",
+   "fieldtype": "Int",
+   "label": "Session Timeout (minutes)",
+   "default": 30,
+   "description": "Automatic logout after inactivity"
+  },
+  {
+   "fieldname": "column_break_security_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "enable_blockchain_verification",
+   "fieldtype": "Check",
+   "label": "Enable Blockchain Verification",
+   "default": 0,
+   "description": "Use blockchain for evidence verification"
+  },
+  {
+   "fieldname": "max_login_attempts",
+   "fieldtype": "Int",
+   "label": "Max Login Attempts",
+   "default": 5,
+   "description": "Lock account after failed attempts"
+  },
+  {
+   "fieldname": "account_lockout_duration",
+   "fieldtype": "Int",
+   "label": "Account Lockout Duration (minutes)",
+   "default": 30,
+   "description": "Duration to lock account after max attempts"
+  },
+  {
+   "fieldname": "password_expiry_days",
+   "fieldtype": "Int",
+   "label": "Password Expiry (days)",
+   "default": 90,
+   "description": "Force password change after days (0 = never)"
+  },
+  {
+   "fieldname": "notifications_section",
+   "fieldtype": "Section Break",
+   "label": "Notification Settings",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "enable_email_notifications",
+   "fieldtype": "Check",
+   "label": "Enable Email Notifications",
+   "default": 1
+  },
+  {
+   "fieldname": "smtp_server",
+   "fieldtype": "Data",
+   "label": "SMTP Server",
+   "depends_on": "eval:doc.enable_email_notifications==1",
+   "description": "SMTP server hostname"
+  },
+  {
+   "fieldname": "smtp_port",
+   "fieldtype": "Int",
+   "label": "SMTP Port",
+   "default": 587,
+   "depends_on": "eval:doc.enable_email_notifications==1"
+  },
+  {
+   "fieldname": "smtp_username",
+   "fieldtype": "Data",
+   "label": "SMTP Username",
+   "depends_on": "eval:doc.enable_email_notifications==1"
+  },
+  {
+   "fieldname": "smtp_password",
+   "fieldtype": "Password",
+   "label": "SMTP Password",
+   "depends_on": "eval:doc.enable_email_notifications==1"
+  },
+  {
+   "fieldname": "smtp_use_tls",
+   "fieldtype": "Check",
+   "label": "Use TLS",
+   "default": 1,
+   "depends_on": "eval:doc.enable_email_notifications==1"
+  },
+  {
+   "fieldname": "column_break_notif_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "enable_slack_notifications",
+   "fieldtype": "Check",
+   "label": "Enable Slack Notifications",
+   "default": 0
+  },
+  {
+   "fieldname": "slack_webhook_url",
+   "fieldtype": "Password",
+   "label": "Slack Webhook URL",
+   "depends_on": "eval:doc.enable_slack_notifications==1",
+   "description": "Slack incoming webhook URL"
+  },
+  {
+   "fieldname": "enable_teams_notifications",
+   "fieldtype": "Check",
+   "label": "Enable MS Teams Notifications",
+   "default": 0
+  },
+  {
+   "fieldname": "teams_webhook_url",
+   "fieldtype": "Password",
+   "label": "Teams Webhook URL",
+   "depends_on": "eval:doc.enable_teams_notifications==1",
+   "description": "Microsoft Teams incoming webhook URL"
+  },
+  {
+   "fieldname": "notification_email_from",
+   "fieldtype": "Data",
+   "label": "Notification Email From",
+   "description": "From email address for notifications"
+  },
+  {
+   "fieldname": "storage_section",
+   "fieldtype": "Section Break",
+   "label": "Storage Settings",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "primary_storage_provider",
+   "fieldtype": "Select",
+   "label": "Primary Storage Provider",
+   "options": "Local\nAWS S3\nAzure Blob Storage\nGoogle Cloud Storage",
+   "default": "Local",
+   "description": "Storage backend for files and evidence"
+  },
+  {
+   "fieldname": "s3_bucket_name",
+   "fieldtype": "Data",
+   "label": "S3 Bucket Name",
+   "depends_on": "eval:doc.primary_storage_provider=='AWS S3'"
+  },
+  {
+   "fieldname": "s3_region",
+   "fieldtype": "Data",
+   "label": "S3 Region",
+   "depends_on": "eval:doc.primary_storage_provider=='AWS S3'",
+   "default": "us-east-1"
+  },
+  {
+   "fieldname": "s3_access_key_id",
+   "fieldtype": "Password",
+   "label": "S3 Access Key ID",
+   "depends_on": "eval:doc.primary_storage_provider=='AWS S3'"
+  },
+  {
+   "fieldname": "s3_secret_access_key",
+   "fieldtype": "Password",
+   "label": "S3 Secret Access Key",
+   "depends_on": "eval:doc.primary_storage_provider=='AWS S3'"
+  },
+  {
+   "fieldname": "column_break_storage_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "azure_storage_account",
+   "fieldtype": "Data",
+   "label": "Azure Storage Account Name",
+   "depends_on": "eval:doc.primary_storage_provider=='Azure Blob Storage'"
+  },
+  {
+   "fieldname": "azure_storage_key",
+   "fieldtype": "Password",
+   "label": "Azure Storage Key",
+   "depends_on": "eval:doc.primary_storage_provider=='Azure Blob Storage'"
+  },
+  {
+   "fieldname": "azure_container_name",
+   "fieldtype": "Data",
+   "label": "Azure Container Name",
+   "depends_on": "eval:doc.primary_storage_provider=='Azure Blob Storage'"
+  },
+  {
+   "fieldname": "max_file_size_mb",
+   "fieldtype": "Int",
+   "label": "Max File Size (MB)",
+   "default": 50,
+   "description": "Maximum allowed file upload size"
+  },
+  {
+   "fieldname": "allowed_file_types",
+   "fieldtype": "Small Text",
+   "label": "Allowed File Types",
+   "description": "Comma-separated list (e.g., pdf,docx,jpg,png)",
+   "default": "pdf,docx,xlsx,jpg,png,mp4,mp3"
+  },
+  {
+   "fieldname": "compliance_section",
+   "fieldtype": "Section Break",
+   "label": "Compliance & Governance",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "active_compliance_frameworks",
+   "fieldtype": "Select",
+   "label": "Active Compliance Frameworks",
+   "options": "None\nGDPR\nHIPAA\nSOC2\nISO27001\nGDPR+HIPAA\nAll Frameworks",
+   "default": "GDPR",
+   "description": "Active regulatory frameworks for the platform"
+  },
+  {
+   "fieldname": "default_risk_tolerance",
+   "fieldtype": "Select",
+   "label": "Default Risk Tolerance",
+   "options": "Low\nMedium\nHigh",
+   "default": "Medium",
+   "description": "Default acceptable risk level for new policies"
+  },
+  {
+   "fieldname": "auto_violation_detection",
+   "fieldtype": "Check",
+   "label": "Auto Violation Detection",
+   "default": 1,
+   "description": "Automatically detect and flag violations"
+  },
+  {
+   "fieldname": "policy_review_frequency_days",
+   "fieldtype": "Int",
+   "label": "Policy Review Frequency (days)",
+   "default": 90,
+   "description": "How often policies should be reviewed"
+  },
+  {
+   "fieldname": "column_break_compliance_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "data_retention_days",
+   "fieldtype": "Int",
+   "label": "Data Retention Period (days)",
+   "default": 365,
+   "description": "Default data retention period"
+  },
+  {
+   "fieldname": "evidence_retention_days",
+   "fieldtype": "Int",
+   "label": "Evidence Retention Period (days)",
+   "default": 2555,
+   "description": "How long to keep evidence (7 years default)"
+  },
+  {
+   "fieldname": "auto_archive_old_data",
+   "fieldtype": "Check",
+   "label": "Auto Archive Old Data",
+   "default": 1,
+   "description": "Automatically archive data after retention period"
+  },
+  {
+   "fieldname": "compliance_email_alerts",
+   "fieldtype": "Data",
+   "label": "Compliance Alert Email",
+   "description": "Email address for compliance alerts"
+  },
+  {
+   "fieldname": "tenant_management_section",
+   "fieldtype": "Section Break",
+   "label": "Multi-Tenant Management",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "enable_multi_tenancy",
+   "fieldtype": "Check",
+   "label": "Enable Multi-Tenancy",
+   "default": 1,
+   "description": "Enable multi-tenant architecture"
+  },
+  {
+   "fieldname": "default_tenant_plan",
+   "fieldtype": "Select",
+   "label": "Default Tenant Plan",
+   "options": "Basic\nProfessional\nEnterprise",
+   "default": "Professional",
+   "description": "Default plan for new tenants",
+   "depends_on": "eval:doc.enable_multi_tenancy==1"
+  },
+  {
+   "fieldname": "max_tenants",
+   "fieldtype": "Int",
+   "label": "Max Tenants",
+   "default": 100,
+   "description": "Maximum number of tenants (0 = unlimited)",
+   "depends_on": "eval:doc.enable_multi_tenancy==1"
+  },
+  {
+   "fieldname": "auto_suspend_inactive_tenants",
+   "fieldtype": "Check",
+   "label": "Auto Suspend Inactive Tenants",
+   "default": 0,
+   "description": "Suspend tenants after inactivity period",
+   "depends_on": "eval:doc.enable_multi_tenancy==1"
+  },
+  {
+   "fieldname": "column_break_tenant_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "inactive_tenant_days",
+   "fieldtype": "Int",
+   "label": "Inactive Tenant Days",
+   "default": 30,
+   "description": "Days of inactivity before suspension",
+   "depends_on": "eval:doc.auto_suspend_inactive_tenants==1"
+  },
+  {
+   "fieldname": "tenant_data_isolation",
+   "fieldtype": "Select",
+   "label": "Tenant Data Isolation",
+   "options": "Shared Database\nSeparate Schema\nSeparate Database",
+   "default": "Shared Database",
+   "description": "Level of data isolation between tenants",
+   "depends_on": "eval:doc.enable_multi_tenancy==1"
+  },
+  {
+   "fieldname": "allow_tenant_customization",
+   "fieldtype": "Check",
+   "label": "Allow Tenant Customization",
+   "default": 1,
+   "description": "Allow tenants to customize their environment",
+   "depends_on": "eval:doc.enable_multi_tenancy==1"
+  },
+  {
+   "fieldname": "billing_cycle",
+   "fieldtype": "Select",
+   "label": "Billing Cycle",
+   "options": "Monthly\nQuarterly\nAnnually",
+   "default": "Monthly",
+   "description": "Default billing cycle for tenants",
+   "depends_on": "eval:doc.enable_multi_tenancy==1"
+  },
+  {
+   "fieldname": "audit_section",
+   "fieldtype": "Section Break",
+   "label": "Audit & Logging",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "enable_audit_logging",
+   "fieldtype": "Check",
+   "label": "Enable Audit Logging",
+   "default": 1,
+   "description": "Log all system activities for audit trail"
+  },
+  {
+   "fieldname": "audit_retention_days",
+   "fieldtype": "Int",
+   "label": "Audit Log Retention (days)",
+   "default": 365,
+   "description": "How long to keep audit logs",
+   "depends_on": "eval:doc.enable_audit_logging==1"
+  },
+  {
+   "fieldname": "log_level",
+   "fieldtype": "Select",
+   "label": "Log Level",
+   "options": "DEBUG\nINFO\nWARNING\nERROR\nCRITICAL",
+   "default": "INFO",
+   "description": "Minimum level for logging"
+  },
+  {
+   "fieldname": "column_break_audit_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "enable_performance_monitoring",
+   "fieldtype": "Check",
+   "label": "Enable Performance Monitoring",
+   "default": 1,
+   "description": "Monitor system performance metrics"
+  },
+  {
+   "fieldname": "enable_error_tracking",
+   "fieldtype": "Check",
+   "label": "Enable Error Tracking",
+   "default": 1,
+   "description": "Track and report errors automatically"
+  },
+  {
+   "fieldname": "auto_cleanup_logs",
+   "fieldtype": "Check",
+   "label": "Auto Cleanup Old Logs",
+   "default": 1,
+   "description": "Automatically delete logs after retention period"
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "modified": "2025-10-23 07:32:46",
+ "modified_by": "Administrator",
+ "module": "CAP",
+ "name": "System Settings",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

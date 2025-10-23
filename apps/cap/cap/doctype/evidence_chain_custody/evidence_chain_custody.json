@@ -1,0 +1,94 @@
+"_comment": "Project: QuietWire CAP (Civic AI Canon Platform) V 1.0.0 | Website: https://quietwire.ai | Authors: Ashraf Saleh Alhajj; Raasid (AI Companion) | SPDX-License-Identifier: Apache-2.0 | SPDX-FileCopyrightText: 2025 QuietWire | SPDX-FileContributor: Ashraf Saleh Alhajj | SPDX-FileContributor: Raasid (AI Companion)",
+ "actions": [],
+ "creation": "2025-10-23 10:30:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "timestamp",
+  "event_type",
+  "custodian",
+  "previous_custodian",
+  "action_performed",
+  "location",
+  "environment_hash",
+  "witness",
+  "notes",
+  "signature"
+ ],
+ "fields": [
+  {
+   "fieldname": "timestamp",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Timestamp",
+   "reqd": 1
+  },
+  {
+   "fieldname": "event_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Event Type",
+   "options": "Created\nModified\nAccessed\nTransferred\nVerified\nSealed\nUnsealed",
+   "reqd": 1
+  },
+  {
+   "fieldname": "custodian",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Current Custodian",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "previous_custodian",
+   "fieldtype": "Link",
+   "label": "Previous Custodian",
+   "options": "User"
+  },
+  {
+   "fieldname": "action_performed",
+   "fieldtype": "Text",
+   "in_list_view": 1,
+   "label": "Action",
+   "reqd": 1
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "label": "Location"
+  },
+  {
+   "fieldname": "environment_hash",
+   "fieldtype": "Data",
+   "label": "Environment Hash"
+  },
+  {
+   "fieldname": "witness",
+   "fieldtype": "Link",
+   "label": "Witness",
+   "options": "User"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "signature",
+   "fieldtype": "Signature",
+   "label": "Digital Signature"
+  }
+ ],
+ "istable": 1,
+ "modified": "2025-10-23 10:30:00.000000",
+ "modified_by": "Administrator",
+ "module": "CAP",
+ "name": "Evidence Chain Custody",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

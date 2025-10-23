@@ -1,0 +1,524 @@
+"_comment": "Project: QuietWire CAP (Civic AI Canon Platform) V 1.0.0 | Website: https://quietwire.ai | Authors: Ashraf Saleh Alhajj; Raasid (AI Companion) | SPDX-License-Identifier: Apache-2.0 | SPDX-FileCopyrightText: 2025 QuietWire | SPDX-FileContributor: Ashraf Saleh Alhajj | SPDX-FileContributor: Raasid (AI Companion)",
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:VIO-{tenant}-{#####}",
+ "creation": "2025-10-23 06:11:23",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_info_section",
+  "tenant",
+  "violation_id",
+  "column_break_basic1",
+  "title",
+  "status",
+  "severity",
+  "column_break_basic2",
+  "violation_type",
+  "detection_method",
+  "detection_date",
+  "details_section",
+  "description",
+  "column_break_details1",
+  "context",
+  "impact_assessment",
+  "policy_information_section",
+  "violated_policies",
+  "policy_version",
+  "column_break_policy1",
+  "policy_section_reference",
+  "specific_rule_violated",
+  "source_references_section",
+  "related_messages",
+  "related_chat_sessions",
+  "column_break_source1",
+  "related_evidence",
+  "affected_users",
+  "remediation_section",
+  "remediation_status",
+  "remediation_deadline",
+  "column_break_remediation1",
+  "remediation_actions",
+  "remediation_notes",
+  "resolution_section",
+  "resolution_date",
+  "resolution_summary",
+  "column_break_resolution1",
+  "resolved_by",
+  "resolution_approved_by",
+  "resolution_approved_date",
+  "scoring_section",
+  "risk_score",
+  "confidence_score",
+  "column_break_scoring1",
+  "recurrence_count",
+  "false_positive",
+  "flagged_for_review",
+  "workflow_section",
+  "assigned_to",
+  "escalated",
+  "column_break_workflow1",
+  "escalation_level",
+  "escalation_date",
+  "escalation_reason",
+  "notification_section",
+  "notification_sent",
+  "notification_date",
+  "column_break_notification1",
+  "notification_recipients",
+  "notification_method",
+  "audit_section",
+  "created_by_user",
+  "created_date",
+  "column_break_audit1",
+  "last_modified_by",
+  "last_modified_date",
+  "metadata_section",
+  "tags",
+  "custom_metadata"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_info_section",
+   "fieldtype": "Section Break",
+   "label": "Basic Information"
+  },
+  {
+   "fieldname": "tenant",
+   "fieldtype": "Link",
+   "label": "Tenant",
+   "options": "Tenant",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "violation_id",
+   "fieldtype": "Data",
+   "label": "Violation ID",
+   "read_only": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_basic1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "New\nUnder Investigation\nConfirmed\nFalse Positive\nRemediation In Progress\nResolved\nClosed\nEscalated",
+   "default": "New",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "severity",
+   "fieldtype": "Select",
+   "label": "Severity",
+   "options": "Critical\nHigh\nMedium\nLow\nInfo",
+   "default": "Medium",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "column_break_basic2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "violation_type",
+   "fieldtype": "Select",
+   "label": "Violation Type",
+   "options": "Policy Violation\nEthical Breach\nBias Detection\nPrivacy Violation\nSecurity Breach\nRegulatory Non-Compliance\nMisinformation\nHarmful Content\nOther",
+   "reqd": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "detection_method",
+   "fieldtype": "Select",
+   "label": "Detection Method",
+   "options": "Automated\nManual Review\nUser Report\nAudit\nSystem Alert",
+   "default": "Automated"
+  },
+  {
+   "fieldname": "detection_date",
+   "fieldtype": "Datetime",
+   "label": "Detection Date",
+   "reqd": 1,
+   "default": "Now"
+  },
+  {
+   "fieldname": "details_section",
+   "fieldtype": "Section Break",
+   "label": "Violation Details"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_details1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "context",
+   "fieldtype": "Long Text",
+   "label": "Context"
+  },
+  {
+   "fieldname": "impact_assessment",
+   "fieldtype": "Text Editor",
+   "label": "Impact Assessment"
+  },
+  {
+   "fieldname": "policy_information_section",
+   "fieldtype": "Section Break",
+   "label": "Policy Information"
+  },
+  {
+   "fieldname": "violated_policies",
+   "fieldtype": "Table",
+   "label": "Violated Policies",
+   "options": "Violation Policy Link"
+  },
+  {
+   "fieldname": "policy_version",
+   "fieldtype": "Data",
+   "label": "Policy Version"
+  },
+  {
+   "fieldname": "column_break_policy1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "policy_section_reference",
+   "fieldtype": "Data",
+   "label": "Policy Section Reference"
+  },
+  {
+   "fieldname": "specific_rule_violated",
+   "fieldtype": "Text",
+   "label": "Specific Rule Violated"
+  },
+  {
+   "fieldname": "source_references_section",
+   "fieldtype": "Section Break",
+   "label": "Source References"
+  },
+  {
+   "fieldname": "related_messages",
+   "fieldtype": "Table",
+   "label": "Related Messages",
+   "options": "Violation Message Link"
+  },
+  {
+   "fieldname": "related_chat_sessions",
+   "fieldtype": "Long Text",
+   "label": "Related Chat Sessions"
+  },
+  {
+   "fieldname": "column_break_source1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "related_evidence",
+   "fieldtype": "Table",
+   "label": "Related Evidence",
+   "options": "Violation Evidence Link"
+  },
+  {
+   "fieldname": "affected_users",
+   "fieldtype": "Long Text",
+   "label": "Affected Users"
+  },
+  {
+   "fieldname": "remediation_section",
+   "fieldtype": "Section Break",
+   "label": "Remediation"
+  },
+  {
+   "fieldname": "remediation_status",
+   "fieldtype": "Select",
+   "label": "Remediation Status",
+   "options": "Not Started\nIn Progress\nCompleted\nFailed\nNot Required",
+   "default": "Not Started"
+  },
+  {
+   "fieldname": "remediation_deadline",
+   "fieldtype": "Date",
+   "label": "Remediation Deadline"
+  },
+  {
+   "fieldname": "column_break_remediation1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "remediation_actions",
+   "fieldtype": "Table",
+   "label": "Remediation Actions",
+   "options": "Violation Remediation Action"
+  },
+  {
+   "fieldname": "remediation_notes",
+   "fieldtype": "Text Editor",
+   "label": "Remediation Notes"
+  },
+  {
+   "fieldname": "resolution_section",
+   "fieldtype": "Section Break",
+   "label": "Resolution"
+  },
+  {
+   "fieldname": "resolution_date",
+   "fieldtype": "Datetime",
+   "label": "Resolution Date"
+  },
+  {
+   "fieldname": "resolution_summary",
+   "fieldtype": "Text Editor",
+   "label": "Resolution Summary"
+  },
+  {
+   "fieldname": "column_break_resolution1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "resolved_by",
+   "fieldtype": "Link",
+   "label": "Resolved By",
+   "options": "User"
+  },
+  {
+   "fieldname": "resolution_approved_by",
+   "fieldtype": "Link",
+   "label": "Resolution Approved By",
+   "options": "User"
+  },
+  {
+   "fieldname": "resolution_approved_date",
+   "fieldtype": "Datetime",
+   "label": "Resolution Approved Date"
+  },
+  {
+   "fieldname": "scoring_section",
+   "fieldtype": "Section Break",
+   "label": "Risk & Scoring"
+  },
+  {
+   "fieldname": "risk_score",
+   "fieldtype": "Float",
+   "label": "Risk Score",
+   "precision": "2"
+  },
+  {
+   "fieldname": "confidence_score",
+   "fieldtype": "Percent",
+   "label": "Confidence Score",
+   "precision": "2"
+  },
+  {
+   "fieldname": "column_break_scoring1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "recurrence_count",
+   "fieldtype": "Int",
+   "label": "Recurrence Count",
+   "default": "0"
+  },
+  {
+   "fieldname": "false_positive",
+   "fieldtype": "Check",
+   "label": "False Positive",
+   "default": "0"
+  },
+  {
+   "fieldname": "flagged_for_review",
+   "fieldtype": "Check",
+   "label": "Flagged for Review",
+   "default": "0"
+  },
+  {
+   "fieldname": "workflow_section",
+   "fieldtype": "Section Break",
+   "label": "Workflow"
+  },
+  {
+   "fieldname": "assigned_to",
+   "fieldtype": "Link",
+   "label": "Assigned To",
+   "options": "User"
+  },
+  {
+   "fieldname": "escalated",
+   "fieldtype": "Check",
+   "label": "Escalated",
+   "default": "0"
+  },
+  {
+   "fieldname": "column_break_workflow1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "escalation_level",
+   "fieldtype": "Int",
+   "label": "Escalation Level",
+   "default": "0"
+  },
+  {
+   "fieldname": "escalation_date",
+   "fieldtype": "Datetime",
+   "label": "Escalation Date"
+  },
+  {
+   "fieldname": "escalation_reason",
+   "fieldtype": "Text",
+   "label": "Escalation Reason"
+  },
+  {
+   "fieldname": "notification_section",
+   "fieldtype": "Section Break",
+   "label": "Notifications"
+  },
+  {
+   "fieldname": "notification_sent",
+   "fieldtype": "Check",
+   "label": "Notification Sent",
+   "default": "0"
+  },
+  {
+   "fieldname": "notification_date",
+   "fieldtype": "Datetime",
+   "label": "Notification Date"
+  },
+  {
+   "fieldname": "column_break_notification1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "notification_recipients",
+   "fieldtype": "Long Text",
+   "label": "Notification Recipients"
+  },
+  {
+   "fieldname": "notification_method",
+   "fieldtype": "Select",
+   "label": "Notification Method",
+   "options": "Email\nIn-App\nSMS\nWebhook\nMultiple"
+  },
+  {
+   "fieldname": "audit_section",
+   "fieldtype": "Section Break",
+   "label": "Audit Information"
+  },
+  {
+   "fieldname": "created_by_user",
+   "fieldtype": "Link",
+   "label": "Created By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "created_date",
+   "fieldtype": "Datetime",
+   "label": "Created Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_audit1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "last_modified_by",
+   "fieldtype": "Link",
+   "label": "Last Modified By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_modified_date",
+   "fieldtype": "Datetime",
+   "label": "Last Modified Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "metadata_section",
+   "fieldtype": "Section Break",
+   "label": "Metadata",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "tags",
+   "fieldtype": "Data",
+   "label": "Tags"
+  },
+  {
+   "fieldname": "custom_metadata",
+   "fieldtype": "Code",
+   "label": "Custom Metadata",
+   "options": "JSON"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-10-23 06:11:23",
+ "modified_by": "Administrator",
+ "module": "Cap",
+ "name": "Violation",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Compliance Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Compliance Reviewer",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "title,violation_type,severity,status",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

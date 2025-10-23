@@ -1,0 +1,62 @@
+"_comment": "Project: QuietWire CAP (Civic AI Canon Platform) V 1.0.0 | Website: https://quietwire.ai | Authors: Ashraf Saleh Alhajj; Raasid (AI Companion) | SPDX-License-Identifier: Apache-2.0 | SPDX-FileCopyrightText: 2025 QuietWire | SPDX-FileContributor: Ashraf Saleh Alhajj | SPDX-FileContributor: Raasid (AI Companion)",
+ "actions": [],
+ "creation": "2025-10-23 06:11:23",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "message",
+  "chat_session",
+  "message_content",
+  "role",
+  "timestamp"
+ ],
+ "fields": [
+  {
+   "fieldname": "message",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Message",
+   "options": "Message",
+   "reqd": 1
+  },
+  {
+   "fieldname": "chat_session",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Chat Session",
+   "options": "Chat Session"
+  },
+  {
+   "fieldname": "message_content",
+   "fieldtype": "Text",
+   "label": "Message Content",
+   "read_only": 1
+  },
+  {
+   "fieldname": "role",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Role",
+   "options": "user\nassistant\nsystem"
+  },
+  {
+   "fieldname": "timestamp",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Timestamp"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-10-23 06:11:23",
+ "modified_by": "Administrator",
+ "module": "Cap",
+ "name": "Violation Message Link",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

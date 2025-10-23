@@ -1,0 +1,722 @@
+"_comment": "Project: QuietWire CAP (Civic AI Canon Platform) V 1.0.0 | Website: https://quietwire.ai | Authors: Ashraf Saleh Alhajj; Raasid (AI Companion) | SPDX-License-Identifier: Apache-2.0 | SPDX-FileCopyrightText: 2025 QuietWire | SPDX-FileContributor: Ashraf Saleh Alhajj | SPDX-FileContributor: Raasid (AI Companion)",
+ "actions": [],
+ "allow_copy": 0,
+ "allow_events_in_timeline": 1,
+ "allow_guest_to_view": 0,
+ "allow_import": 0,
+ "allow_rename": 0,
+ "autoname": "format:CHAIN-{YYYY}-{#####}",
+ "beta": 0,
+ "creation": "2025-10-23 10:30:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "section_chain_info",
+  "chain_id",
+  "chain_name",
+  "chain_type",
+  "chain_status",
+  "column_break_5",
+  "created_at",
+  "created_by",
+  "last_modified",
+  "is_critical",
+  "section_break_chain_purpose",
+  "chain_purpose",
+  "section_evidence_items",
+  "evidence_table",
+  "section_verification",
+  "verification_method",
+  "blockchain_enabled",
+  "blockchain_network",
+  "blockchain_address",
+  "column_break_ver_1",
+  "blockchain_tx_hash",
+  "blockchain_timestamp",
+  "master_hash",
+  "last_integrity_check",
+  "section_break_integrity",
+  "integrity_status",
+  "integrity_score",
+  "verification_count",
+  "auto_verify_enabled",
+  "section_custody_log",
+  "custody_log",
+  "section_linked_records",
+  "related_policies",
+  "related_violations",
+  "related_chat_sessions",
+  "column_break_linked_1",
+  "related_compliance_events",
+  "parent_chain",
+  "child_chains",
+  "section_break_more_links",
+  "tenant",
+  "case_number",
+  "external_reference",
+  "related_audit_logs",
+  "section_compliance",
+  "compliance_frameworks",
+  "data_classification",
+  "legal_hold",
+  "legal_hold_date",
+  "column_break_comp_1",
+  "legal_hold_reason",
+  "retention_period_days",
+  "retention_until",
+  "section_break_seal",
+  "is_evidence_sealed",
+  "seal_date",
+  "section_review",
+  "requires_review",
+  "review_status",
+  "assigned_reviewer",
+  "review_deadline",
+  "column_break_rev_1",
+  "reviewed_by",
+  "review_date",
+  "review_notes",
+  "review_score",
+  "section_statistics",
+  "total_evidence_count",
+  "verified_evidence_count",
+  "failed_verification_count",
+  "integrity_failure_count",
+  "column_break_stat_1",
+  "total_size_bytes",
+  "chain_depth",
+  "chain_breadth",
+  "access_count",
+  "column_break_stat_2",
+  "last_accessed",
+  "verification_success_rate",
+  "average_verification_time",
+  "custodian_changes_count",
+  "section_alerts",
+  "alert_on_integrity_failure",
+  "alert_on_access",
+  "alert_recipients",
+  "column_break_alert_1",
+  "webhook_url",
+  "last_alert_sent",
+  "alert_count",
+  "alert_cooldown_minutes",
+  "section_metadata",
+  "tags",
+  "keywords",
+  "description",
+  "column_break_meta_1",
+  "indexed_content",
+  "custom_fields",
+  "attachments"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_chain_info",
+   "fieldtype": "Section Break",
+   "label": "Chain Information"
+  },
+  {
+   "fieldname": "chain_id",
+   "fieldtype": "Data",
+   "label": "Chain ID",
+   "read_only": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "chain_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Chain Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "chain_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Chain Type",
+   "options": "Investigation\nCompliance Audit\nData Verification\nLegal Discovery\nQuality Review\nIncident Response\nForensic Analysis",
+   "reqd": 1
+  },
+  {
+   "fieldname": "chain_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Chain Status",
+   "options": "Active\nUnder Review\nVerified\nClosed\nDisputed\nInvalid\nArchived",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "created_at",
+   "fieldtype": "Datetime",
+   "label": "Created At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "created_by",
+   "fieldtype": "Link",
+   "label": "Created By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_modified",
+   "fieldtype": "Datetime",
+   "label": "Last Modified",
+   "read_only": 1
+  },
+  {
+   "fieldname": "is_critical",
+   "fieldtype": "Check",
+   "label": "Critical Chain"
+  },
+  {
+   "fieldname": "section_break_chain_purpose",
+   "fieldtype": "Section Break",
+   "label": "Chain Purpose"
+  },
+  {
+   "fieldname": "chain_purpose",
+   "fieldtype": "Text Editor",
+   "label": "Purpose"
+  },
+  {
+   "fieldname": "section_evidence_items",
+   "fieldtype": "Section Break",
+   "label": "Evidence Items"
+  },
+  {
+   "fieldname": "evidence_table",
+   "fieldtype": "Table",
+   "label": "Evidence List",
+   "options": "Evidence Chain Item"
+  },
+  {
+   "fieldname": "section_verification",
+   "fieldtype": "Section Break",
+   "label": "Verification & Integrity"
+  },
+  {
+   "fieldname": "verification_method",
+   "fieldtype": "Select",
+   "label": "Verification Method",
+   "options": "Manual\nAutomated\nBlockchain\nHybrid"
+  },
+  {
+   "fieldname": "blockchain_enabled",
+   "fieldtype": "Check",
+   "label": "Blockchain Enabled"
+  },
+  {
+   "fieldname": "blockchain_network",
+   "fieldtype": "Select",
+   "depends_on": "eval:doc.blockchain_enabled==1",
+   "label": "Blockchain Network",
+   "options": "Ethereum\nPolygon\nHyperledger Fabric\nPrivate Network\nBinance Smart Chain"
+  },
+  {
+   "fieldname": "blockchain_address",
+   "fieldtype": "Data",
+   "depends_on": "eval:doc.blockchain_enabled==1",
+   "label": "Contract Address",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_ver_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "blockchain_tx_hash",
+   "fieldtype": "Data",
+   "depends_on": "eval:doc.blockchain_enabled==1",
+   "label": "Transaction Hash",
+   "read_only": 1
+  },
+  {
+   "fieldname": "blockchain_timestamp",
+   "fieldtype": "Datetime",
+   "depends_on": "eval:doc.blockchain_enabled==1",
+   "label": "Blockchain Timestamp",
+   "read_only": 1
+  },
+  {
+   "fieldname": "master_hash",
+   "fieldtype": "Data",
+   "label": "Master Hash (SHA-256)",
+   "length": 64,
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_integrity_check",
+   "fieldtype": "Datetime",
+   "label": "Last Integrity Check",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_integrity",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "integrity_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Integrity Status",
+   "options": "Intact\nCompromised\nUnknown\nPending Verification",
+   "read_only": 1
+  },
+  {
+   "fieldname": "integrity_score",
+   "fieldtype": "Percent",
+   "label": "Integrity Score",
+   "read_only": 1
+  },
+  {
+   "fieldname": "verification_count",
+   "fieldtype": "Int",
+   "label": "Verification Count",
+   "read_only": 1
+  },
+  {
+   "fieldname": "auto_verify_enabled",
+   "fieldtype": "Check",
+   "label": "Auto-Verify Enabled"
+  },
+  {
+   "fieldname": "section_custody_log",
+   "fieldtype": "Section Break",
+   "label": "Chain of Custody"
+  },
+  {
+   "fieldname": "custody_log",
+   "fieldtype": "Table",
+   "label": "Custody Events",
+   "options": "Evidence Chain Custody"
+  },
+  {
+   "fieldname": "section_linked_records",
+   "fieldtype": "Section Break",
+   "label": "Linked Records"
+  },
+  {
+   "fieldname": "related_policies",
+   "fieldtype": "Table MultiSelect",
+   "label": "Related Policies",
+   "options": "Policy"
+  },
+  {
+   "fieldname": "related_violations",
+   "fieldtype": "Table MultiSelect",
+   "label": "Related Violations",
+   "options": "Violation"
+  },
+  {
+   "fieldname": "related_chat_sessions",
+   "fieldtype": "Table MultiSelect",
+   "label": "Related Chat Sessions",
+   "options": "Chat Session"
+  },
+  {
+   "fieldname": "column_break_linked_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "related_compliance_events",
+   "fieldtype": "Table MultiSelect",
+   "label": "Related Compliance Events",
+   "options": "Compliance Event"
+  },
+  {
+   "fieldname": "parent_chain",
+   "fieldtype": "Link",
+   "label": "Parent Chain",
+   "options": "Evidence Chain"
+  },
+  {
+   "fieldname": "child_chains",
+   "fieldtype": "Table MultiSelect",
+   "label": "Child Chains",
+   "options": "Evidence Chain"
+  },
+  {
+   "fieldname": "section_break_more_links",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "tenant",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Tenant",
+   "options": "Tenant"
+  },
+  {
+   "fieldname": "case_number",
+   "fieldtype": "Data",
+   "label": "Case Number"
+  },
+  {
+   "fieldname": "external_reference",
+   "fieldtype": "Data",
+   "label": "External Reference"
+  },
+  {
+   "fieldname": "related_audit_logs",
+   "fieldtype": "Small Text",
+   "label": "Related Audit Logs (JSON)"
+  },
+  {
+   "fieldname": "section_compliance",
+   "fieldtype": "Section Break",
+   "label": "Compliance & Legal"
+  },
+  {
+   "fieldname": "compliance_frameworks",
+   "fieldtype": "Select",
+   "label": "Compliance Frameworks",
+   "options": "GDPR\nHIPAA\nSOC2\nISO27001\nPCI-DSS\nCCPA\nNIST"
+  },
+  {
+   "fieldname": "data_classification",
+   "fieldtype": "Select",
+   "label": "Data Classification",
+   "options": "Public\nInternal\nConfidential\nRestricted"
+  },
+  {
+   "fieldname": "legal_hold",
+   "fieldtype": "Check",
+   "label": "Legal Hold"
+  },
+  {
+   "fieldname": "legal_hold_date",
+   "fieldtype": "Date",
+   "depends_on": "eval:doc.legal_hold==1",
+   "label": "Legal Hold Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_comp_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "legal_hold_reason",
+   "fieldtype": "Text",
+   "depends_on": "eval:doc.legal_hold==1",
+   "label": "Legal Hold Reason"
+  },
+  {
+   "fieldname": "retention_period_days",
+   "fieldtype": "Int",
+   "label": "Retention Period (Days)"
+  },
+  {
+   "fieldname": "retention_until",
+   "fieldtype": "Date",
+   "label": "Retention Until",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_seal",
+   "fieldtype": "Section Break",
+   "label": "Evidence Seal"
+  },
+  {
+   "fieldname": "is_evidence_sealed",
+   "fieldtype": "Check",
+   "label": "Chain Sealed (Immutable)"
+  },
+  {
+   "fieldname": "seal_date",
+   "fieldtype": "Datetime",
+   "depends_on": "eval:doc.is_evidence_sealed==1",
+   "label": "Seal Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_review",
+   "fieldtype": "Section Break",
+   "label": "Review & Validation"
+  },
+  {
+   "fieldname": "requires_review",
+   "fieldtype": "Check",
+   "label": "Requires Review"
+  },
+  {
+   "fieldname": "review_status",
+   "fieldtype": "Select",
+   "depends_on": "eval:doc.requires_review==1",
+   "label": "Review Status",
+   "options": "Pending\nIn Progress\nApproved\nRejected\nNeeds Revision"
+  },
+  {
+   "fieldname": "assigned_reviewer",
+   "fieldtype": "Link",
+   "depends_on": "eval:doc.requires_review==1",
+   "label": "Assigned Reviewer",
+   "options": "User"
+  },
+  {
+   "fieldname": "review_deadline",
+   "fieldtype": "Date",
+   "depends_on": "eval:doc.requires_review==1",
+   "label": "Review Deadline"
+  },
+  {
+   "fieldname": "column_break_rev_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "reviewed_by",
+   "fieldtype": "Link",
+   "label": "Reviewed By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "review_date",
+   "fieldtype": "Datetime",
+   "label": "Review Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "review_notes",
+   "fieldtype": "Text Editor",
+   "label": "Review Notes"
+  },
+  {
+   "fieldname": "review_score",
+   "fieldtype": "Int",
+   "label": "Review Score (1-10)"
+  },
+  {
+   "fieldname": "section_statistics",
+   "fieldtype": "Section Break",
+   "label": "Statistics & Metrics"
+  },
+  {
+   "fieldname": "total_evidence_count",
+   "fieldtype": "Int",
+   "label": "Total Evidence Count",
+   "read_only": 1
+  },
+  {
+   "fieldname": "verified_evidence_count",
+   "fieldtype": "Int",
+   "label": "Verified Evidence Count",
+   "read_only": 1
+  },
+  {
+   "fieldname": "failed_verification_count",
+   "fieldtype": "Int",
+   "label": "Failed Verification Count",
+   "read_only": 1
+  },
+  {
+   "fieldname": "integrity_failure_count",
+   "fieldtype": "Int",
+   "label": "Integrity Failure Count",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_stat_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_size_bytes",
+   "fieldtype": "Data",
+   "label": "Total Size",
+   "read_only": 1
+  },
+  {
+   "fieldname": "chain_depth",
+   "fieldtype": "Int",
+   "label": "Chain Depth",
+   "read_only": 1
+  },
+  {
+   "fieldname": "chain_breadth",
+   "fieldtype": "Int",
+   "label": "Chain Breadth",
+   "read_only": 1
+  },
+  {
+   "fieldname": "access_count",
+   "fieldtype": "Int",
+   "label": "Access Count",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_stat_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "last_accessed",
+   "fieldtype": "Datetime",
+   "label": "Last Accessed",
+   "read_only": 1
+  },
+  {
+   "fieldname": "verification_success_rate",
+   "fieldtype": "Percent",
+   "label": "Verification Success Rate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "average_verification_time",
+   "fieldtype": "Float",
+   "label": "Avg Verification Time (sec)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "custodian_changes_count",
+   "fieldtype": "Int",
+   "label": "Custodian Changes Count",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_alerts",
+   "fieldtype": "Section Break",
+   "label": "Alerts & Notifications"
+  },
+  {
+   "fieldname": "alert_on_integrity_failure",
+   "fieldtype": "Check",
+   "label": "Alert on Integrity Failure"
+  },
+  {
+   "fieldname": "alert_on_access",
+   "fieldtype": "Check",
+   "label": "Alert on Access"
+  },
+  {
+   "fieldname": "alert_recipients",
+   "fieldtype": "Small Text",
+   "label": "Alert Recipients (JSON)"
+  },
+  {
+   "fieldname": "column_break_alert_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "webhook_url",
+   "fieldtype": "Data",
+   "label": "Webhook URL"
+  },
+  {
+   "fieldname": "last_alert_sent",
+   "fieldtype": "Datetime",
+   "label": "Last Alert Sent",
+   "read_only": 1
+  },
+  {
+   "fieldname": "alert_count",
+   "fieldtype": "Int",
+   "label": "Alert Count",
+   "read_only": 1
+  },
+  {
+   "fieldname": "alert_cooldown_minutes",
+   "fieldtype": "Int",
+   "default": "60",
+   "label": "Alert Cooldown (Minutes)"
+  },
+  {
+   "fieldname": "section_metadata",
+   "fieldtype": "Section Break",
+   "label": "Metadata & Search"
+  },
+  {
+   "fieldname": "tags",
+   "fieldtype": "Data",
+   "label": "Tags"
+  },
+  {
+   "fieldname": "keywords",
+   "fieldtype": "Small Text",
+   "label": "Keywords"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description"
+  },
+  {
+   "fieldname": "column_break_meta_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "indexed_content",
+   "fieldtype": "Long Text",
+   "label": "Indexed Content (Search)"
+  },
+  {
+   "fieldname": "custom_fields",
+   "fieldtype": "Code",
+   "label": "Custom Fields (JSON)",
+   "options": "JSON"
+  },
+  {
+   "fieldname": "attachments",
+   "fieldtype": "Attach",
+   "label": "Attachments"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 0,
+ "links": [],
+ "modified": "2025-10-23 10:30:00.000000",
+ "modified_by": "Administrator",
+ "module": "CAP",
+ "name": "Evidence Chain",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Evidence Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Compliance Officer",
+   "share": 1
+  },
+  {
+   "read": 1,
+   "report": 1,
+   "role": "Auditor"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1
+}

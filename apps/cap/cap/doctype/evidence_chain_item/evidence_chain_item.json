@@ -1,0 +1,106 @@
+"_comment": "Project: QuietWire CAP (Civic AI Canon Platform) V 1.0.0 | Website: https://quietwire.ai | Authors: Ashraf Saleh Alhajj; Raasid (AI Companion) | SPDX-License-Identifier: Apache-2.0 | SPDX-FileCopyrightText: 2025 QuietWire | SPDX-FileContributor: Ashraf Saleh Alhajj | SPDX-FileContributor: Raasid (AI Companion)",
+ "actions": [],
+ "creation": "2025-10-23 10:30:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "sequence_number",
+  "evidence",
+  "evidence_type",
+  "added_date",
+  "added_by",
+  "relationship_type",
+  "relationship_notes",
+  "verification_status",
+  "hash_before",
+  "hash_current",
+  "integrity_check"
+ ],
+ "fields": [
+  {
+   "fieldname": "sequence_number",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Sequence",
+   "reqd": 1
+  },
+  {
+   "fieldname": "evidence",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Evidence",
+   "options": "Evidence",
+   "reqd": 1
+  },
+  {
+   "fieldname": "evidence_type",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Type",
+   "read_only": 1
+  },
+  {
+   "fieldname": "added_date",
+   "fieldtype": "Datetime",
+   "label": "Added Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "added_by",
+   "fieldtype": "Link",
+   "label": "Added By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "relationship_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Relationship",
+   "options": "Parent\nChild\nRelated\nSupporting\nContradicting\nReference",
+   "reqd": 1
+  },
+  {
+   "fieldname": "relationship_notes",
+   "fieldtype": "Text",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "verification_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Verification",
+   "options": "Pending\nVerified\nFailed\nSuspect"
+  },
+  {
+   "fieldname": "hash_before",
+   "fieldtype": "Data",
+   "label": "Hash Before",
+   "read_only": 1
+  },
+  {
+   "fieldname": "hash_current",
+   "fieldtype": "Data",
+   "label": "Hash Current",
+   "read_only": 1
+  },
+  {
+   "fieldname": "integrity_check",
+   "fieldtype": "Check",
+   "label": "Integrity OK",
+   "read_only": 1
+  }
+ ],
+ "istable": 1,
+ "modified": "2025-10-23 10:30:00.000000",
+ "modified_by": "Administrator",
+ "module": "CAP",
+ "name": "Evidence Chain Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

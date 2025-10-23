@@ -1,0 +1,61 @@
+"_comment": "Project: QuietWire CAP (Civic AI Canon Platform) V 1.0.0 | Website: https://quietwire.ai | Authors: Ashraf Saleh Alhajj; Raasid (AI Companion) | SPDX-License-Identifier: Apache-2.0 | SPDX-FileCopyrightText: 2025 QuietWire | SPDX-FileContributor: Ashraf Saleh Alhajj | SPDX-FileContributor: Raasid (AI Companion)",
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-10-23 06:50:48",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "feature_name",
+  "enabled",
+  "column_break_2",
+  "feature_limit",
+  "current_usage"
+ ],
+ "fields": [
+  {
+   "fieldname": "feature_name",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Feature Name",
+   "options": "AI Chat\nPolicy Management\nCompliance Assessment\nViolation Tracking\nEvidence Management\nAudit Logging\nCustom Reports\nAPI Access\nMulti-Language Support\nAdvanced Analytics",
+   "reqd": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Enabled"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "feature_limit",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Feature Limit",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "current_usage",
+   "fieldtype": "Int",
+   "label": "Current Usage",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-10-23 06:50:48",
+ "modified_by": "Administrator",
+ "module": "cap",
+ "name": "Tenant Feature",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,288 @@
+"_comment": "Project: QuietWire CAP (Civic AI Canon Platform) V 1.0.0 | Website: https://quietwire.ai | Authors: Ashraf Saleh Alhajj; Raasid (AI Companion) | SPDX-License-Identifier: Apache-2.0 | SPDX-FileCopyrightText: 2025 QuietWire | SPDX-FileContributor: Ashraf Saleh Alhajj | SPDX-FileContributor: Raasid (AI Companion)",
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2025-10-23 06:33:18",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "citation_section",
+  "source_type",
+  "source_title",
+  "source_url",
+  "column_break_citation",
+  "source_doctype",
+  "source_document",
+  "source_field",
+  "content_section",
+  "cited_text",
+  "context",
+  "column_break_content",
+  "page_number",
+  "section_reference",
+  "quoted_at",
+  "metadata_section",
+  "author",
+  "publication_date",
+  "publisher",
+  "column_break_metadata",
+  "isbn_issn",
+  "doi",
+  "version",
+  "verification_section",
+  "verification_status",
+  "verified_by",
+  "verified_at",
+  "column_break_verification",
+  "verification_notes",
+  "last_checked",
+  "is_accessible",
+  "additional_section",
+  "tags",
+  "custom_citation_format",
+  "attachment"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Citation ID",
+   "options": "CIT-.YYYY.-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "citation_section",
+   "fieldtype": "Section Break",
+   "label": "Citation Source"
+  },
+  {
+   "fieldname": "source_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Source Type",
+   "options": "Regulation\nGuidance Document\nPolicy\nStandard\nLegal Case\nJournal Article\nBook\nWebsite\nInternal Document\nOther",
+   "reqd": 1
+  },
+  {
+   "fieldname": "source_title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Source Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "source_url",
+   "fieldtype": "Data",
+   "label": "Source URL",
+   "options": "URL"
+  },
+  {
+   "fieldname": "column_break_citation",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "source_doctype",
+   "fieldtype": "Link",
+   "label": "Source DocType",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "source_document",
+   "fieldtype": "Dynamic Link",
+   "label": "Source Document",
+   "options": "source_doctype"
+  },
+  {
+   "fieldname": "source_field",
+   "fieldtype": "Data",
+   "label": "Source Field"
+  },
+  {
+   "fieldname": "content_section",
+   "fieldtype": "Section Break",
+   "label": "Citation Content"
+  },
+  {
+   "fieldname": "cited_text",
+   "fieldtype": "Text Editor",
+   "label": "Cited Text",
+   "reqd": 1
+  },
+  {
+   "fieldname": "context",
+   "fieldtype": "Small Text",
+   "label": "Context/Summary"
+  },
+  {
+   "fieldname": "column_break_content",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "page_number",
+   "fieldtype": "Data",
+   "label": "Page Number"
+  },
+  {
+   "fieldname": "section_reference",
+   "fieldtype": "Data",
+   "label": "Section/Article Reference"
+  },
+  {
+   "fieldname": "quoted_at",
+   "fieldtype": "Datetime",
+   "label": "Quoted At"
+  },
+  {
+   "fieldname": "metadata_section",
+   "fieldtype": "Section Break",
+   "label": "Source Metadata"
+  },
+  {
+   "fieldname": "author",
+   "fieldtype": "Data",
+   "label": "Author(s)"
+  },
+  {
+   "fieldname": "publication_date",
+   "fieldtype": "Date",
+   "label": "Publication Date"
+  },
+  {
+   "fieldname": "publisher",
+   "fieldtype": "Data",
+   "label": "Publisher"
+  },
+  {
+   "fieldname": "column_break_metadata",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "isbn_issn",
+   "fieldtype": "Data",
+   "label": "ISBN/ISSN"
+  },
+  {
+   "fieldname": "doi",
+   "fieldtype": "Data",
+   "label": "DOI"
+  },
+  {
+   "fieldname": "version",
+   "fieldtype": "Data",
+   "label": "Version"
+  },
+  {
+   "fieldname": "verification_section",
+   "fieldtype": "Section Break",
+   "label": "Verification & Validation"
+  },
+  {
+   "fieldname": "verification_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Verification Status",
+   "options": "Pending\nVerified\nUnverified\nBroken Link\nNeeds Review"
+  },
+  {
+   "fieldname": "verified_by",
+   "fieldtype": "Link",
+   "label": "Verified By",
+   "options": "User"
+  },
+  {
+   "fieldname": "verified_at",
+   "fieldtype": "Datetime",
+   "label": "Verified At"
+  },
+  {
+   "fieldname": "column_break_verification",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "verification_notes",
+   "fieldtype": "Small Text",
+   "label": "Verification Notes"
+  },
+  {
+   "fieldname": "last_checked",
+   "fieldtype": "Datetime",
+   "label": "Last Checked"
+  },
+  {
+   "fieldname": "is_accessible",
+   "fieldtype": "Check",
+   "label": "Is Accessible"
+  },
+  {
+   "fieldname": "additional_section",
+   "fieldtype": "Section Break",
+   "label": "Additional Information"
+  },
+  {
+   "fieldname": "tags",
+   "fieldtype": "Small Text",
+   "label": "Tags"
+  },
+  {
+   "fieldname": "custom_citation_format",
+   "fieldtype": "Text",
+   "label": "Custom Citation Format"
+  },
+  {
+   "fieldname": "attachment",
+   "fieldtype": "Attach",
+   "label": "Attachment"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-10-23 06:33:18",
+ "modified_by": "Administrator",
+ "module": "cap",
+ "name": "Citation",
+ "naming_rule": "By naming_series",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Compliance Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Compliance Officer",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

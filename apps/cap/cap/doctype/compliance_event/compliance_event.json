@@ -1,0 +1,568 @@
+"_comment": "Project: QuietWire CAP (Civic AI Canon Platform) V 1.0.0 | Website: https://quietwire.ai | Authors: Ashraf Saleh Alhajj; Raasid (AI Companion) | SPDX-License-Identifier: Apache-2.0 | SPDX-FileCopyrightText: 2025 QuietWire | SPDX-FileContributor: Ashraf Saleh Alhajj | SPDX-FileContributor: Raasid (AI Companion)",
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:CE-{tenant}-{#####}",
+ "creation": "2025-10-23 06:22:21",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_info_section",
+  "tenant",
+  "event_id",
+  "column_break_basic1",
+  "title",
+  "event_type",
+  "event_category",
+  "column_break_basic2",
+  "status",
+  "priority",
+  "severity",
+  "event_details_section",
+  "event_date",
+  "event_end_date",
+  "column_break_details1",
+  "duration_minutes",
+  "location",
+  "description_section",
+  "description",
+  "column_break_desc1",
+  "objectives",
+  "scope",
+  "references_section",
+  "reference_doctype",
+  "reference_name",
+  "column_break_ref1",
+  "related_policy",
+  "related_violation",
+  "related_evidence",
+  "participants_section",
+  "participants",
+  "column_break_participants1",
+  "organizer",
+  "attendee_count",
+  "findings_section",
+  "findings",
+  "column_break_findings1",
+  "compliance_score",
+  "risk_level",
+  "actions_section",
+  "actions_taken",
+  "column_break_actions1",
+  "actions_required",
+  "follow_up_required",
+  "follow_up_date",
+  "outcomes_section",
+  "outcome_summary",
+  "column_break_outcomes1",
+  "recommendations",
+  "lessons_learned",
+  "impact_section",
+  "impact_area",
+  "impact_description",
+  "column_break_impact1",
+  "affected_users",
+  "affected_systems",
+  "metrics_section",
+  "issues_identified",
+  "issues_resolved",
+  "column_break_metrics1",
+  "compliance_rate",
+  "remediation_rate",
+  "notification_section",
+  "notification_sent",
+  "notification_date",
+  "column_break_notification1",
+  "notification_recipients",
+  "notification_method",
+  "audit_section",
+  "created_by_user",
+  "created_date",
+  "column_break_audit1",
+  "last_modified_by",
+  "last_modified_date",
+  "metadata_section",
+  "tags",
+  "custom_metadata"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_info_section",
+   "fieldtype": "Section Break",
+   "label": "Basic Information"
+  },
+  {
+   "fieldname": "tenant",
+   "fieldtype": "Link",
+   "label": "Tenant",
+   "options": "Tenant",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "event_id",
+   "fieldtype": "Data",
+   "label": "Event ID",
+   "read_only": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_basic1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "event_type",
+   "fieldtype": "Select",
+   "label": "Event Type",
+   "options": "Violation Detected\nCompliance Audit\nPolicy Review\nTraining Session\nRisk Assessment\nIncident Response\nRegulatory Review\nInternal Review\nExternal Audit\nSelf-Assessment\nMonitoring Alert\nOther",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "event_category",
+   "fieldtype": "Select",
+   "label": "Event Category",
+   "options": "Preventive\nDetective\nCorrective\nMonitoring\nReporting\nTraining\nAssessment",
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "column_break_basic2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Scheduled\nIn Progress\nCompleted\nCancelled\nPostponed\nUnder Review\nClosed",
+   "default": "Scheduled",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "label": "Priority",
+   "options": "Critical\nHigh\nMedium\nLow",
+   "default": "Medium",
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "severity",
+   "fieldtype": "Select",
+   "label": "Severity",
+   "options": "Critical\nHigh\nMedium\nLow\nInfo",
+   "default": "Medium"
+  },
+  {
+   "fieldname": "event_details_section",
+   "fieldtype": "Section Break",
+   "label": "Event Details"
+  },
+  {
+   "fieldname": "event_date",
+   "fieldtype": "Datetime",
+   "label": "Event Date",
+   "reqd": 1,
+   "default": "Now"
+  },
+  {
+   "fieldname": "event_end_date",
+   "fieldtype": "Datetime",
+   "label": "Event End Date"
+  },
+  {
+   "fieldname": "column_break_details1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "duration_minutes",
+   "fieldtype": "Int",
+   "label": "Duration (Minutes)"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "label": "Location"
+  },
+  {
+   "fieldname": "description_section",
+   "fieldtype": "Section Break",
+   "label": "Description"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_desc1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "objectives",
+   "fieldtype": "Text",
+   "label": "Objectives"
+  },
+  {
+   "fieldname": "scope",
+   "fieldtype": "Text",
+   "label": "Scope"
+  },
+  {
+   "fieldname": "references_section",
+   "fieldtype": "Section Break",
+   "label": "References"
+  },
+  {
+   "fieldname": "reference_doctype",
+   "fieldtype": "Link",
+   "label": "Reference DocType",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "reference_name",
+   "fieldtype": "Dynamic Link",
+   "label": "Reference Name",
+   "options": "reference_doctype"
+  },
+  {
+   "fieldname": "column_break_ref1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "related_policy",
+   "fieldtype": "Link",
+   "label": "Related Policy",
+   "options": "Policy"
+  },
+  {
+   "fieldname": "related_violation",
+   "fieldtype": "Link",
+   "label": "Related Violation",
+   "options": "Violation"
+  },
+  {
+   "fieldname": "related_evidence",
+   "fieldtype": "Link",
+   "label": "Related Evidence",
+   "options": "Evidence"
+  },
+  {
+   "fieldname": "participants_section",
+   "fieldtype": "Section Break",
+   "label": "Participants"
+  },
+  {
+   "fieldname": "participants",
+   "fieldtype": "Table",
+   "label": "Participants",
+   "options": "Compliance Event Participant"
+  },
+  {
+   "fieldname": "column_break_participants1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "organizer",
+   "fieldtype": "Link",
+   "label": "Organizer",
+   "options": "User"
+  },
+  {
+   "fieldname": "attendee_count",
+   "fieldtype": "Int",
+   "label": "Attendee Count",
+   "read_only": 1
+  },
+  {
+   "fieldname": "findings_section",
+   "fieldtype": "Section Break",
+   "label": "Findings"
+  },
+  {
+   "fieldname": "findings",
+   "fieldtype": "Table",
+   "label": "Findings",
+   "options": "Compliance Event Finding"
+  },
+  {
+   "fieldname": "column_break_findings1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "compliance_score",
+   "fieldtype": "Percent",
+   "label": "Compliance Score",
+   "precision": "2"
+  },
+  {
+   "fieldname": "risk_level",
+   "fieldtype": "Select",
+   "label": "Risk Level",
+   "options": "Critical\nHigh\nMedium\nLow\nMinimal"
+  },
+  {
+   "fieldname": "actions_section",
+   "fieldtype": "Section Break",
+   "label": "Actions"
+  },
+  {
+   "fieldname": "actions_taken",
+   "fieldtype": "Table",
+   "label": "Actions Taken",
+   "options": "Compliance Event Action"
+  },
+  {
+   "fieldname": "column_break_actions1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "actions_required",
+   "fieldtype": "Text Editor",
+   "label": "Actions Required"
+  },
+  {
+   "fieldname": "follow_up_required",
+   "fieldtype": "Check",
+   "label": "Follow-up Required",
+   "default": "0"
+  },
+  {
+   "fieldname": "follow_up_date",
+   "fieldtype": "Date",
+   "label": "Follow-up Date"
+  },
+  {
+   "fieldname": "outcomes_section",
+   "fieldtype": "Section Break",
+   "label": "Outcomes"
+  },
+  {
+   "fieldname": "outcome_summary",
+   "fieldtype": "Text Editor",
+   "label": "Outcome Summary"
+  },
+  {
+   "fieldname": "column_break_outcomes1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "recommendations",
+   "fieldtype": "Text Editor",
+   "label": "Recommendations"
+  },
+  {
+   "fieldname": "lessons_learned",
+   "fieldtype": "Text Editor",
+   "label": "Lessons Learned"
+  },
+  {
+   "fieldname": "impact_section",
+   "fieldtype": "Section Break",
+   "label": "Impact Assessment"
+  },
+  {
+   "fieldname": "impact_area",
+   "fieldtype": "Select",
+   "label": "Impact Area",
+   "options": "Operations\nCompliance\nSecurity\nPrivacy\nReputation\nFinancial\nLegal\nMultiple Areas"
+  },
+  {
+   "fieldname": "impact_description",
+   "fieldtype": "Text Editor",
+   "label": "Impact Description"
+  },
+  {
+   "fieldname": "column_break_impact1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "affected_users",
+   "fieldtype": "Long Text",
+   "label": "Affected Users"
+  },
+  {
+   "fieldname": "affected_systems",
+   "fieldtype": "Long Text",
+   "label": "Affected Systems"
+  },
+  {
+   "fieldname": "metrics_section",
+   "fieldtype": "Section Break",
+   "label": "Metrics"
+  },
+  {
+   "fieldname": "issues_identified",
+   "fieldtype": "Int",
+   "label": "Issues Identified",
+   "default": "0"
+  },
+  {
+   "fieldname": "issues_resolved",
+   "fieldtype": "Int",
+   "label": "Issues Resolved",
+   "default": "0"
+  },
+  {
+   "fieldname": "column_break_metrics1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "compliance_rate",
+   "fieldtype": "Percent",
+   "label": "Compliance Rate",
+   "precision": "2"
+  },
+  {
+   "fieldname": "remediation_rate",
+   "fieldtype": "Percent",
+   "label": "Remediation Rate",
+   "precision": "2"
+  },
+  {
+   "fieldname": "notification_section",
+   "fieldtype": "Section Break",
+   "label": "Notifications"
+  },
+  {
+   "fieldname": "notification_sent",
+   "fieldtype": "Check",
+   "label": "Notification Sent",
+   "default": "0"
+  },
+  {
+   "fieldname": "notification_date",
+   "fieldtype": "Datetime",
+   "label": "Notification Date"
+  },
+  {
+   "fieldname": "column_break_notification1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "notification_recipients",
+   "fieldtype": "Long Text",
+   "label": "Notification Recipients"
+  },
+  {
+   "fieldname": "notification_method",
+   "fieldtype": "Select",
+   "label": "Notification Method",
+   "options": "Email\nIn-App\nSMS\nWebhook\nMultiple"
+  },
+  {
+   "fieldname": "audit_section",
+   "fieldtype": "Section Break",
+   "label": "Audit Information"
+  },
+  {
+   "fieldname": "created_by_user",
+   "fieldtype": "Link",
+   "label": "Created By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "created_date",
+   "fieldtype": "Datetime",
+   "label": "Created Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_audit1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "last_modified_by",
+   "fieldtype": "Link",
+   "label": "Last Modified By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_modified_date",
+   "fieldtype": "Datetime",
+   "label": "Last Modified Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "metadata_section",
+   "fieldtype": "Section Break",
+   "label": "Metadata",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "tags",
+   "fieldtype": "Data",
+   "label": "Tags"
+  },
+  {
+   "fieldname": "custom_metadata",
+   "fieldtype": "Code",
+   "label": "Custom Metadata",
+   "options": "JSON"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-10-23 06:22:21",
+ "modified_by": "Administrator",
+ "module": "Cap",
+ "name": "Compliance Event",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Compliance Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Compliance Reviewer",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "title,event_type,status,priority",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

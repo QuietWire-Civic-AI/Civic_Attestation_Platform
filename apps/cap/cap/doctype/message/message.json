@@ -1,0 +1,357 @@
+"_comment": "Project: QuietWire CAP (Civic AI Canon Platform) V 1.0.0 | Website: https://quietwire.ai | Authors: Ashraf Saleh Alhajj; Raasid (AI Companion) | SPDX-License-Identifier: Apache-2.0 | SPDX-FileCopyrightText: 2025 QuietWire | SPDX-FileContributor: Ashraf Saleh Alhajj | SPDX-FileContributor: Raasid (AI Companion)",
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "format:MSG-{chat_session}-{#####}",
+ "creation": "2025-10-23 01:44:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_info_section",
+  "message_id",
+  "chat_session",
+  "session_id",
+  "column_break_4",
+  "message_type",
+  "sender_type",
+  "sender",
+  "content_section",
+  "content",
+  "formatted_content",
+  "technical_details_section",
+  "tokens_used",
+  "model_used",
+  "column_break_13",
+  "response_time",
+  "processing_time",
+  "temperature",
+  "attachments_section",
+  "attachments",
+  "metadata_section",
+  "message_metadata",
+  "context_data",
+  "compliance_section",
+  "is_compliant",
+  "compliance_status",
+  "column_break_23",
+  "flagged_for_review",
+  "review_status",
+  "violations_section",
+  "detected_violations",
+  "evidence_section",
+  "extracted_evidence",
+  "citations_section",
+  "citations",
+  "timestamps_section",
+  "created_at",
+  "column_break_34",
+  "updated_at"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_info_section",
+   "fieldtype": "Section Break",
+   "label": "Basic Information"
+  },
+  {
+   "fieldname": "message_id",
+   "fieldtype": "Data",
+   "label": "Message ID",
+   "unique": 1,
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "chat_session",
+   "fieldtype": "Link",
+   "label": "Chat Session",
+   "options": "Chat Session",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "session_id",
+   "fieldtype": "Data",
+   "label": "Session ID",
+   "fetch_from": "chat_session.session_id",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "message_type",
+   "fieldtype": "Select",
+   "label": "Message Type",
+   "options": "User\nAssistant\nSystem\nError\nNotification",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "sender_type",
+   "fieldtype": "Select",
+   "label": "Sender Type",
+   "options": "User\nAI Model\nSystem\nBot",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sender",
+   "fieldtype": "Link",
+   "label": "Sender",
+   "options": "User"
+  },
+  {
+   "fieldname": "content_section",
+   "fieldtype": "Section Break",
+   "label": "Message Content"
+  },
+  {
+   "fieldname": "content",
+   "fieldtype": "Long Text",
+   "label": "Content",
+   "reqd": 1
+  },
+  {
+   "fieldname": "formatted_content",
+   "fieldtype": "HTML Editor",
+   "label": "Formatted Content",
+   "description": "Rich formatted version of the message"
+  },
+  {
+   "fieldname": "technical_details_section",
+   "fieldtype": "Section Break",
+   "label": "Technical Details"
+  },
+  {
+   "fieldname": "tokens_used",
+   "fieldtype": "Int",
+   "label": "Tokens Used",
+   "default": "0"
+  },
+  {
+   "fieldname": "model_used",
+   "fieldtype": "Data",
+   "label": "Model Used",
+   "description": "AI model used to generate this message"
+  },
+  {
+   "fieldname": "column_break_13",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "response_time",
+   "fieldtype": "Float",
+   "label": "Response Time (seconds)",
+   "precision": "3"
+  },
+  {
+   "fieldname": "processing_time",
+   "fieldtype": "Float",
+   "label": "Processing Time (seconds)",
+   "precision": "3"
+  },
+  {
+   "fieldname": "temperature",
+   "fieldtype": "Float",
+   "label": "Temperature",
+   "precision": "2",
+   "description": "Model temperature setting used"
+  },
+  {
+   "fieldname": "attachments_section",
+   "fieldtype": "Section Break",
+   "label": "Attachments"
+  },
+  {
+   "fieldname": "attachments",
+   "fieldtype": "Table",
+   "label": "Attachments",
+   "options": "Message Attachment"
+  },
+  {
+   "fieldname": "metadata_section",
+   "fieldtype": "Section Break",
+   "label": "Metadata & Context"
+  },
+  {
+   "fieldname": "message_metadata",
+   "fieldtype": "Long Text",
+   "label": "Message Metadata (JSON)",
+   "description": "Additional metadata in JSON format"
+  },
+  {
+   "fieldname": "context_data",
+   "fieldtype": "Long Text",
+   "label": "Context Data (JSON)",
+   "description": "Conversation context at the time of message"
+  },
+  {
+   "fieldname": "compliance_section",
+   "fieldtype": "Section Break",
+   "label": "Compliance Information"
+  },
+  {
+   "fieldname": "is_compliant",
+   "fieldtype": "Check",
+   "label": "Is Compliant",
+   "default": "1"
+  },
+  {
+   "fieldname": "compliance_status",
+   "fieldtype": "Select",
+   "label": "Compliance Status",
+   "options": "Not Checked\nCompliant\nNon-Compliant\nUnder Review\nExempt",
+   "default": "Not Checked"
+  },
+  {
+   "fieldname": "column_break_23",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "flagged_for_review",
+   "fieldtype": "Check",
+   "label": "Flagged for Review",
+   "default": "0"
+  },
+  {
+   "fieldname": "review_status",
+   "fieldtype": "Select",
+   "label": "Review Status",
+   "options": "Pending\nIn Review\nApproved\nRejected\nEscalated",
+   "depends_on": "eval:doc.flagged_for_review==1"
+  },
+  {
+   "fieldname": "violations_section",
+   "fieldtype": "Section Break",
+   "label": "Detected Violations"
+  },
+  {
+   "fieldname": "detected_violations",
+   "fieldtype": "Table",
+   "label": "Detected Violations",
+   "options": "Message Violation"
+  },
+  {
+   "fieldname": "evidence_section",
+   "fieldtype": "Section Break",
+   "label": "Extracted Evidence"
+  },
+  {
+   "fieldname": "extracted_evidence",
+   "fieldtype": "Table",
+   "label": "Extracted Evidence",
+   "options": "Message Evidence"
+  },
+  {
+   "fieldname": "citations_section",
+   "fieldtype": "Section Break",
+   "label": "Citations"
+  },
+  {
+   "fieldname": "citations",
+   "fieldtype": "Table",
+   "label": "Citations",
+   "options": "Message Citation"
+  },
+  {
+   "fieldname": "timestamps_section",
+   "fieldtype": "Section Break",
+   "label": "Timestamps",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "created_at",
+   "fieldtype": "Datetime",
+   "label": "Created At",
+   "reqd": 1,
+   "default": "now",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_34",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "updated_at",
+   "fieldtype": "Datetime",
+   "label": "Updated At",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 0,
+ "links": [
+  {
+   "link_doctype": "Chat Session",
+   "link_fieldname": "name",
+   "table_fieldname": "chat_session"
+  },
+  {
+   "link_doctype": "Violation",
+   "link_fieldname": "message"
+  },
+  {
+   "link_doctype": "Evidence",
+   "link_fieldname": "message"
+  },
+  {
+   "link_doctype": "Compliance Event",
+   "link_fieldname": "message"
+  }
+ ],
+ "modified": "2025-10-23 01:44:00",
+ "modified_by": "Administrator",
+ "module": "CAP",
+ "name": "Message",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CAP Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CAP User",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "CAP Reviewer"
+  }
+ ],
+ "search_fields": "message_id,chat_session,message_type,sender",
+ "sort_field": "creation",
+ "sort_order": "ASC",
+ "states": [],
+ "title_field": "message_id",
+ "track_changes": 1,
+ "track_seen": 1
+}

@@ -1,0 +1,509 @@
+"_comment": "Project: QuietWire CAP (Civic AI Canon Platform) V 1.0.0 | Website: https://quietwire.ai | Authors: Ashraf Saleh Alhajj; Raasid (AI Companion) | SPDX-License-Identifier: Apache-2.0 | SPDX-FileCopyrightText: 2025 QuietWire | SPDX-FileContributor: Ashraf Saleh Alhajj | SPDX-FileContributor: Raasid (AI Companion)",
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:POL-{tenant}-{####}",
+ "creation": "2025-10-23 02:30:00.000000",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_information_section",
+  "policy_id",
+  "policy_name",
+  "policy_type",
+  "column_break_basic",
+  "tenant",
+  "status",
+  "version",
+  "description_section",
+  "description",
+  "short_description",
+  "column_break_desc",
+  "tags",
+  "category",
+  "rules_section",
+  "policy_rules",
+  "enforcement_level",
+  "column_break_rules",
+  "violation_action",
+  "severity",
+  "scope_section",
+  "applies_to",
+  "scope_type",
+  "column_break_scope",
+  "target_entities",
+  "excluded_entities",
+  "timing_section",
+  "effective_from",
+  "effective_until",
+  "column_break_timing",
+  "is_active",
+  "auto_activate",
+  "auto_expire",
+  "compliance_section",
+  "compliance_framework",
+  "regulatory_references",
+  "column_break_compliance",
+  "audit_frequency",
+  "requires_approval",
+  "configuration_section",
+  "config_json",
+  "threshold_settings",
+  "column_break_config",
+  "custom_parameters",
+  "integration_settings",
+  "metadata_section",
+  "created_by",
+  "approved_by",
+  "column_break_metadata",
+  "approval_date",
+  "last_reviewed",
+  "statistics_section",
+  "total_violations",
+  "total_applications",
+  "column_break_stats",
+  "success_rate",
+  "last_triggered",
+  "related_section",
+  "related_policies",
+  "parent_policy",
+  "column_break_related",
+  "supersedes_policy",
+  "superseded_by"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_information_section",
+   "fieldtype": "Section Break",
+   "label": "Basic Information"
+  },
+  {
+   "fieldname": "policy_id",
+   "fieldtype": "Data",
+   "label": "Policy ID",
+   "read_only": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "policy_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Policy Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "policy_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Policy Type",
+   "options": "Content Moderation\nData Privacy\nCompliance Check\nAccess Control\nBehavior Monitoring\nRisk Assessment\nQuality Assurance\nCustom",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_basic",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "tenant",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Tenant",
+   "options": "Tenant",
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Draft\nUnder Review\nApproved\nActive\nInactive\nArchived\nDeprecated",
+   "default": "Draft"
+  },
+  {
+   "fieldname": "version",
+   "fieldtype": "Data",
+   "label": "Version",
+   "default": "1.0"
+  },
+  {
+   "fieldname": "description_section",
+   "fieldtype": "Section Break",
+   "label": "Description"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Full Description"
+  },
+  {
+   "fieldname": "short_description",
+   "fieldtype": "Small Text",
+   "label": "Short Description"
+  },
+  {
+   "fieldname": "column_break_desc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "tags",
+   "fieldtype": "Data",
+   "label": "Tags"
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Select",
+   "label": "Category",
+   "options": "Legal\nRegulatory\nOrganizational\nTechnical\nOperational\nSecurity\nEthical"
+  },
+  {
+   "fieldname": "rules_section",
+   "fieldtype": "Section Break",
+   "label": "Rules & Enforcement"
+  },
+  {
+   "fieldname": "policy_rules",
+   "fieldtype": "Table",
+   "label": "Policy Rules",
+   "options": "Policy Rule"
+  },
+  {
+   "fieldname": "enforcement_level",
+   "fieldtype": "Select",
+   "label": "Enforcement Level",
+   "options": "Advisory\nRecommended\nMandatory\nCritical",
+   "default": "Mandatory"
+  },
+  {
+   "fieldname": "column_break_rules",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "violation_action",
+   "fieldtype": "Select",
+   "label": "Violation Action",
+   "options": "Log Only\nWarn User\nBlock Action\nReview Required\nAuto Remediate\nEscalate",
+   "default": "Review Required"
+  },
+  {
+   "fieldname": "severity",
+   "fieldtype": "Select",
+   "label": "Severity",
+   "options": "Low\nMedium\nHigh\nCritical",
+   "default": "Medium"
+  },
+  {
+   "fieldname": "scope_section",
+   "fieldtype": "Section Break",
+   "label": "Scope & Application"
+  },
+  {
+   "fieldname": "applies_to",
+   "fieldtype": "Select",
+   "label": "Applies To",
+   "options": "All Users\nSpecific Roles\nSpecific Users\nAll Sessions\nSpecific Session Types\nAll Messages\nCustom Filter",
+   "default": "All Users"
+  },
+  {
+   "fieldname": "scope_type",
+   "fieldtype": "Select",
+   "label": "Scope Type",
+   "options": "Global\nTenant-Specific\nRole-Specific\nUser-Specific\nSession-Specific\nMessage-Specific",
+   "default": "Tenant-Specific"
+  },
+  {
+   "fieldname": "column_break_scope",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "target_entities",
+   "fieldtype": "Long Text",
+   "label": "Target Entities",
+   "description": "Comma-separated list or JSON array"
+  },
+  {
+   "fieldname": "excluded_entities",
+   "fieldtype": "Long Text",
+   "label": "Excluded Entities",
+   "description": "Comma-separated list or JSON array"
+  },
+  {
+   "fieldname": "timing_section",
+   "fieldtype": "Section Break",
+   "label": "Timing & Activation"
+  },
+  {
+   "fieldname": "effective_from",
+   "fieldtype": "Datetime",
+   "label": "Effective From"
+  },
+  {
+   "fieldname": "effective_until",
+   "fieldtype": "Datetime",
+   "label": "Effective Until"
+  },
+  {
+   "fieldname": "column_break_timing",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active",
+   "default": "0"
+  },
+  {
+   "fieldname": "auto_activate",
+   "fieldtype": "Check",
+   "label": "Auto Activate on Effective Date",
+   "default": "0"
+  },
+  {
+   "fieldname": "auto_expire",
+   "fieldtype": "Check",
+   "label": "Auto Expire on End Date",
+   "default": "0"
+  },
+  {
+   "fieldname": "compliance_section",
+   "fieldtype": "Section Break",
+   "label": "Compliance & Regulations"
+  },
+  {
+   "fieldname": "compliance_framework",
+   "fieldtype": "Select",
+   "label": "Compliance Framework",
+   "options": "GDPR\nCCPA\nHIPAA\nSOC 2\nISO 27001\nNIST\nCustom\nNone"
+  },
+  {
+   "fieldname": "regulatory_references",
+   "fieldtype": "Text",
+   "label": "Regulatory References"
+  },
+  {
+   "fieldname": "column_break_compliance",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "audit_frequency",
+   "fieldtype": "Select",
+   "label": "Audit Frequency",
+   "options": "Real-time\nHourly\nDaily\nWeekly\nMonthly\nQuarterly\nAnnually\nOn-Demand",
+   "default": "Daily"
+  },
+  {
+   "fieldname": "requires_approval",
+   "fieldtype": "Check",
+   "label": "Requires Approval",
+   "default": "1"
+  },
+  {
+   "fieldname": "configuration_section",
+   "fieldtype": "Section Break",
+   "label": "Configuration"
+  },
+  {
+   "fieldname": "config_json",
+   "fieldtype": "JSON",
+   "label": "Configuration (JSON)"
+  },
+  {
+   "fieldname": "threshold_settings",
+   "fieldtype": "JSON",
+   "label": "Threshold Settings"
+  },
+  {
+   "fieldname": "column_break_config",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "custom_parameters",
+   "fieldtype": "JSON",
+   "label": "Custom Parameters"
+  },
+  {
+   "fieldname": "integration_settings",
+   "fieldtype": "JSON",
+   "label": "Integration Settings"
+  },
+  {
+   "fieldname": "metadata_section",
+   "fieldtype": "Section Break",
+   "label": "Metadata"
+  },
+  {
+   "fieldname": "created_by",
+   "fieldtype": "Link",
+   "label": "Created By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Link",
+   "label": "Approved By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_metadata",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "approval_date",
+   "fieldtype": "Datetime",
+   "label": "Approval Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_reviewed",
+   "fieldtype": "Datetime",
+   "label": "Last Reviewed"
+  },
+  {
+   "fieldname": "statistics_section",
+   "fieldtype": "Section Break",
+   "label": "Statistics"
+  },
+  {
+   "fieldname": "total_violations",
+   "fieldtype": "Int",
+   "label": "Total Violations",
+   "read_only": 1,
+   "default": "0"
+  },
+  {
+   "fieldname": "total_applications",
+   "fieldtype": "Int",
+   "label": "Total Applications",
+   "read_only": 1,
+   "default": "0"
+  },
+  {
+   "fieldname": "column_break_stats",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "success_rate",
+   "fieldtype": "Percent",
+   "label": "Success Rate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_triggered",
+   "fieldtype": "Datetime",
+   "label": "Last Triggered",
+   "read_only": 1
+  },
+  {
+   "fieldname": "related_section",
+   "fieldtype": "Section Break",
+   "label": "Related Policies"
+  },
+  {
+   "fieldname": "related_policies",
+   "fieldtype": "Table MultiSelect",
+   "label": "Related Policies",
+   "options": "Policy"
+  },
+  {
+   "fieldname": "parent_policy",
+   "fieldtype": "Link",
+   "label": "Parent Policy",
+   "options": "Policy"
+  },
+  {
+   "fieldname": "column_break_related",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "supersedes_policy",
+   "fieldtype": "Link",
+   "label": "Supersedes Policy",
+   "options": "Policy"
+  },
+  {
+   "fieldname": "superseded_by",
+   "fieldtype": "Link",
+   "label": "Superseded By",
+   "options": "Policy",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 0,
+ "links": [
+  {
+   "link_doctype": "Message Violation",
+   "link_fieldname": "policy"
+  },
+  {
+   "link_doctype": "Chat Session Policy",
+   "link_fieldname": "policy_id"
+  }
+ ],
+ "modified": "2025-10-23 02:30:00.000000",
+ "modified_by": "Administrator",
+ "module": "CAP",
+ "name": "Policy",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CAP Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CAP User",
+   "share": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CAP Reviewer",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

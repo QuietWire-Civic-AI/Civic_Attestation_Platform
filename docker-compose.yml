@@ -1,0 +1,96 @@
+# Project: QuietWire CAP (Civic AI Canon Platform) V 1.0.0
+# Website: https://quietwire.ai
+# Authors: Ashraf Saleh Alhajj; Raasid (AI Companion)
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-FileCopyrightText: 2025 QuietWire
+# SPDX-FileContributor: Ashraf Saleh Alhajj
+# SPDX-FileContributor: Raasid (AI Companion)
+
+version: '3.8'
+
+services:
+  # Database service
+  mariadb:
+    image: mariadb:10.6
+    container_name: cap-mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: cap_db
+      MYSQL_USER: cap_user
+      MYSQL_PASSWORD: cap_pass
+    ports:
+      - "3306:3306"
+    volumes:
+      - mariadb_data:/var/lib/mysql
+      - ./scripts/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  # Redis service
+  redis:
+    image: redis:7-alpine
+    container_name: cap-redis
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      timeout: 10s
+      retries: 5
+
+  # CAP application service
+  cap-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cap-app
+    environment:
+      - DATABASE_URL=mysql://cap_user:cap_pass@mariadb:3306/cap_db
+      - REDIS_URL=redis://redis:6379
+      - SECRET_KEY=development-secret-key
+      - NODE_ENV=production
+    ports:
+      - "8000:8000"
+    volumes:
+      - cap_data:/app/sites
+      - ./apps/cap:/app/apps/cap
+    depends_on:
+      mariadb:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      timeout: 30s
+      retries: 3
+      start_period: 60s
+
+  # Nginx reverse proxy (optional)
+  nginx:
+    image: nginx:alpine
+    container_name: cap-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/ssl:/etc/nginx/ssl
+    depends_on:
+      - cap-app
+
+volumes:
+  mariadb_data:
+    driver: local
+  redis_data:
+    driver: local
+  cap_data:
+    driver: local
+
+networks:
+  default:
+    name: cap-network
+    driver: bridge

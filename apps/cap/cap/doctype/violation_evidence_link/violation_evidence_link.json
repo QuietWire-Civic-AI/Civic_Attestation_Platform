@@ -1,0 +1,62 @@
+"_comment": "Project: QuietWire CAP (Civic AI Canon Platform) V 1.0.0 | Website: https://quietwire.ai | Authors: Ashraf Saleh Alhajj; Raasid (AI Companion) | SPDX-License-Identifier: Apache-2.0 | SPDX-FileCopyrightText: 2025 QuietWire | SPDX-FileContributor: Ashraf Saleh Alhajj | SPDX-FileContributor: Raasid (AI Companion)",
+ "actions": [],
+ "creation": "2025-10-23 06:11:23",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "evidence",
+  "evidence_type",
+  "content_hash",
+  "chain_position",
+  "verification_status"
+ ],
+ "fields": [
+  {
+   "fieldname": "evidence",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Evidence",
+   "options": "Evidence",
+   "reqd": 1
+  },
+  {
+   "fieldname": "evidence_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Evidence Type",
+   "options": "Chat Log\nScreenshot\nAudio Recording\nVideo Recording\nDocument\nSystem Log\nOther"
+  },
+  {
+   "fieldname": "content_hash",
+   "fieldtype": "Data",
+   "label": "Content Hash",
+   "read_only": 1
+  },
+  {
+   "fieldname": "chain_position",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Chain Position"
+  },
+  {
+   "fieldname": "verification_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Verification Status",
+   "options": "Verified\nUnverified\nTampered\nPending"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-10-23 06:11:23",
+ "modified_by": "Administrator",
+ "module": "Cap",
+ "name": "Violation Evidence Link",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

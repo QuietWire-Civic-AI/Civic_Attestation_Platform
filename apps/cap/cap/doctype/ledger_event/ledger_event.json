@@ -1,0 +1,264 @@
+"_comment": "Project: QuietWire CAP (Civic AI Canon Platform) V 1.0.0 | Website: https://quietwire.ai | Authors: Ashraf Saleh Alhajj; Raasid (AI Companion) | SPDX-License-Identifier: Apache-2.0 | SPDX-FileCopyrightText: 2025 QuietWire | SPDX-FileContributor: Ashraf Saleh Alhajj | SPDX-FileContributor: Raasid (AI Companion)",
+  "allow_copy": 0,
+  "allow_import": 0,
+  "allow_rename": 0,
+  "autoname": "autoincrement",
+  "creation": "2025-10-20 13:11:25.000000",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "event_info_section",
+    "tenant",
+    "event_type",
+    "column_break_3",
+    "subject_doctype",
+    "subject_name",
+    "actor_section",
+    "actor_user",
+    "actor_ip",
+    "column_break_7",
+    "user_agent",
+    "session_id",
+    "data_section",
+    "event_data",
+    "metadata",
+    "hash_section",
+    "previous_hash",
+    "current_hash",
+    "column_break_13",
+    "signature",
+    "verification_status",
+    "blockchain_section",
+    "block_hash",
+    "transaction_hash",
+    "column_break_17",
+    "merkle_root",
+    "anchored_at",
+    "timestamp_section",
+    "timestamp",
+    "processed_at"
+  ],
+  "fields": [
+    {
+      "fieldname": "event_info_section",
+      "fieldtype": "Section Break",
+      "label": "معلومات الحدث"
+    },
+    {
+      "fieldname": "tenant",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "المستأجر",
+      "options": "Tenant",
+      "reqd": 1
+    },
+    {
+      "fieldname": "event_type",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "نوع الحدث",
+      "options": "tenant_created\ntenant_updated\ntenant_deleted\nuser_login\nuser_logout\npolicy_created\npolicy_updated\npolicy_published\nevidence_added\nevidence_modified\nchat_session_created\nmessage_sent\nviolation_detected\napi_access\nsystem_backup\ndata_export\ncompliancia_check\nblockchain_anchor",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_break_3",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "subject_doctype",
+      "fieldtype": "Link",
+      "label": "نوع الوثيقة",
+      "options": "DocType"
+    },
+    {
+      "fieldname": "subject_name",
+      "fieldtype": "Dynamic Link",
+      "label": "اسم الوثيقة",
+      "options": "subject_doctype"
+    },
+    {
+      "fieldname": "actor_section",
+      "fieldtype": "Section Break",
+      "label": "معلومات الفاعل"
+    },
+    {
+      "fieldname": "actor_user",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "المستخدم",
+      "options": "User"
+    },
+    {
+      "fieldname": "actor_ip",
+      "fieldtype": "Data",
+      "label": "عنوان IP"
+    },
+    {
+      "fieldname": "column_break_7",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "user_agent",
+      "fieldtype": "Small Text",
+      "label": "متصفح المستخدم"
+    },
+    {
+      "fieldname": "session_id",
+      "fieldtype": "Data",
+      "label": "معرف الجلسة"
+    },
+    {
+      "fieldname": "data_section",
+      "fieldtype": "Section Break",
+      "label": "بيانات الحدث"
+    },
+    {
+      "fieldname": "event_data",
+      "fieldtype": "JSON",
+      "label": "بيانات الحدث"
+    },
+    {
+      "fieldname": "metadata",
+      "fieldtype": "JSON",
+      "label": "بيانات إضافية"
+    },
+    {
+      "fieldname": "hash_section",
+      "fieldtype": "Section Break",
+      "label": "التوقيعات والهاش"
+    },
+    {
+      "fieldname": "previous_hash",
+      "fieldtype": "Data",
+      "label": "الهاش السابق",
+      "length": 64,
+      "read_only": 1
+    },
+    {
+      "fieldname": "current_hash",
+      "fieldtype": "Data",
+      "label": "الهاش الحالي",
+      "length": 64,
+      "read_only": 1,
+      "unique": 1
+    },
+    {
+      "fieldname": "column_break_13",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "signature",
+      "fieldtype": "Long Text",
+      "label": "التوقيع الرقمي",
+      "read_only": 1
+    },
+    {
+      "fieldname": "verification_status",
+      "fieldtype": "Select",
+      "label": "حالة التحقق",
+      "options": "Pending\nVerified\nFailed",
+      "default": "Pending"
+    },
+    {
+      "fieldname": "blockchain_section",
+      "fieldtype": "Section Break",
+      "label": "معلومات البلوك تشين"
+    },
+    {
+      "fieldname": "block_hash",
+      "fieldtype": "Data",
+      "label": "هاش البلوك",
+      "length": 66,
+      "read_only": 1
+    },
+    {
+      "fieldname": "transaction_hash",
+      "fieldtype": "Data",
+      "label": "هاش المعاملة",
+      "length": 66,
+      "read_only": 1
+    },
+    {
+      "fieldname": "column_break_17",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "merkle_root",
+      "fieldtype": "Data",
+      "label": "جذر ميركل",
+      "length": 64,
+      "read_only": 1
+    },
+    {
+      "fieldname": "anchored_at",
+      "fieldtype": "Datetime",
+      "label": "تاريخ التثبيت",
+      "read_only": 1
+    },
+    {
+      "fieldname": "timestamp_section",
+      "fieldtype": "Section Break",
+      "label": "الطوابع الزمنية"
+    },
+    {
+      "fieldname": "timestamp",
+      "fieldtype": "Datetime",
+      "in_list_view": 1,
+      "label": "وقت الحدث",
+      "reqd": 1
+    },
+    {
+      "fieldname": "processed_at",
+      "fieldtype": "Datetime",
+      "label": "وقت المعالجة",
+      "read_only": 1
+    }
+  ],
+  "index_web_pages_for_search": 1,
+  "links": [
+    {
+      "link_doctype": "Tenant",
+      "link_fieldname": "tenant"
+    }
+  ],
+  "modified": "2025-10-20 13:11:25.000000",
+  "module": "CAP Core",
+  "name": "Ledger Event",
+  "naming_rule": "Autoincrement",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1
+    },
+    {
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "CAP Admin",
+      "share": 1
+    },
+    {
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "CAP Auditor",
+      "share": 1
+    }
+  ],
+  "search_fields": "event_type,actor_user,subject_doctype",
+  "show_name_in_global_search": 1,
+  "sort_field": "timestamp",
+  "sort_order": "DESC",
+  "title_field": "event_type",
+  "track_changes": 1
+}

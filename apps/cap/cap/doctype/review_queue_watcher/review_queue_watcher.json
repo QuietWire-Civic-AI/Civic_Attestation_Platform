@@ -1,0 +1,65 @@
+"_comment": "Project: QuietWire CAP (Civic AI Canon Platform) V 1.0.0 | Website: https://quietwire.ai | Authors: Ashraf Saleh Alhajj; Raasid (AI Companion) | SPDX-License-Identifier: Apache-2.0 | SPDX-FileCopyrightText: 2025 QuietWire | SPDX-FileContributor: Ashraf Saleh Alhajj | SPDX-FileContributor: Raasid (AI Companion)",
+ "actions": [],
+ "creation": "2025-10-23 11:04:47",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "user",
+  "column_break_1",
+  "notify_on_update",
+  "notify_on_status_change",
+  "notify_on_sla_breach",
+  "notify_on_escalation"
+ ],
+ "fields": [
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "User",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "notify_on_update",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Notify on Update",
+   "default": "1"
+  },
+  {
+   "fieldname": "notify_on_status_change",
+   "fieldtype": "Check",
+   "label": "Notify on Status Change",
+   "default": "1"
+  },
+  {
+   "fieldname": "notify_on_sla_breach",
+   "fieldtype": "Check",
+   "label": "Notify on SLA Breach",
+   "default": "1"
+  },
+  {
+   "fieldname": "notify_on_escalation",
+   "fieldtype": "Check",
+   "label": "Notify on Escalation",
+   "default": "1"
+  }
+ ],
+ "istable": 1,
+ "modified": "2025-10-23 11:04:47",
+ "modified_by": "Administrator",
+ "module": "CAP",
+ "name": "Review Queue Watcher",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

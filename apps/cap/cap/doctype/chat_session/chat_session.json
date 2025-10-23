@@ -1,0 +1,323 @@
+"_comment": "Project: QuietWire CAP (Civic AI Canon Platform) V 1.0.0 | Website: https://quietwire.ai | Authors: Ashraf Saleh Alhajj; Raasid (AI Companion) | SPDX-License-Identifier: Apache-2.0 | SPDX-FileCopyrightText: 2025 QuietWire | SPDX-FileContributor: Ashraf Saleh Alhajj | SPDX-FileContributor: Raasid (AI Companion)",
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:CHAT-{tenant}-{#####}",
+ "creation": "2025-10-23 01:30:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_info_section",
+  "session_id",
+  "tenant",
+  "user",
+  "model_configuration",
+  "column_break_5",
+  "status",
+  "priority",
+  "session_type",
+  "session_details_section",
+  "start_time",
+  "end_time",
+  "column_break_12",
+  "total_messages",
+  "total_tokens_used",
+  "average_response_time",
+  "context_section",
+  "context_summary",
+  "session_metadata",
+  "compliance_section",
+  "is_compliant",
+  "compliance_score",
+  "column_break_20",
+  "compliance_checked_at",
+  "compliance_checked_by",
+  "violations_found",
+  "policy_section",
+  "active_policies",
+  "audit_section",
+  "created_by",
+  "created_at",
+  "column_break_28",
+  "modified_by",
+  "modified_at"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_info_section",
+   "fieldtype": "Section Break",
+   "label": "Basic Information"
+  },
+  {
+   "fieldname": "session_id",
+   "fieldtype": "Data",
+   "label": "Session ID",
+   "unique": 1,
+   "reqd": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "tenant",
+   "fieldtype": "Link",
+   "label": "Tenant",
+   "options": "Tenant",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "label": "User",
+   "options": "User",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "model_configuration",
+   "fieldtype": "Link",
+   "label": "Model Configuration",
+   "options": "Model Configuration"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nActive\nCompleted\nArchived\nSuspended",
+   "default": "Draft",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "label": "Priority",
+   "options": "Low\nMedium\nHigh\nCritical",
+   "default": "Medium"
+  },
+  {
+   "fieldname": "session_type",
+   "fieldtype": "Select",
+   "label": "Session Type",
+   "options": "Standard\nCompliance Review\nEvidence Collection\nPolicy Training\nCustom",
+   "default": "Standard"
+  },
+  {
+   "fieldname": "session_details_section",
+   "fieldtype": "Section Break",
+   "label": "Session Details"
+  },
+  {
+   "fieldname": "start_time",
+   "fieldtype": "Datetime",
+   "label": "Start Time",
+   "reqd": 1,
+   "default": "now"
+  },
+  {
+   "fieldname": "end_time",
+   "fieldtype": "Datetime",
+   "label": "End Time"
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_messages",
+   "fieldtype": "Int",
+   "label": "Total Messages",
+   "default": "0",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_tokens_used",
+   "fieldtype": "Int",
+   "label": "Total Tokens Used",
+   "default": "0",
+   "read_only": 1
+  },
+  {
+   "fieldname": "average_response_time",
+   "fieldtype": "Float",
+   "label": "Average Response Time (seconds)",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "context_section",
+   "fieldtype": "Section Break",
+   "label": "Context & Metadata"
+  },
+  {
+   "fieldname": "context_summary",
+   "fieldtype": "Long Text",
+   "label": "Context Summary"
+  },
+  {
+   "fieldname": "session_metadata",
+   "fieldtype": "Long Text",
+   "label": "Session Metadata (JSON)",
+   "description": "Additional metadata in JSON format"
+  },
+  {
+   "fieldname": "compliance_section",
+   "fieldtype": "Section Break",
+   "label": "Compliance Information"
+  },
+  {
+   "fieldname": "is_compliant",
+   "fieldtype": "Check",
+   "label": "Is Compliant",
+   "default": "0"
+  },
+  {
+   "fieldname": "compliance_score",
+   "fieldtype": "Percent",
+   "label": "Compliance Score",
+   "precision": "2"
+  },
+  {
+   "fieldname": "column_break_20",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "compliance_checked_at",
+   "fieldtype": "Datetime",
+   "label": "Compliance Checked At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "compliance_checked_by",
+   "fieldtype": "Link",
+   "label": "Compliance Checked By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "violations_found",
+   "fieldtype": "Int",
+   "label": "Violations Found",
+   "default": "0",
+   "read_only": 1
+  },
+  {
+   "fieldname": "policy_section",
+   "fieldtype": "Section Break",
+   "label": "Active Policies"
+  },
+  {
+   "fieldname": "active_policies",
+   "fieldtype": "Table",
+   "label": "Active Policies",
+   "options": "Chat Session Policy"
+  },
+  {
+   "fieldname": "audit_section",
+   "fieldtype": "Section Break",
+   "label": "Audit Information",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "created_by",
+   "fieldtype": "Link",
+   "label": "Created By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "created_at",
+   "fieldtype": "Datetime",
+   "label": "Created At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_28",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "modified_by",
+   "fieldtype": "Link",
+   "label": "Modified By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "modified_at",
+   "fieldtype": "Datetime",
+   "label": "Modified At",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 0,
+ "links": [
+  {
+   "link_doctype": "Message",
+   "link_fieldname": "chat_session"
+  },
+  {
+   "link_doctype": "Compliance Event",
+   "link_fieldname": "chat_session"
+  },
+  {
+   "link_doctype": "Audit Log",
+   "link_fieldname": "reference_doctype",
+   "table_fieldname": "reference_name"
+  }
+ ],
+ "modified": "2025-10-23 01:30:00",
+ "modified_by": "Administrator",
+ "module": "CAP",
+ "name": "Chat Session",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CAP Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CAP User",
+   "write": 1
+  }
+ ],
+ "search_fields": "session_id,tenant,user,status",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "session_id",
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

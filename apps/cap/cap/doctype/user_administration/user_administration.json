@@ -1,0 +1,375 @@
+{
+ "_comment": "Project: QuietWire CAP (Civic AI Canon Platform) V 1.0.0 | Website: https://quietwire.ai | Authors: Ashraf Saleh Alhajj; Raasid (AI Companion) | SPDX-License-Identifier: Apache-2.0 | SPDX-FileCopyrightText: 2025 QuietWire | SPDX-FileContributor: Ashraf Saleh Alhajj | SPDX-FileContributor: Raasid (AI Companion)",
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2025-10-23 13:51:48",
+ "doctype": "DocType",
+ "editable_grid": 0,
+ "engine": "InnoDB",
+ "field_order": [
+  "dashboard_configuration_section",
+  "enable_dashboard",
+  "auto_refresh",
+  "refresh_interval",
+  "column_break_config_1",
+  "default_tenant_filter",
+  "default_period_days",
+  "display_preferences_section",
+  "show_overview",
+  "show_user_list",
+  "show_profile_viewer",
+  "column_break_display_1",
+  "show_role_management",
+  "show_activity_monitor",
+  "user_list_settings_section",
+  "items_per_page",
+  "default_sort_by",
+  "column_break_list_1",
+  "default_sort_order",
+  "enable_user_search",
+  "chart_settings_section",
+  "growth_chart_type",
+  "role_chart_type",
+  "column_break_chart_1",
+  "chart_height",
+  "chart_colors",
+  "activity_settings_section",
+  "activity_period_days",
+  "show_failed_logins",
+  "column_break_activity_1",
+  "enable_activity_alerts",
+  "alert_threshold",
+  "export_settings_section",
+  "export_format",
+  "include_statistics",
+  "column_break_export_1",
+  "include_roles",
+  "include_permissions",
+  "performance_section",
+  "enable_caching",
+  "cache_ttl"
+ ],
+ "fields": [
+  {
+   "fieldname": "dashboard_configuration_section",
+   "fieldtype": "Section Break",
+   "label": "Dashboard Configuration"
+  },
+  {
+   "fieldname": "enable_dashboard",
+   "fieldtype": "Check",
+   "label": "Enable Dashboard",
+   "default": 1,
+   "description": "Master switch to enable/disable the entire dashboard"
+  },
+  {
+   "fieldname": "auto_refresh",
+   "fieldtype": "Check",
+   "label": "Auto Refresh",
+   "default": 0,
+   "description": "Automatically refresh dashboard data"
+  },
+  {
+   "fieldname": "refresh_interval",
+   "fieldtype": "Int",
+   "label": "Refresh Interval (seconds)",
+   "default": 60,
+   "depends_on": "eval:doc.auto_refresh==1",
+   "description": "How often to refresh the dashboard (in seconds)"
+  },
+  {
+   "fieldname": "column_break_config_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "default_tenant_filter",
+   "fieldtype": "Link",
+   "label": "Default Tenant Filter",
+   "options": "Tenant",
+   "description": "Default tenant to filter by on dashboard load"
+  },
+  {
+   "fieldname": "default_period_days",
+   "fieldtype": "Select",
+   "label": "Default Period",
+   "options": "7\n30\n90\n180\n365",
+   "default": "30",
+   "description": "Default time period for analytics (in days)"
+  },
+  {
+   "fieldname": "display_preferences_section",
+   "fieldtype": "Section Break",
+   "label": "Display Preferences",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "show_overview",
+   "fieldtype": "Check",
+   "label": "Show Overview Dashboard",
+   "default": 1
+  },
+  {
+   "fieldname": "show_user_list",
+   "fieldtype": "Check",
+   "label": "Show User List",
+   "default": 1
+  },
+  {
+   "fieldname": "show_profile_viewer",
+   "fieldtype": "Check",
+   "label": "Show Profile Viewer",
+   "default": 1
+  },
+  {
+   "fieldname": "column_break_display_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "show_role_management",
+   "fieldtype": "Check",
+   "label": "Show Role Management",
+   "default": 1
+  },
+  {
+   "fieldname": "show_activity_monitor",
+   "fieldtype": "Check",
+   "label": "Show Activity Monitor",
+   "default": 1
+  },
+  {
+   "fieldname": "user_list_settings_section",
+   "fieldtype": "Section Break",
+   "label": "User List Settings",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "items_per_page",
+   "fieldtype": "Int",
+   "label": "Items Per Page",
+   "default": 20,
+   "description": "Number of users to display per page"
+  },
+  {
+   "fieldname": "default_sort_by",
+   "fieldtype": "Select",
+   "label": "Default Sort By",
+   "options": "creation\nfull_name\nemail\nlast_login\nenabled",
+   "default": "creation",
+   "description": "Default field to sort users by"
+  },
+  {
+   "fieldname": "column_break_list_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "default_sort_order",
+   "fieldtype": "Select",
+   "label": "Default Sort Order",
+   "options": "ASC\nDESC",
+   "default": "DESC",
+   "description": "Ascending or descending order"
+  },
+  {
+   "fieldname": "enable_user_search",
+   "fieldtype": "Check",
+   "label": "Enable User Search",
+   "default": 1,
+   "description": "Allow searching/filtering users"
+  },
+  {
+   "fieldname": "chart_settings_section",
+   "fieldtype": "Section Break",
+   "label": "Chart Settings",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "growth_chart_type",
+   "fieldtype": "Select",
+   "label": "User Growth Chart Type",
+   "options": "line\nbar\narea",
+   "default": "line"
+  },
+  {
+   "fieldname": "role_chart_type",
+   "fieldtype": "Select",
+   "label": "Role Distribution Chart Type",
+   "options": "pie\ndonut\nbar",
+   "default": "pie"
+  },
+  {
+   "fieldname": "column_break_chart_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "chart_height",
+   "fieldtype": "Int",
+   "label": "Chart Height (pixels)",
+   "default": 300,
+   "description": "Default height for charts"
+  },
+  {
+   "fieldname": "chart_colors",
+   "fieldtype": "Code",
+   "label": "Chart Colors (JSON)",
+   "options": "JSON",
+   "description": "Custom color scheme for charts"
+  },
+  {
+   "fieldname": "activity_settings_section",
+   "fieldtype": "Section Break",
+   "label": "Activity Settings",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "activity_period_days",
+   "fieldtype": "Int",
+   "label": "Activity Period (days)",
+   "default": 7,
+   "description": "Number of days to show in activity feed"
+  },
+  {
+   "fieldname": "show_failed_logins",
+   "fieldtype": "Check",
+   "label": "Show Failed Login Attempts",
+   "default": 1
+  },
+  {
+   "fieldname": "column_break_activity_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "enable_activity_alerts",
+   "fieldtype": "Check",
+   "label": "Enable Activity Alerts",
+   "default": 1,
+   "description": "Alert on suspicious activity"
+  },
+  {
+   "fieldname": "alert_threshold",
+   "fieldtype": "Int",
+   "label": "Failed Login Alert Threshold",
+   "default": 5,
+   "depends_on": "eval:doc.enable_activity_alerts==1",
+   "description": "Alert after this many failed logins"
+  },
+  {
+   "fieldname": "export_settings_section",
+   "fieldtype": "Section Break",
+   "label": "Export Settings",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "export_format",
+   "fieldtype": "Select",
+   "label": "Default Export Format",
+   "options": "json\ncsv\nexcel\npdf",
+   "default": "json"
+  },
+  {
+   "fieldname": "include_statistics",
+   "fieldtype": "Check",
+   "label": "Include Statistics in Export",
+   "default": 1
+  },
+  {
+   "fieldname": "column_break_export_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "include_roles",
+   "fieldtype": "Check",
+   "label": "Include Roles in Export",
+   "default": 1
+  },
+  {
+   "fieldname": "include_permissions",
+   "fieldtype": "Check",
+   "label": "Include Permissions in Export",
+   "default": 0,
+   "description": "Warning: May expose sensitive permission data"
+  },
+  {
+   "fieldname": "performance_section",
+   "fieldtype": "Section Break",
+   "label": "Performance",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "enable_caching",
+   "fieldtype": "Check",
+   "label": "Enable Data Caching",
+   "default": 1,
+   "description": "Cache dashboard data for better performance"
+  },
+  {
+   "fieldname": "cache_ttl",
+   "fieldtype": "Int",
+   "label": "Cache TTL (seconds)",
+   "default": 300,
+   "depends_on": "eval:doc.enable_caching==1",
+   "description": "How long to cache data (Time To Live)"
+  }
+ ],
+ "is_submittable": 0,
+ "issingle": 1,
+ "links": [],
+ "modified": "2025-10-23 13:51:48",
+ "modified_by": "Administrator",
+ "module": "CAP",
+ "name": "User Administration",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CAP Admin",
+   "share": 0,
+   "write": 1
+  },
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 0,
+   "role": "Tenant Admin",
+   "share": 0,
+   "write": 0
+  },
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 0,
+   "role": "HR Manager",
+   "share": 0,
+   "write": 0
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

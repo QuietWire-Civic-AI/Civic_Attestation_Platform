@@ -1,0 +1,550 @@
+"_comment": "Project: QuietWire CAP (Civic AI Canon Platform) V 1.0.0 | Website: https://quietwire.ai | Authors: Ashraf Saleh Alhajj; Raasid (AI Companion) | SPDX-License-Identifier: Apache-2.0 | SPDX-FileCopyrightText: 2025 QuietWire | SPDX-FileContributor: Ashraf Saleh Alhajj | SPDX-FileContributor: Raasid (AI Companion)",
+ "actions": [],
+ "allow_guest_to_view": 0,
+ "allow_rename": 0,
+ "autoname": "naming_series:",
+ "creation": "2025-10-23 11:04:47",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "section_break_basic",
+  "title",
+  "review_type",
+  "column_break_1",
+  "status",
+  "priority",
+  "section_break_related",
+  "related_documents",
+  "section_break_assignment",
+  "current_reviewer",
+  "assigned_to",
+  "column_break_2",
+  "assigned_by",
+  "assigned_on",
+  "section_break_sla",
+  "due_date",
+  "sla_status",
+  "column_break_3",
+  "time_remaining",
+  "sla_breach_time",
+  "section_break_escalation",
+  "escalation_level",
+  "escalated",
+  "column_break_4",
+  "escalated_to",
+  "escalated_on",
+  "escalation_reason",
+  "section_break_escalation_rules",
+  "escalation_rules",
+  "section_break_progress",
+  "checklist_items",
+  "section_break_progress_summary",
+  "total_checklist_items",
+  "completed_checklist_items",
+  "column_break_5",
+  "completion_percentage",
+  "section_break_decision",
+  "decision",
+  "decision_date",
+  "column_break_6",
+  "decision_by",
+  "decision_notes",
+  "section_break_rejection",
+  "rejection_reasons",
+  "section_break_comments",
+  "comments",
+  "section_break_attachments",
+  "attachments",
+  "section_break_evidence",
+  "evidence_links",
+  "section_break_watchers",
+  "watchers",
+  "section_break_notifications",
+  "send_email_notifications",
+  "send_sla_warnings",
+  "column_break_7",
+  "warning_threshold_hours",
+  "auto_escalate_on_sla_breach",
+  "section_break_audit",
+  "created_by",
+  "created_on",
+  "column_break_8",
+  "modified_by",
+  "modified_on",
+  "section_break_metadata",
+  "workflow_state",
+  "column_break_9",
+  "custom_metadata"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "REV-QUEUE-.YYYY.-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_basic",
+   "fieldtype": "Section Break",
+   "label": "Basic Information"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Review Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "review_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Review Type",
+   "options": "Violation Review\nEvidence Review\nPolicy Review\nCase Review\nReport Review\nOther",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Pending\nIn Review\nApproved\nRejected\nEscalated\nOn Hold\nCancelled",
+   "reqd": 1,
+   "default": "Pending"
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Priority",
+   "options": "Low\nMedium\nHigh\nCritical",
+   "reqd": 1,
+   "default": "Medium"
+  },
+  {
+   "fieldname": "section_break_related",
+   "fieldtype": "Section Break",
+   "label": "Related Documents"
+  },
+  {
+   "fieldname": "related_documents",
+   "fieldtype": "Table",
+   "label": "Related Documents",
+   "options": "Review Queue Related Doc"
+  },
+  {
+   "fieldname": "section_break_assignment",
+   "fieldtype": "Section Break",
+   "label": "Assignment"
+  },
+  {
+   "fieldname": "current_reviewer",
+   "fieldtype": "Link",
+   "label": "Current Reviewer",
+   "options": "User"
+  },
+  {
+   "fieldname": "assigned_to",
+   "fieldtype": "Link",
+   "label": "Assigned To",
+   "options": "User"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "assigned_by",
+   "fieldtype": "Link",
+   "label": "Assigned By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "assigned_on",
+   "fieldtype": "Datetime",
+   "label": "Assigned On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_sla",
+   "fieldtype": "Section Break",
+   "label": "SLA Management"
+  },
+  {
+   "fieldname": "due_date",
+   "fieldtype": "Datetime",
+   "label": "Due Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sla_status",
+   "fieldtype": "Select",
+   "label": "SLA Status",
+   "options": "On Track\nWarning\nBreached\nExtended",
+   "read_only": 1,
+   "default": "On Track"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "time_remaining",
+   "fieldtype": "Data",
+   "label": "Time Remaining",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sla_breach_time",
+   "fieldtype": "Datetime",
+   "label": "SLA Breach Time",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_escalation",
+   "fieldtype": "Section Break",
+   "label": "Escalation"
+  },
+  {
+   "fieldname": "escalation_level",
+   "fieldtype": "Int",
+   "label": "Escalation Level",
+   "read_only": 1,
+   "default": "0"
+  },
+  {
+   "fieldname": "escalated",
+   "fieldtype": "Check",
+   "label": "Escalated",
+   "read_only": 1,
+   "default": "0"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "escalated_to",
+   "fieldtype": "Link",
+   "label": "Escalated To",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "escalated_on",
+   "fieldtype": "Datetime",
+   "label": "Escalated On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "escalation_reason",
+   "fieldtype": "Small Text",
+   "label": "Escalation Reason",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_escalation_rules",
+   "fieldtype": "Section Break",
+   "label": "Escalation Rules"
+  },
+  {
+   "fieldname": "escalation_rules",
+   "fieldtype": "Table",
+   "label": "Escalation Rules",
+   "options": "Review Queue Escalation Rule"
+  },
+  {
+   "fieldname": "section_break_progress",
+   "fieldtype": "Section Break",
+   "label": "Review Progress"
+  },
+  {
+   "fieldname": "checklist_items",
+   "fieldtype": "Table",
+   "label": "Checklist Items",
+   "options": "Review Queue Checklist"
+  },
+  {
+   "fieldname": "section_break_progress_summary",
+   "fieldtype": "Section Break",
+   "label": "Progress Summary"
+  },
+  {
+   "fieldname": "total_checklist_items",
+   "fieldtype": "Int",
+   "label": "Total Checklist Items",
+   "read_only": 1,
+   "default": "0"
+  },
+  {
+   "fieldname": "completed_checklist_items",
+   "fieldtype": "Int",
+   "label": "Completed Checklist Items",
+   "read_only": 1,
+   "default": "0"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "completion_percentage",
+   "fieldtype": "Percent",
+   "label": "Completion Percentage",
+   "read_only": 1,
+   "default": "0"
+  },
+  {
+   "fieldname": "section_break_decision",
+   "fieldtype": "Section Break",
+   "label": "Decision"
+  },
+  {
+   "fieldname": "decision",
+   "fieldtype": "Select",
+   "label": "Decision",
+   "options": "\nApproved\nRejected\nNeeds More Information\nReferred to Higher Authority"
+  },
+  {
+   "fieldname": "decision_date",
+   "fieldtype": "Datetime",
+   "label": "Decision Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "decision_by",
+   "fieldtype": "Link",
+   "label": "Decision By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "decision_notes",
+   "fieldtype": "Text",
+   "label": "Decision Notes"
+  },
+  {
+   "fieldname": "section_break_rejection",
+   "fieldtype": "Section Break",
+   "label": "Rejection Details",
+   "depends_on": "eval:doc.decision=='Rejected'"
+  },
+  {
+   "fieldname": "rejection_reasons",
+   "fieldtype": "Table",
+   "label": "Rejection Reasons",
+   "options": "Review Queue Rejection Reason"
+  },
+  {
+   "fieldname": "section_break_comments",
+   "fieldtype": "Section Break",
+   "label": "Comments & Discussion"
+  },
+  {
+   "fieldname": "comments",
+   "fieldtype": "Table",
+   "label": "Comments",
+   "options": "Review Queue Comment"
+  },
+  {
+   "fieldname": "section_break_attachments",
+   "fieldtype": "Section Break",
+   "label": "Attachments"
+  },
+  {
+   "fieldname": "attachments",
+   "fieldtype": "Table",
+   "label": "Attachments",
+   "options": "Review Queue Attachment"
+  },
+  {
+   "fieldname": "section_break_evidence",
+   "fieldtype": "Section Break",
+   "label": "Evidence Links"
+  },
+  {
+   "fieldname": "evidence_links",
+   "fieldtype": "Table",
+   "label": "Evidence Links",
+   "options": "Review Queue Evidence Link"
+  },
+  {
+   "fieldname": "section_break_watchers",
+   "fieldtype": "Section Break",
+   "label": "Watchers & Notifications"
+  },
+  {
+   "fieldname": "watchers",
+   "fieldtype": "Table",
+   "label": "Watchers",
+   "options": "Review Queue Watcher"
+  },
+  {
+   "fieldname": "section_break_notifications",
+   "fieldtype": "Section Break",
+   "label": "Notification Settings"
+  },
+  {
+   "fieldname": "send_email_notifications",
+   "fieldtype": "Check",
+   "label": "Send Email Notifications",
+   "default": "1"
+  },
+  {
+   "fieldname": "send_sla_warnings",
+   "fieldtype": "Check",
+   "label": "Send SLA Warnings",
+   "default": "1"
+  },
+  {
+   "fieldname": "column_break_7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "warning_threshold_hours",
+   "fieldtype": "Int",
+   "label": "Warning Threshold (Hours)",
+   "default": "24"
+  },
+  {
+   "fieldname": "auto_escalate_on_sla_breach",
+   "fieldtype": "Check",
+   "label": "Auto Escalate on SLA Breach",
+   "default": "0"
+  },
+  {
+   "fieldname": "section_break_audit",
+   "fieldtype": "Section Break",
+   "label": "Audit Trail"
+  },
+  {
+   "fieldname": "created_by",
+   "fieldtype": "Link",
+   "label": "Created By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "created_on",
+   "fieldtype": "Datetime",
+   "label": "Created On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "modified_by",
+   "fieldtype": "Link",
+   "label": "Modified By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "modified_on",
+   "fieldtype": "Datetime",
+   "label": "Modified On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_metadata",
+   "fieldtype": "Section Break",
+   "label": "Metadata"
+  },
+  {
+   "fieldname": "workflow_state",
+   "fieldtype": "Data",
+   "label": "Workflow State",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_9",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "custom_metadata",
+   "fieldtype": "JSON",
+   "label": "Custom Metadata"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 0,
+ "links": [],
+ "modified": "2025-10-23 11:04:47",
+ "modified_by": "Administrator",
+ "module": "CAP",
+ "name": "Review Queue",
+ "naming_rule": "By naming_series field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CAP Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CAP Reviewer",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CAP User",
+   "share": 1
+  }
+ ],
+ "quick_entry": 0,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "title",
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

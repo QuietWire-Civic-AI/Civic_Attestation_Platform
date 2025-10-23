@@ -1,0 +1,909 @@
+"_comment": "Project: QuietWire CAP (Civic AI Canon Platform) V 1.0.0 | Website: https://quietwire.ai | Authors: Ashraf Saleh Alhajj; Raasid (AI Companion) | SPDX-License-Identifier: Apache-2.0 | SPDX-FileCopyrightText: 2025 QuietWire | SPDX-FileContributor: Ashraf Saleh Alhajj | SPDX-FileContributor: Raasid (AI Companion)",
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:model_id",
+ "creation": "2025-10-23 08:17:04",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "model_information_section",
+  "model_id",
+  "model_name",
+  "provider",
+  "model_type",
+  "column_break_info_1",
+  "status",
+  "is_default",
+  "enabled",
+  "release_date",
+  "section_break_desc",
+  "description",
+  "use_cases",
+  "technical_specifications_section",
+  "context_window",
+  "max_output_tokens",
+  "supports_streaming",
+  "supports_function_calling",
+  "column_break_tech_1",
+  "supports_vision",
+  "supports_json_mode",
+  "tokenizer",
+  "encoding",
+  "section_break_api",
+  "api_endpoint",
+  "api_version",
+  "model_version",
+  "pricing_section",
+  "input_cost_per_1k_tokens",
+  "input_cost_per_1m_tokens",
+  "output_cost_per_1k_tokens",
+  "output_cost_per_1m_tokens",
+  "column_break_pricing_1",
+  "vision_cost_per_image",
+  "audio_cost_per_minute",
+  "currency",
+  "section_break_budget",
+  "monthly_budget_limit",
+  "cost_alert_threshold",
+  "auto_disable_on_budget_exceed",
+  "cost_tracking_enabled",
+  "performance_statistics_section",
+  "total_requests",
+  "successful_requests",
+  "failed_requests",
+  "total_input_tokens",
+  "column_break_perf_1",
+  "total_output_tokens",
+  "average_response_time",
+  "average_tokens_per_request",
+  "success_rate",
+  "section_break_costs",
+  "total_cost_to_date",
+  "monthly_cost_current",
+  "average_cost_per_request",
+  "column_break_costs_1",
+  "first_used",
+  "last_used",
+  "last_performance_check",
+  "rate_limits_section",
+  "requests_per_minute",
+  "requests_per_hour",
+  "requests_per_day",
+  "requests_per_month",
+  "column_break_rate_1",
+  "tokens_per_minute",
+  "tokens_per_day",
+  "rate_limit_behavior",
+  "fallback_model",
+  "section_break_rate_tracking",
+  "current_rpm",
+  "current_tpm",
+  "rate_limit_hit_count",
+  "retry_after_seconds",
+  "security_section",
+  "api_key",
+  "api_secret",
+  "organization_id",
+  "column_break_sec_1",
+  "log_requests",
+  "mask_sensitive_data",
+  "enable_content_filtering",
+  "audit_trail_enabled",
+  "integration_section",
+  "timeout_seconds",
+  "retry_attempts",
+  "temperature",
+  "top_p",
+  "column_break_int_1",
+  "custom_parameters",
+  "headers",
+  "override_system_settings",
+  "inherit_from_system",
+  "section_break_webhooks",
+  "webhook_url",
+  "notify_on_failure",
+  "notify_on_budget_alert",
+  "quality_section",
+  "quality_rating",
+  "accuracy_score",
+  "relevance_score",
+  "consistency_score",
+  "column_break_quality_1",
+  "strengths",
+  "weaknesses",
+  "recommended_for",
+  "not_recommended_for",
+  "maintenance_section",
+  "health_status",
+  "health_check_url",
+  "last_health_check",
+  "health_check_interval",
+  "column_break_maint_1",
+  "alert_on_error_rate",
+  "alert_cooldown_minutes",
+  "deprecation_date",
+  "replacement_model"
+ ],
+ "fields": [
+  {
+   "fieldname": "model_information_section",
+   "fieldtype": "Section Break",
+   "label": "Model Information"
+  },
+  {
+   "fieldname": "model_id",
+   "fieldtype": "Data",
+   "label": "Model ID",
+   "reqd": 1,
+   "unique": 1,
+   "description": "Unique identifier for the model (e.g., gpt-4-turbo, claude-3-opus)"
+  },
+  {
+   "fieldname": "model_name",
+   "fieldtype": "Data",
+   "label": "Model Name",
+   "reqd": 1,
+   "description": "Official name of the model"
+  },
+  {
+   "fieldname": "provider",
+   "fieldtype": "Select",
+   "label": "Provider",
+   "options": "OpenAI\nAnthropic\nAzure OpenAI\nGoogle\nAWS Bedrock\nHugging Face\nCustom",
+   "reqd": 1,
+   "default": "OpenAI"
+  },
+  {
+   "fieldname": "model_type",
+   "fieldtype": "Select",
+   "label": "Model Type",
+   "options": "Chat\nEmbedding\nVision\nAudio\nMultimodal\nCode Generation\nFine-tuned",
+   "reqd": 1,
+   "default": "Chat"
+  },
+  {
+   "fieldname": "column_break_info_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Active\nInactive\nDeprecated\nBeta\nExperimental",
+   "default": "Active",
+   "reqd": 1
+  },
+  {
+   "fieldname": "is_default",
+   "fieldtype": "Check",
+   "label": "Is Default Model",
+   "default": 0,
+   "description": "Set as default model for this type"
+  },
+  {
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled",
+   "default": 1,
+   "description": "Enable or disable this model"
+  },
+  {
+   "fieldname": "release_date",
+   "fieldtype": "Date",
+   "label": "Release Date",
+   "description": "Model release date"
+  },
+  {
+   "fieldname": "section_break_desc",
+   "fieldtype": "Section Break",
+   "label": "Description",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description",
+   "description": "Detailed description of the model"
+  },
+  {
+   "fieldname": "use_cases",
+   "fieldtype": "Small Text",
+   "label": "Use Cases",
+   "description": "Recommended use cases for this model"
+  },
+  {
+   "fieldname": "technical_specifications_section",
+   "fieldtype": "Section Break",
+   "label": "Technical Specifications",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "context_window",
+   "fieldtype": "Int",
+   "label": "Context Window (tokens)",
+   "description": "Maximum context window size in tokens",
+   "default": 4096
+  },
+  {
+   "fieldname": "max_output_tokens",
+   "fieldtype": "Int",
+   "label": "Max Output Tokens",
+   "description": "Maximum output tokens per request",
+   "default": 2048
+  },
+  {
+   "fieldname": "supports_streaming",
+   "fieldtype": "Check",
+   "label": "Supports Streaming",
+   "default": 1
+  },
+  {
+   "fieldname": "supports_function_calling",
+   "fieldtype": "Check",
+   "label": "Supports Function Calling",
+   "default": 0
+  },
+  {
+   "fieldname": "column_break_tech_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "supports_vision",
+   "fieldtype": "Check",
+   "label": "Supports Vision",
+   "default": 0,
+   "description": "Can process images"
+  },
+  {
+   "fieldname": "supports_json_mode",
+   "fieldtype": "Check",
+   "label": "Supports JSON Mode",
+   "default": 0,
+   "description": "Supports structured JSON output"
+  },
+  {
+   "fieldname": "tokenizer",
+   "fieldtype": "Data",
+   "label": "Tokenizer",
+   "description": "Tokenizer used by this model"
+  },
+  {
+   "fieldname": "encoding",
+   "fieldtype": "Data",
+   "label": "Encoding",
+   "description": "Token encoding type (e.g., cl100k_base)"
+  },
+  {
+   "fieldname": "section_break_api",
+   "fieldtype": "Section Break",
+   "label": "API Configuration",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "api_endpoint",
+   "fieldtype": "Data",
+   "label": "API Endpoint",
+   "description": "Custom API endpoint URL"
+  },
+  {
+   "fieldname": "api_version",
+   "fieldtype": "Data",
+   "label": "API Version",
+   "description": "API version to use"
+  },
+  {
+   "fieldname": "model_version",
+   "fieldtype": "Data",
+   "label": "Model Version",
+   "description": "Specific model version"
+  },
+  {
+   "fieldname": "pricing_section",
+   "fieldtype": "Section Break",
+   "label": "Pricing & Costs",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "input_cost_per_1k_tokens",
+   "fieldtype": "Currency",
+   "label": "Input Cost per 1K Tokens",
+   "precision": 6,
+   "description": "Cost per 1,000 input tokens (USD)"
+  },
+  {
+   "fieldname": "input_cost_per_1m_tokens",
+   "fieldtype": "Currency",
+   "label": "Input Cost per 1M Tokens",
+   "precision": 4,
+   "description": "Cost per 1,000,000 input tokens (USD)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "output_cost_per_1k_tokens",
+   "fieldtype": "Currency",
+   "label": "Output Cost per 1K Tokens",
+   "precision": 6,
+   "description": "Cost per 1,000 output tokens (USD)"
+  },
+  {
+   "fieldname": "output_cost_per_1m_tokens",
+   "fieldtype": "Currency",
+   "label": "Output Cost per 1M Tokens",
+   "precision": 4,
+   "description": "Cost per 1,000,000 output tokens (USD)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_pricing_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "vision_cost_per_image",
+   "fieldtype": "Currency",
+   "label": "Vision Cost per Image",
+   "precision": 6,
+   "depends_on": "eval:doc.supports_vision==1",
+   "description": "Cost per image analysis (USD)"
+  },
+  {
+   "fieldname": "audio_cost_per_minute",
+   "fieldtype": "Currency",
+   "label": "Audio Cost per Minute",
+   "precision": 6,
+   "depends_on": "eval:doc.model_type=='Audio'",
+   "description": "Cost per minute of audio processing (USD)"
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency",
+   "default": "USD"
+  },
+  {
+   "fieldname": "section_break_budget",
+   "fieldtype": "Section Break",
+   "label": "Budget Management"
+  },
+  {
+   "fieldname": "monthly_budget_limit",
+   "fieldtype": "Currency",
+   "label": "Monthly Budget Limit",
+   "description": "Maximum monthly spending limit"
+  },
+  {
+   "fieldname": "cost_alert_threshold",
+   "fieldtype": "Percent",
+   "label": "Cost Alert Threshold",
+   "description": "Send alert when budget reaches this percentage",
+   "default": 80
+  },
+  {
+   "fieldname": "auto_disable_on_budget_exceed",
+   "fieldtype": "Check",
+   "label": "Auto-Disable on Budget Exceed",
+   "default": 0,
+   "description": "Automatically disable model when budget is exceeded"
+  },
+  {
+   "fieldname": "cost_tracking_enabled",
+   "fieldtype": "Check",
+   "label": "Cost Tracking Enabled",
+   "default": 1
+  },
+  {
+   "fieldname": "performance_statistics_section",
+   "fieldtype": "Section Break",
+   "label": "Performance Statistics",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "total_requests",
+   "fieldtype": "Int",
+   "label": "Total Requests",
+   "default": 0,
+   "read_only": 1
+  },
+  {
+   "fieldname": "successful_requests",
+   "fieldtype": "Int",
+   "label": "Successful Requests",
+   "default": 0,
+   "read_only": 1
+  },
+  {
+   "fieldname": "failed_requests",
+   "fieldtype": "Int",
+   "label": "Failed Requests",
+   "default": 0,
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_input_tokens",
+   "fieldtype": "Int",
+   "label": "Total Input Tokens",
+   "default": 0,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_perf_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_output_tokens",
+   "fieldtype": "Int",
+   "label": "Total Output Tokens",
+   "default": 0,
+   "read_only": 1
+  },
+  {
+   "fieldname": "average_response_time",
+   "fieldtype": "Float",
+   "label": "Average Response Time (seconds)",
+   "precision": 3,
+   "read_only": 1
+  },
+  {
+   "fieldname": "average_tokens_per_request",
+   "fieldtype": "Float",
+   "label": "Average Tokens per Request",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "success_rate",
+   "fieldtype": "Percent",
+   "label": "Success Rate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_costs",
+   "fieldtype": "Section Break",
+   "label": "Cost Tracking"
+  },
+  {
+   "fieldname": "total_cost_to_date",
+   "fieldtype": "Currency",
+   "label": "Total Cost to Date",
+   "default": 0,
+   "read_only": 1,
+   "precision": 4
+  },
+  {
+   "fieldname": "monthly_cost_current",
+   "fieldtype": "Currency",
+   "label": "Current Month Cost",
+   "default": 0,
+   "read_only": 1,
+   "precision": 4
+  },
+  {
+   "fieldname": "average_cost_per_request",
+   "fieldtype": "Currency",
+   "label": "Average Cost per Request",
+   "read_only": 1,
+   "precision": 6
+  },
+  {
+   "fieldname": "column_break_costs_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "first_used",
+   "fieldtype": "Datetime",
+   "label": "First Used",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_used",
+   "fieldtype": "Datetime",
+   "label": "Last Used",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_performance_check",
+   "fieldtype": "Datetime",
+   "label": "Last Performance Check",
+   "read_only": 1
+  },
+  {
+   "fieldname": "rate_limits_section",
+   "fieldtype": "Section Break",
+   "label": "Rate Limits",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "requests_per_minute",
+   "fieldtype": "Int",
+   "label": "Requests per Minute",
+   "description": "Maximum requests per minute"
+  },
+  {
+   "fieldname": "requests_per_hour",
+   "fieldtype": "Int",
+   "label": "Requests per Hour",
+   "description": "Maximum requests per hour"
+  },
+  {
+   "fieldname": "requests_per_day",
+   "fieldtype": "Int",
+   "label": "Requests per Day",
+   "description": "Maximum requests per day"
+  },
+  {
+   "fieldname": "requests_per_month",
+   "fieldtype": "Int",
+   "label": "Requests per Month",
+   "description": "Maximum requests per month"
+  },
+  {
+   "fieldname": "column_break_rate_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "tokens_per_minute",
+   "fieldtype": "Int",
+   "label": "Tokens per Minute",
+   "description": "Maximum tokens per minute (TPM)"
+  },
+  {
+   "fieldname": "tokens_per_day",
+   "fieldtype": "Int",
+   "label": "Tokens per Day",
+   "description": "Maximum tokens per day"
+  },
+  {
+   "fieldname": "rate_limit_behavior",
+   "fieldtype": "Select",
+   "label": "Rate Limit Behavior",
+   "options": "Wait\nFail\nFallback",
+   "default": "Wait",
+   "description": "Action to take when rate limit is hit"
+  },
+  {
+   "fieldname": "fallback_model",
+   "fieldtype": "Link",
+   "label": "Fallback Model",
+   "options": "Model Configuration",
+   "depends_on": "eval:doc.rate_limit_behavior=='Fallback'",
+   "description": "Model to use when rate limit is reached"
+  },
+  {
+   "fieldname": "section_break_rate_tracking",
+   "fieldtype": "Section Break",
+   "label": "Current Rate Tracking"
+  },
+  {
+   "fieldname": "current_rpm",
+   "fieldtype": "Int",
+   "label": "Current RPM",
+   "default": 0,
+   "read_only": 1,
+   "description": "Current requests per minute"
+  },
+  {
+   "fieldname": "current_tpm",
+   "fieldtype": "Int",
+   "label": "Current TPM",
+   "default": 0,
+   "read_only": 1,
+   "description": "Current tokens per minute"
+  },
+  {
+   "fieldname": "rate_limit_hit_count",
+   "fieldtype": "Int",
+   "label": "Rate Limit Hit Count",
+   "default": 0,
+   "read_only": 1,
+   "description": "Number of times rate limit was reached"
+  },
+  {
+   "fieldname": "retry_after_seconds",
+   "fieldtype": "Int",
+   "label": "Retry After (seconds)",
+   "default": 60,
+   "description": "Wait time before retry after hitting rate limit"
+  },
+  {
+   "fieldname": "security_section",
+   "fieldtype": "Section Break",
+   "label": "Security & Authentication",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "api_key",
+   "fieldtype": "Password",
+   "label": "API Key",
+   "description": "API key for this model (stored encrypted)"
+  },
+  {
+   "fieldname": "api_secret",
+   "fieldtype": "Password",
+   "label": "API Secret",
+   "description": "API secret if required"
+  },
+  {
+   "fieldname": "organization_id",
+   "fieldtype": "Data",
+   "label": "Organization ID",
+   "description": "Organization or project ID"
+  },
+  {
+   "fieldname": "column_break_sec_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "log_requests",
+   "fieldtype": "Check",
+   "label": "Log All Requests",
+   "default": 1,
+   "description": "Log all API requests for auditing"
+  },
+  {
+   "fieldname": "mask_sensitive_data",
+   "fieldtype": "Check",
+   "label": "Mask Sensitive Data",
+   "default": 1,
+   "description": "Mask sensitive data in logs"
+  },
+  {
+   "fieldname": "enable_content_filtering",
+   "fieldtype": "Check",
+   "label": "Enable Content Filtering",
+   "default": 0,
+   "description": "Filter inappropriate content"
+  },
+  {
+   "fieldname": "audit_trail_enabled",
+   "fieldtype": "Check",
+   "label": "Audit Trail Enabled",
+   "default": 1
+  },
+  {
+   "fieldname": "integration_section",
+   "fieldtype": "Section Break",
+   "label": "Integration & Configuration",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "timeout_seconds",
+   "fieldtype": "Int",
+   "label": "Timeout (seconds)",
+   "default": 30,
+   "description": "Request timeout in seconds"
+  },
+  {
+   "fieldname": "retry_attempts",
+   "fieldtype": "Int",
+   "label": "Retry Attempts",
+   "default": 3,
+   "description": "Number of retry attempts on failure"
+  },
+  {
+   "fieldname": "temperature",
+   "fieldtype": "Float",
+   "label": "Default Temperature",
+   "precision": 2,
+   "description": "Default temperature (0.0 - 2.0)"
+  },
+  {
+   "fieldname": "top_p",
+   "fieldtype": "Float",
+   "label": "Default Top P",
+   "precision": 2,
+   "description": "Default top_p value (0.0 - 1.0)"
+  },
+  {
+   "fieldname": "column_break_int_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "custom_parameters",
+   "fieldtype": "JSON",
+   "label": "Custom Parameters",
+   "description": "Additional custom parameters as JSON"
+  },
+  {
+   "fieldname": "headers",
+   "fieldtype": "JSON",
+   "label": "Custom Headers",
+   "description": "Additional HTTP headers as JSON"
+  },
+  {
+   "fieldname": "override_system_settings",
+   "fieldtype": "Check",
+   "label": "Override System Settings",
+   "default": 0,
+   "description": "Override global system settings"
+  },
+  {
+   "fieldname": "inherit_from_system",
+   "fieldtype": "Check",
+   "label": "Inherit from System Settings",
+   "default": 1,
+   "description": "Inherit API keys and settings from System Settings"
+  },
+  {
+   "fieldname": "section_break_webhooks",
+   "fieldtype": "Section Break",
+   "label": "Webhooks & Notifications"
+  },
+  {
+   "fieldname": "webhook_url",
+   "fieldtype": "Data",
+   "label": "Webhook URL",
+   "description": "Webhook URL for notifications"
+  },
+  {
+   "fieldname": "notify_on_failure",
+   "fieldtype": "Check",
+   "label": "Notify on Failure",
+   "default": 1
+  },
+  {
+   "fieldname": "notify_on_budget_alert",
+   "fieldtype": "Check",
+   "label": "Notify on Budget Alert",
+   "default": 1
+  },
+  {
+   "fieldname": "quality_section",
+   "fieldtype": "Section Break",
+   "label": "Model Quality Assessment",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "quality_rating",
+   "fieldtype": "Rating",
+   "label": "Quality Rating",
+   "description": "Overall quality rating (1-5 stars)"
+  },
+  {
+   "fieldname": "accuracy_score",
+   "fieldtype": "Percent",
+   "label": "Accuracy Score",
+   "description": "Model accuracy score"
+  },
+  {
+   "fieldname": "relevance_score",
+   "fieldtype": "Percent",
+   "label": "Relevance Score",
+   "description": "Response relevance score"
+  },
+  {
+   "fieldname": "consistency_score",
+   "fieldtype": "Percent",
+   "label": "Consistency Score",
+   "description": "Output consistency score"
+  },
+  {
+   "fieldname": "column_break_quality_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "strengths",
+   "fieldtype": "Text",
+   "label": "Strengths",
+   "description": "Model strengths"
+  },
+  {
+   "fieldname": "weaknesses",
+   "fieldtype": "Text",
+   "label": "Weaknesses",
+   "description": "Model weaknesses"
+  },
+  {
+   "fieldname": "recommended_for",
+   "fieldtype": "Small Text",
+   "label": "Recommended For",
+   "description": "Recommended use cases"
+  },
+  {
+   "fieldname": "not_recommended_for",
+   "fieldtype": "Small Text",
+   "label": "Not Recommended For",
+   "description": "Use cases to avoid"
+  },
+  {
+   "fieldname": "maintenance_section",
+   "fieldtype": "Section Break",
+   "label": "Maintenance & Monitoring",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "health_status",
+   "fieldtype": "Select",
+   "label": "Health Status",
+   "options": "Healthy\nDegraded\nDown\nUnknown",
+   "default": "Unknown",
+   "read_only": 1
+  },
+  {
+   "fieldname": "health_check_url",
+   "fieldtype": "Data",
+   "label": "Health Check URL",
+   "description": "URL for health checks"
+  },
+  {
+   "fieldname": "last_health_check",
+   "fieldtype": "Datetime",
+   "label": "Last Health Check",
+   "read_only": 1
+  },
+  {
+   "fieldname": "health_check_interval",
+   "fieldtype": "Int",
+   "label": "Health Check Interval (minutes)",
+   "default": 15,
+   "description": "Health check frequency"
+  },
+  {
+   "fieldname": "column_break_maint_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "alert_on_error_rate",
+   "fieldtype": "Percent",
+   "label": "Alert on Error Rate",
+   "description": "Send alert when error rate exceeds this",
+   "default": 20
+  },
+  {
+   "fieldname": "alert_cooldown_minutes",
+   "fieldtype": "Int",
+   "label": "Alert Cooldown (minutes)",
+   "default": 30,
+   "description": "Minimum time between alerts"
+  },
+  {
+   "fieldname": "deprecation_date",
+   "fieldtype": "Date",
+   "label": "Deprecation Date",
+   "description": "Expected deprecation date"
+  },
+  {
+   "fieldname": "replacement_model",
+   "fieldtype": "Link",
+   "label": "Replacement Model",
+   "options": "Model Configuration",
+   "description": "Recommended replacement model"
+  }
+ ],
+ "links": [],
+ "modified": "2025-10-23 08:17:04",
+ "modified_by": "Administrator",
+ "module": "Cap",
+ "name": "Model Configuration",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "AI Administrator",
+   "share": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

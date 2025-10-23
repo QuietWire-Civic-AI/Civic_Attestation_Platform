@@ -1,0 +1,703 @@
+"_comment": "Project: QuietWire CAP (Civic AI Canon Platform) V 1.0.0 | Website: https://quietwire.ai | Authors: Ashraf Saleh Alhajj; Raasid (AI Companion) | SPDX-License-Identifier: Apache-2.0 | SPDX-FileCopyrightText: 2025 QuietWire | SPDX-FileContributor: Ashraf Saleh Alhajj | SPDX-FileContributor: Raasid (AI Companion)",
+  "actions": [],
+  "allow_rename": 0,
+  "autoname": "format:AUDIT-{YYYY}-{#####}",
+  "creation": "2025-10-23 08:59:08",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "audit_log_information_section",
+    "log_id",
+    "log_type",
+    "timestamp",
+    "column_break_basic_1",
+    "severity",
+    "status",
+    "is_sensitive",
+    "event_details_section",
+    "event_category",
+    "event_action",
+    "event_description",
+    "column_break_event_1",
+    "event_source",
+    "event_result",
+    "error_message",
+    "error_code",
+    "duration_ms",
+    "user_and_session_context_section",
+    "user",
+    "user_name",
+    "tenant",
+    "tenant_name",
+    "column_break_user_1",
+    "session_id",
+    "request_id",
+    "ip_address",
+    "user_agent",
+    "column_break_user_2",
+    "geolocation",
+    "device_type",
+    "target_and_changes_section",
+    "doctype_affected",
+    "doctype_name",
+    "field_changed",
+    "column_break_target_1",
+    "old_value",
+    "new_value",
+    "change_diff",
+    "column_break_target_2",
+    "affected_records_count",
+    "bulk_operation",
+    "security_and_compliance_section",
+    "compliance_framework",
+    "compliance_requirement",
+    "data_classification",
+    "column_break_compliance_1",
+    "requires_review",
+    "reviewed_by",
+    "review_date",
+    "review_notes",
+    "column_break_compliance_2",
+    "retention_until",
+    "is_archived",
+    "encryption_used",
+    "context_and_metadata_section",
+    "api_endpoint",
+    "http_method",
+    "query_params",
+    "request_body",
+    "column_break_context_1",
+    "response_status",
+    "response_size_bytes",
+    "model_used",
+    "model_cost",
+    "tokens_used",
+    "column_break_context_2",
+    "related_chat_session",
+    "related_evidence",
+    "related_violation",
+    "related_policy",
+    "response_and_results_section",
+    "success",
+    "retry_count",
+    "column_break_response_1",
+    "parent_log",
+    "child_logs_count",
+    "has_children",
+    "column_break_response_2",
+    "correlation_id",
+    "categorization_and_search_section",
+    "tags",
+    "is_anomaly",
+    "anomaly_score",
+    "column_break_categorization_1",
+    "alert_sent",
+    "alert_recipients",
+    "indexed_content"
+  ],
+  "fields": [
+    {
+      "fieldname": "audit_log_information_section",
+      "fieldtype": "Section Break",
+      "label": "🔍 Audit Log Information"
+    },
+    {
+      "fieldname": "log_id",
+      "fieldtype": "Data",
+      "label": "Log ID",
+      "unique": 1,
+      "read_only": 1,
+      "reqd": 1
+    },
+    {
+      "fieldname": "log_type",
+      "fieldtype": "Select",
+      "label": "Log Type",
+      "options": "System Event\nUser Action\nAPI Call\nData Change\nSecurity Event\nCompliance Event\nError\nWarning\nInfo\nDebug",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "timestamp",
+      "fieldtype": "Datetime",
+      "label": "Timestamp",
+      "default": "now",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "column_break_basic_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "severity",
+      "fieldtype": "Select",
+      "label": "Severity",
+      "options": "Critical\nHigh\nMedium\nLow\nInfo",
+      "default": "Info",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": "Success\nFailed\nPartial\nPending\nReverted",
+      "default": "Success",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "is_sensitive",
+      "fieldtype": "Check",
+      "label": "Contains Sensitive Data",
+      "default": 0,
+      "description": "Flag for GDPR compliance - contains PII or sensitive information"
+    },
+    {
+      "fieldname": "event_details_section",
+      "fieldtype": "Section Break",
+      "label": "📝 Event Details"
+    },
+    {
+      "fieldname": "event_category",
+      "fieldtype": "Select",
+      "label": "Event Category",
+      "options": "Authentication\nAuthorization\nData Access\nData Modification\nSystem Configuration\nAPI Request\nFile Upload\nFile Download\nExport\nImport\nModel Usage\nCompliance Check\nEvidence Verification\nPolicy Violation\nChat Session\nTenant Management\nUser Management\nSecurity Scan\nBackup\nOther",
+      "reqd": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "event_action",
+      "fieldtype": "Data",
+      "label": "Event Action",
+      "description": "Specific action: login, logout, create, read, update, delete, approve, reject, etc.",
+      "reqd": 1
+    },
+    {
+      "fieldname": "event_description",
+      "fieldtype": "Small Text",
+      "label": "Event Description",
+      "description": "Human-readable description of what happened"
+    },
+    {
+      "fieldname": "column_break_event_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "event_source",
+      "fieldtype": "Select",
+      "label": "Event Source",
+      "options": "Web UI\nAPI\nCLI\nScheduled Job\nSystem\nIntegration\nWebhook\nMobile App",
+      "default": "Web UI",
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "event_result",
+      "fieldtype": "Select",
+      "label": "Event Result",
+      "options": "Success\nFailed\nError\nTimeout\nUnauthorized\nForbidden\nNotFound\nValidationError",
+      "default": "Success"
+    },
+    {
+      "fieldname": "error_message",
+      "fieldtype": "Text",
+      "label": "Error Message",
+      "description": "Detailed error message if operation failed"
+    },
+    {
+      "fieldname": "error_code",
+      "fieldtype": "Data",
+      "label": "Error Code",
+      "description": "HTTP status code or custom error code"
+    },
+    {
+      "fieldname": "duration_ms",
+      "fieldtype": "Int",
+      "label": "Duration (ms)",
+      "description": "Operation duration in milliseconds",
+      "non_negative": 1
+    },
+    {
+      "fieldname": "user_and_session_context_section",
+      "fieldtype": "Section Break",
+      "label": "👤 User & Session Context"
+    },
+    {
+      "fieldname": "user",
+      "fieldtype": "Link",
+      "label": "User",
+      "options": "User",
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "user_name",
+      "fieldtype": "Data",
+      "label": "User Name",
+      "read_only": 1,
+      "fetch_from": "user.full_name"
+    },
+    {
+      "fieldname": "tenant",
+      "fieldtype": "Link",
+      "label": "Tenant",
+      "options": "Tenant",
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "tenant_name",
+      "fieldtype": "Data",
+      "label": "Tenant Name",
+      "read_only": 1,
+      "fetch_from": "tenant.tenant_name"
+    },
+    {
+      "fieldname": "column_break_user_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "session_id",
+      "fieldtype": "Data",
+      "label": "Session ID",
+      "description": "Browser or API session identifier"
+    },
+    {
+      "fieldname": "request_id",
+      "fieldtype": "Data",
+      "label": "Request ID",
+      "description": "Unique request ID for correlation and tracing",
+      "unique": 1
+    },
+    {
+      "fieldname": "ip_address",
+      "fieldtype": "Data",
+      "label": "IP Address",
+      "description": "IPv4 or IPv6 address"
+    },
+    {
+      "fieldname": "user_agent",
+      "fieldtype": "Small Text",
+      "label": "User Agent",
+      "description": "Browser or client information"
+    },
+    {
+      "fieldname": "column_break_user_2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "geolocation",
+      "fieldtype": "Small Text",
+      "label": "Geolocation",
+      "description": "Country, City (if available)"
+    },
+    {
+      "fieldname": "device_type",
+      "fieldtype": "Select",
+      "label": "Device Type",
+      "options": "Desktop\nMobile\nTablet\nAPI Client\nBot\nUnknown",
+      "default": "Desktop"
+    },
+    {
+      "fieldname": "target_and_changes_section",
+      "fieldtype": "Section Break",
+      "label": "🎯 Target & Changes"
+    },
+    {
+      "fieldname": "doctype_affected",
+      "fieldtype": "Link",
+      "label": "DocType Affected",
+      "options": "DocType",
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "doctype_name",
+      "fieldtype": "Data",
+      "label": "Record Name",
+      "description": "Name of the specific record affected"
+    },
+    {
+      "fieldname": "field_changed",
+      "fieldtype": "Data",
+      "label": "Field Changed",
+      "description": "Specific field that was modified"
+    },
+    {
+      "fieldname": "column_break_target_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "old_value",
+      "fieldtype": "Long Text",
+      "label": "Old Value",
+      "description": "Previous value (JSON format for complex data)"
+    },
+    {
+      "fieldname": "new_value",
+      "fieldtype": "Long Text",
+      "label": "New Value",
+      "description": "New value (JSON format for complex data)"
+    },
+    {
+      "fieldname": "change_diff",
+      "fieldtype": "Code",
+      "label": "Change Diff",
+      "description": "JSON diff showing exact changes",
+      "options": "JSON"
+    },
+    {
+      "fieldname": "column_break_target_2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "affected_records_count",
+      "fieldtype": "Int",
+      "label": "Affected Records Count",
+      "description": "Number of records affected (for bulk operations)",
+      "default": 1,
+      "non_negative": 1
+    },
+    {
+      "fieldname": "bulk_operation",
+      "fieldtype": "Check",
+      "label": "Bulk Operation",
+      "default": 0,
+      "description": "Was this a bulk/batch operation?"
+    },
+    {
+      "fieldname": "security_and_compliance_section",
+      "fieldtype": "Section Break",
+      "label": "🔒 Security & Compliance"
+    },
+    {
+      "fieldname": "compliance_framework",
+      "fieldtype": "Select",
+      "label": "Compliance Framework",
+      "options": "\nGDPR\nHIPAA\nSOC2\nISO27001\nPCI-DSS\nCCPA\nCustom",
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "compliance_requirement",
+      "fieldtype": "Data",
+      "label": "Compliance Requirement",
+      "description": "Specific requirement ID or clause number"
+    },
+    {
+      "fieldname": "data_classification",
+      "fieldtype": "Select",
+      "label": "Data Classification",
+      "options": "Public\nInternal\nConfidential\nRestricted",
+      "default": "Internal",
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "column_break_compliance_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "requires_review",
+      "fieldtype": "Check",
+      "label": "Requires Review",
+      "default": 0,
+      "description": "Flagged for manual compliance review"
+    },
+    {
+      "fieldname": "reviewed_by",
+      "fieldtype": "Link",
+      "label": "Reviewed By",
+      "options": "User"
+    },
+    {
+      "fieldname": "review_date",
+      "fieldtype": "Date",
+      "label": "Review Date"
+    },
+    {
+      "fieldname": "review_notes",
+      "fieldtype": "Text",
+      "label": "Review Notes"
+    },
+    {
+      "fieldname": "column_break_compliance_2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "retention_until",
+      "fieldtype": "Date",
+      "label": "Retention Until",
+      "description": "Auto-delete or archive after this date"
+    },
+    {
+      "fieldname": "is_archived",
+      "fieldtype": "Check",
+      "label": "Archived",
+      "default": 0
+    },
+    {
+      "fieldname": "encryption_used",
+      "fieldtype": "Check",
+      "label": "Encryption Used",
+      "default": 0,
+      "description": "Was data encrypted during this operation?"
+    },
+    {
+      "fieldname": "context_and_metadata_section",
+      "fieldtype": "Section Break",
+      "label": "🌐 Context & Metadata"
+    },
+    {
+      "fieldname": "api_endpoint",
+      "fieldtype": "Data",
+      "label": "API Endpoint",
+      "description": "Full API path (e.g., /api/resource/User/user123)"
+    },
+    {
+      "fieldname": "http_method",
+      "fieldtype": "Select",
+      "label": "HTTP Method",
+      "options": "\nGET\nPOST\nPUT\nDELETE\nPATCH\nHEAD\nOPTIONS"
+    },
+    {
+      "fieldname": "query_params",
+      "fieldtype": "Code",
+      "label": "Query Parameters",
+      "description": "URL query parameters (JSON format)",
+      "options": "JSON"
+    },
+    {
+      "fieldname": "request_body",
+      "fieldtype": "Code",
+      "label": "Request Body",
+      "description": "Request payload (sanitized, sensitive data removed)",
+      "options": "JSON"
+    },
+    {
+      "fieldname": "column_break_context_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "response_status",
+      "fieldtype": "Int",
+      "label": "Response Status Code",
+      "description": "HTTP response status code"
+    },
+    {
+      "fieldname": "response_size_bytes",
+      "fieldtype": "Int",
+      "label": "Response Size (Bytes)",
+      "description": "Size of response payload in bytes",
+      "non_negative": 1
+    },
+    {
+      "fieldname": "model_used",
+      "fieldtype": "Link",
+      "label": "AI Model Used",
+      "options": "Model Configuration",
+      "description": "AI model used for this operation (if applicable)"
+    },
+    {
+      "fieldname": "model_cost",
+      "fieldtype": "Currency",
+      "label": "Model Cost",
+      "description": "Cost of AI model usage",
+      "precision": 6
+    },
+    {
+      "fieldname": "tokens_used",
+      "fieldtype": "Int",
+      "label": "Tokens Used",
+      "description": "Total tokens consumed (if AI model)",
+      "non_negative": 1
+    },
+    {
+      "fieldname": "column_break_context_2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "related_chat_session",
+      "fieldtype": "Link",
+      "label": "Related Chat Session",
+      "options": "Chat Session"
+    },
+    {
+      "fieldname": "related_evidence",
+      "fieldtype": "Link",
+      "label": "Related Evidence",
+      "options": "Evidence"
+    },
+    {
+      "fieldname": "related_violation",
+      "fieldtype": "Link",
+      "label": "Related Violation",
+      "options": "Violation"
+    },
+    {
+      "fieldname": "related_policy",
+      "fieldtype": "Link",
+      "label": "Related Policy",
+      "options": "Policy"
+    },
+    {
+      "fieldname": "response_and_results_section",
+      "fieldtype": "Section Break",
+      "label": "✅ Response & Results"
+    },
+    {
+      "fieldname": "success",
+      "fieldtype": "Check",
+      "label": "Success",
+      "default": 1,
+      "description": "Did the operation complete successfully?"
+    },
+    {
+      "fieldname": "retry_count",
+      "fieldtype": "Int",
+      "label": "Retry Count",
+      "description": "Number of retry attempts",
+      "default": 0,
+      "non_negative": 1
+    },
+    {
+      "fieldname": "column_break_response_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "parent_log",
+      "fieldtype": "Link",
+      "label": "Parent Log",
+      "options": "Audit Log",
+      "description": "Parent audit log (for hierarchical operations)"
+    },
+    {
+      "fieldname": "child_logs_count",
+      "fieldtype": "Int",
+      "label": "Child Logs Count",
+      "description": "Number of child operations",
+      "default": 0,
+      "read_only": 1,
+      "non_negative": 1
+    },
+    {
+      "fieldname": "has_children",
+      "fieldtype": "Check",
+      "label": "Has Child Logs",
+      "default": 0,
+      "read_only": 1
+    },
+    {
+      "fieldname": "column_break_response_2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "correlation_id",
+      "fieldtype": "Data",
+      "label": "Correlation ID",
+      "description": "For linking related logs across operations",
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "categorization_and_search_section",
+      "fieldtype": "Section Break",
+      "label": "🔖 Categorization & Search"
+    },
+    {
+      "fieldname": "tags",
+      "fieldtype": "Small Text",
+      "label": "Tags",
+      "description": "Comma-separated tags for filtering and search"
+    },
+    {
+      "fieldname": "is_anomaly",
+      "fieldtype": "Check",
+      "label": "Flagged as Anomaly",
+      "default": 0,
+      "description": "Detected as suspicious by anomaly detection system"
+    },
+    {
+      "fieldname": "anomaly_score",
+      "fieldtype": "Percent",
+      "label": "Anomaly Score",
+      "description": "Anomaly detection confidence (0-100%)",
+      "precision": 2
+    },
+    {
+      "fieldname": "column_break_categorization_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "alert_sent",
+      "fieldtype": "Check",
+      "label": "Alert Sent",
+      "default": 0,
+      "description": "Was an alert triggered for this log?"
+    },
+    {
+      "fieldname": "alert_recipients",
+      "fieldtype": "Small Text",
+      "label": "Alert Recipients",
+      "description": "Who was notified (comma-separated emails)"
+    },
+    {
+      "fieldname": "indexed_content",
+      "fieldtype": "Long Text",
+      "label": "Indexed Content",
+      "description": "Full-text searchable content for advanced queries",
+      "hidden": 1
+    }
+  ],
+  "index_web_pages_for_search": 1,
+  "is_submittable": 0,
+  "links": [],
+  "modified": "2025-10-23 08:59:08",
+  "modified_by": "Administrator",
+  "module": "CAP",
+  "name": "Audit Log",
+  "naming_rule": "Expression",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 0,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 0
+    },
+    {
+      "create": 0,
+      "delete": 0,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Compliance Officer",
+      "share": 0,
+      "write": 0
+    },
+    {
+      "create": 0,
+      "delete": 0,
+      "email": 0,
+      "export": 0,
+      "print": 0,
+      "read": 1,
+      "report": 0,
+      "role": "Auditor",
+      "share": 0,
+      "write": 0
+    }
+  ],
+  "sort_field": "timestamp",
+  "sort_order": "DESC",
+  "states": [],
+  "track_changes": 1,
+  "track_seen": 1,
+  "track_views": 1
+}

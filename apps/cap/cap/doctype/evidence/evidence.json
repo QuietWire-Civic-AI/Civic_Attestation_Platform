@@ -1,0 +1,473 @@
+"_comment": "Project: QuietWire CAP (Civic AI Canon Platform) V 1.0.0 | Website: https://quietwire.ai | Authors: Ashraf Saleh Alhajj; Raasid (AI Companion) | SPDX-License-Identifier: Apache-2.0 | SPDX-FileCopyrightText: 2025 QuietWire | SPDX-FileContributor: Ashraf Saleh Alhajj | SPDX-FileContributor: Raasid (AI Companion)",
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2025-10-23 05:26:30",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_information_section",
+  "naming_series",
+  "evidence_id",
+  "title",
+  "evidence_type",
+  "status",
+  "column_break_basic",
+  "priority",
+  "tenant",
+  "created_by_user",
+  "created_at",
+  "source_information_section",
+  "source_type",
+  "source_reference",
+  "source_url",
+  "column_break_source",
+  "source_document_type",
+  "source_document_name",
+  "external_id",
+  "content_section",
+  "description",
+  "content",
+  "content_hash",
+  "column_break_content",
+  "content_type",
+  "content_size",
+  "content_language",
+  "attachments_section",
+  "attachments",
+  "verification_section",
+  "verification_status",
+  "verified_by",
+  "verified_at",
+  "column_break_verification",
+  "verification_method",
+  "verification_notes",
+  "confidence_score",
+  "relationships_section",
+  "related_messages",
+  "related_policies",
+  "related_violations",
+  "column_break_relationships",
+  "related_citations",
+  "evidence_chain",
+  "metadata_section",
+  "tags",
+  "custom_metadata",
+  "column_break_metadata",
+  "jurisdiction",
+  "applicable_laws",
+  "retention_period",
+  "chain_of_custody_section",
+  "chain_entries",
+  "audit_section",
+  "modified_by_user",
+  "modified_at",
+  "column_break_audit",
+  "revision_number",
+  "previous_version",
+  "change_summary"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_information_section",
+   "fieldtype": "Section Break",
+   "label": "Basic Information"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "EVID-.YYYY.-.####\nEVD-.####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "evidence_id",
+   "fieldtype": "Data",
+   "label": "Evidence ID",
+   "read_only": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "evidence_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Evidence Type",
+   "options": "Document\nScreenshot\nRecording\nTranscript\nLog File\nEmail\nChat Message\nAPI Response\nDatabase Record\nOther",
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Draft\nPending Verification\nVerified\nRejected\nArchived\nExpired",
+   "default": "Draft",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_basic",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "label": "Priority",
+   "options": "Low\nMedium\nHigh\nCritical",
+   "default": "Medium"
+  },
+  {
+   "fieldname": "tenant",
+   "fieldtype": "Link",
+   "label": "Tenant",
+   "options": "Tenant",
+   "in_standard_filter": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "created_by_user",
+   "fieldtype": "Link",
+   "label": "Created By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "created_at",
+   "fieldtype": "Datetime",
+   "label": "Created At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "source_information_section",
+   "fieldtype": "Section Break",
+   "label": "Source Information"
+  },
+  {
+   "fieldname": "source_type",
+   "fieldtype": "Select",
+   "label": "Source Type",
+   "options": "Internal System\nExternal API\nUser Upload\nAutomated Collection\nManual Entry\nThird Party\nOther"
+  },
+  {
+   "fieldname": "source_reference",
+   "fieldtype": "Data",
+   "label": "Source Reference"
+  },
+  {
+   "fieldname": "source_url",
+   "fieldtype": "Data",
+   "label": "Source URL"
+  },
+  {
+   "fieldname": "column_break_source",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "source_document_type",
+   "fieldtype": "Link",
+   "label": "Source Document Type",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "source_document_name",
+   "fieldtype": "Dynamic Link",
+   "label": "Source Document",
+   "options": "source_document_type"
+  },
+  {
+   "fieldname": "external_id",
+   "fieldtype": "Data",
+   "label": "External ID"
+  },
+  {
+   "fieldname": "content_section",
+   "fieldtype": "Section Break",
+   "label": "Content"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "content",
+   "fieldtype": "Long Text",
+   "label": "Content"
+  },
+  {
+   "fieldname": "content_hash",
+   "fieldtype": "Data",
+   "label": "Content Hash (SHA-256)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_content",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "content_type",
+   "fieldtype": "Data",
+   "label": "Content Type (MIME)"
+  },
+  {
+   "fieldname": "content_size",
+   "fieldtype": "Int",
+   "label": "Content Size (bytes)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "content_language",
+   "fieldtype": "Data",
+   "label": "Content Language"
+  },
+  {
+   "fieldname": "attachments_section",
+   "fieldtype": "Section Break",
+   "label": "Attachments"
+  },
+  {
+   "fieldname": "attachments",
+   "fieldtype": "Table",
+   "label": "Attachments",
+   "options": "Evidence Attachment"
+  },
+  {
+   "fieldname": "verification_section",
+   "fieldtype": "Section Break",
+   "label": "Verification"
+  },
+  {
+   "fieldname": "verification_status",
+   "fieldtype": "Select",
+   "label": "Verification Status",
+   "options": "Not Verified\nPending\nIn Progress\nVerified\nFailed\nPartially Verified",
+   "default": "Not Verified"
+  },
+  {
+   "fieldname": "verified_by",
+   "fieldtype": "Link",
+   "label": "Verified By",
+   "options": "User"
+  },
+  {
+   "fieldname": "verified_at",
+   "fieldtype": "Datetime",
+   "label": "Verified At"
+  },
+  {
+   "fieldname": "column_break_verification",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "verification_method",
+   "fieldtype": "Select",
+   "label": "Verification Method",
+   "options": "Manual Review\nAutomated Check\nCryptographic\nThird Party\nCross Reference\nOther"
+  },
+  {
+   "fieldname": "verification_notes",
+   "fieldtype": "Text",
+   "label": "Verification Notes"
+  },
+  {
+   "fieldname": "confidence_score",
+   "fieldtype": "Float",
+   "label": "Confidence Score (0-1)",
+   "precision": "4"
+  },
+  {
+   "fieldname": "relationships_section",
+   "fieldtype": "Section Break",
+   "label": "Relationships"
+  },
+  {
+   "fieldname": "related_messages",
+   "fieldtype": "Table",
+   "label": "Related Messages",
+   "options": "Evidence Message Link"
+  },
+  {
+   "fieldname": "related_policies",
+   "fieldtype": "Table",
+   "label": "Related Policies",
+   "options": "Evidence Policy Link"
+  },
+  {
+   "fieldname": "related_violations",
+   "fieldtype": "Table",
+   "label": "Related Violations",
+   "options": "Evidence Violation Link"
+  },
+  {
+   "fieldname": "column_break_relationships",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "related_citations",
+   "fieldtype": "Table",
+   "label": "Related Citations",
+   "options": "Evidence Citation Link"
+  },
+  {
+   "fieldname": "evidence_chain",
+   "fieldtype": "Link",
+   "label": "Evidence Chain",
+   "options": "Evidence Chain"
+  },
+  {
+   "fieldname": "metadata_section",
+   "fieldtype": "Section Break",
+   "label": "Metadata"
+  },
+  {
+   "fieldname": "tags",
+   "fieldtype": "Data",
+   "label": "Tags (comma-separated)"
+  },
+  {
+   "fieldname": "custom_metadata",
+   "fieldtype": "JSON",
+   "label": "Custom Metadata"
+  },
+  {
+   "fieldname": "column_break_metadata",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "jurisdiction",
+   "fieldtype": "Data",
+   "label": "Jurisdiction"
+  },
+  {
+   "fieldname": "applicable_laws",
+   "fieldtype": "Small Text",
+   "label": "Applicable Laws"
+  },
+  {
+   "fieldname": "retention_period",
+   "fieldtype": "Int",
+   "label": "Retention Period (days)"
+  },
+  {
+   "fieldname": "chain_of_custody_section",
+   "fieldtype": "Section Break",
+   "label": "Chain of Custody"
+  },
+  {
+   "fieldname": "chain_entries",
+   "fieldtype": "Table",
+   "label": "Chain Entries",
+   "options": "Evidence Custody Entry"
+  },
+  {
+   "fieldname": "audit_section",
+   "fieldtype": "Section Break",
+   "label": "Audit Information",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "modified_by_user",
+   "fieldtype": "Link",
+   "label": "Last Modified By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "modified_at",
+   "fieldtype": "Datetime",
+   "label": "Last Modified At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_audit",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "revision_number",
+   "fieldtype": "Int",
+   "label": "Revision Number",
+   "read_only": 1,
+   "default": "1"
+  },
+  {
+   "fieldname": "previous_version",
+   "fieldtype": "Link",
+   "label": "Previous Version",
+   "options": "Evidence",
+   "read_only": 1
+  },
+  {
+   "fieldname": "change_summary",
+   "fieldtype": "Small Text",
+   "label": "Change Summary"
+  }
+ ],
+ "links": [],
+ "modified": "2025-10-23 05:26:30",
+ "modified_by": "Administrator",
+ "module": "CAP",
+ "name": "Evidence",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CAP Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CAP Compliance Officer",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CAP User",
+   "share": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

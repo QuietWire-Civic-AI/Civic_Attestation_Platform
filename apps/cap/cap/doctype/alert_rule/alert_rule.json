@@ -1,0 +1,516 @@
+"_comment": "Project: QuietWire CAP (Civic AI Canon Platform) V 1.0.0 | Website: https://quietwire.ai | Authors: Ashraf Saleh Alhajj; Raasid (AI Companion) | SPDX-License-Identifier: Apache-2.0 | SPDX-FileCopyrightText: 2025 QuietWire | SPDX-FileContributor: Ashraf Saleh Alhajj | SPDX-FileContributor: Raasid (AI Companion)",
+ "actions": [],
+ "autoname": "format:ALR-{####}",
+ "creation": "2025-10-23 11:47:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_basic",
+  "rule_name",
+  "rule_description",
+  "is_enabled",
+  "severity",
+  "column_break_basic",
+  "tenant",
+  "created_by",
+  "last_modified_by",
+  "last_triggered_at",
+  "section_trigger_conditions",
+  "trigger_type",
+  "log_type",
+  "event_category",
+  "column_break_trigger",
+  "event_action",
+  "status_filter",
+  "user_filter",
+  "section_advanced_conditions",
+  "ip_address_pattern",
+  "doctype_filter",
+  "column_break_advanced",
+  "custom_filter_json",
+  "section_threshold",
+  "threshold_type",
+  "threshold_value",
+  "threshold_period_minutes",
+  "column_break_threshold",
+  "consecutive_matches",
+  "anomaly_score_threshold",
+  "section_notification",
+  "notification_channels",
+  "email_enabled",
+  "email_recipients",
+  "column_break_notification",
+  "slack_enabled",
+  "slack_webhook_url",
+  "teams_enabled",
+  "teams_webhook_url",
+  "section_message_template",
+  "subject_template",
+  "message_template",
+  "include_log_details",
+  "section_schedule",
+  "active_hours_only",
+  "active_start_time",
+  "active_end_time",
+  "column_break_schedule",
+  "active_days",
+  "throttle_minutes",
+  "max_alerts_per_day",
+  "section_statistics",
+  "total_triggers",
+  "total_alerts_sent",
+  "last_alert_sent_at",
+  "column_break_stats",
+  "success_count",
+  "failure_count",
+  "section_audit",
+  "created_at",
+  "modified_at"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_basic",
+   "fieldtype": "Section Break",
+   "label": "Basic Information"
+  },
+  {
+   "fieldname": "rule_name",
+   "fieldtype": "Data",
+   "label": "Rule Name",
+   "reqd": 1,
+   "unique": 1,
+   "description": "Unique name for this alert rule"
+  },
+  {
+   "fieldname": "rule_description",
+   "fieldtype": "Text",
+   "label": "Description",
+   "description": "What does this alert rule monitor?"
+  },
+  {
+   "fieldname": "is_enabled",
+   "fieldtype": "Check",
+   "label": "Enabled",
+   "default": "1",
+   "description": "Enable/disable this alert rule"
+  },
+  {
+   "fieldname": "severity",
+   "fieldtype": "Select",
+   "label": "Severity",
+   "options": "Low\nMedium\nHigh\nCritical",
+   "default": "Medium",
+   "reqd": 1,
+   "description": "Alert severity level"
+  },
+  {
+   "fieldname": "column_break_basic",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "tenant",
+   "fieldtype": "Link",
+   "label": "Tenant",
+   "options": "Tenant",
+   "description": "Tenant this rule belongs to (leave empty for all tenants)"
+  },
+  {
+   "fieldname": "created_by",
+   "fieldtype": "Link",
+   "label": "Created By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_modified_by",
+   "fieldtype": "Link",
+   "label": "Last Modified By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_triggered_at",
+   "fieldtype": "Datetime",
+   "label": "Last Triggered At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_trigger_conditions",
+   "fieldtype": "Section Break",
+   "label": "Trigger Conditions",
+   "collapsible": 0
+  },
+  {
+   "fieldname": "trigger_type",
+   "fieldtype": "Select",
+   "label": "Trigger Type",
+   "options": "Pattern Match\nThreshold\nAnomaly Detection\nConsecutive Events\nTime-based",
+   "default": "Pattern Match",
+   "reqd": 1,
+   "description": "How should this rule be triggered?"
+  },
+  {
+   "fieldname": "log_type",
+   "fieldtype": "Select",
+   "label": "Log Type",
+   "options": "\nUser Action\nData Change\nAPI Call\nSecurity Event\nSystem Event\nCompliance Event\nModel Usage\nEvidence Event\nWorkflow Event\nIntegration Event",
+   "description": "Filter by log type (leave empty for all)"
+  },
+  {
+   "fieldname": "event_category",
+   "fieldtype": "Select",
+   "label": "Event Category",
+   "options": "\nAuthentication\nAuthorization\nData Access\nData Modification\nDeletion\nExport\nImport\nConfiguration\nBackup\nRestore\nAPI\nChat\nModel\nEvidence\nCompliance\nViolation\nReview\nApproval\nRejection\nEscalation",
+   "description": "Filter by event category"
+  },
+  {
+   "fieldname": "column_break_trigger",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "event_action",
+   "fieldtype": "Data",
+   "label": "Event Action",
+   "description": "Specific action to monitor (e.g., 'login', 'delete', 'export')"
+  },
+  {
+   "fieldname": "status_filter",
+   "fieldtype": "Select",
+   "label": "Status Filter",
+   "options": "\nSuccess\nFailed\nPending\nWarning",
+   "description": "Monitor only specific status"
+  },
+  {
+   "fieldname": "user_filter",
+   "fieldtype": "Link",
+   "label": "User Filter",
+   "options": "User",
+   "description": "Monitor specific user only (leave empty for all users)"
+  },
+  {
+   "fieldname": "section_advanced_conditions",
+   "fieldtype": "Section Break",
+   "label": "Advanced Conditions",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "ip_address_pattern",
+   "fieldtype": "Data",
+   "label": "IP Address Pattern",
+   "description": "Monitor specific IP addresses (use * for wildcard, e.g., 192.168.*.*)"
+  },
+  {
+   "fieldname": "doctype_filter",
+   "fieldtype": "Data",
+   "label": "DocType Filter",
+   "description": "Monitor specific DocType (for data change logs)"
+  },
+  {
+   "fieldname": "column_break_advanced",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "custom_filter_json",
+   "fieldtype": "Code",
+   "label": "Custom Filter (JSON)",
+   "options": "JSON",
+   "description": "Advanced: Custom filter conditions in JSON format"
+  },
+  {
+   "fieldname": "section_threshold",
+   "fieldtype": "Section Break",
+   "label": "Threshold Settings",
+   "collapsible": 1,
+   "depends_on": "eval:doc.trigger_type=='Threshold' || doc.trigger_type=='Consecutive Events'"
+  },
+  {
+   "fieldname": "threshold_type",
+   "fieldtype": "Select",
+   "label": "Threshold Type",
+   "options": "Count\nRate (per minute)\nDuration (milliseconds)\nPercentage",
+   "default": "Count",
+   "depends_on": "eval:doc.trigger_type=='Threshold'"
+  },
+  {
+   "fieldname": "threshold_value",
+   "fieldtype": "Int",
+   "label": "Threshold Value",
+   "default": "10",
+   "description": "Alert when threshold is exceeded"
+  },
+  {
+   "fieldname": "threshold_period_minutes",
+   "fieldtype": "Int",
+   "label": "Period (Minutes)",
+   "default": "5",
+   "description": "Time period to evaluate threshold",
+   "depends_on": "eval:doc.trigger_type=='Threshold'"
+  },
+  {
+   "fieldname": "column_break_threshold",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "consecutive_matches",
+   "fieldtype": "Int",
+   "label": "Consecutive Matches",
+   "default": "3",
+   "description": "Alert after N consecutive matching events",
+   "depends_on": "eval:doc.trigger_type=='Consecutive Events'"
+  },
+  {
+   "fieldname": "anomaly_score_threshold",
+   "fieldtype": "Int",
+   "label": "Anomaly Score Threshold (%)",
+   "default": "70",
+   "description": "Alert when anomaly score exceeds this value",
+   "depends_on": "eval:doc.trigger_type=='Anomaly Detection'"
+  },
+  {
+   "fieldname": "section_notification",
+   "fieldtype": "Section Break",
+   "label": "Notification Channels",
+   "collapsible": 0
+  },
+  {
+   "fieldname": "notification_channels",
+   "fieldtype": "Select",
+   "label": "Primary Channel",
+   "options": "Email\nSlack\nMicrosoft Teams\nAll Channels",
+   "default": "Email",
+   "reqd": 1
+  },
+  {
+   "fieldname": "email_enabled",
+   "fieldtype": "Check",
+   "label": "Enable Email Notifications",
+   "default": "1"
+  },
+  {
+   "fieldname": "email_recipients",
+   "fieldtype": "Small Text",
+   "label": "Email Recipients",
+   "description": "Comma-separated email addresses",
+   "depends_on": "email_enabled",
+   "mandatory_depends_on": "email_enabled"
+  },
+  {
+   "fieldname": "column_break_notification",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "slack_enabled",
+   "fieldtype": "Check",
+   "label": "Enable Slack Notifications",
+   "default": "0"
+  },
+  {
+   "fieldname": "slack_webhook_url",
+   "fieldtype": "Data",
+   "label": "Slack Webhook URL",
+   "depends_on": "slack_enabled",
+   "mandatory_depends_on": "slack_enabled"
+  },
+  {
+   "fieldname": "teams_enabled",
+   "fieldtype": "Check",
+   "label": "Enable Microsoft Teams",
+   "default": "0"
+  },
+  {
+   "fieldname": "teams_webhook_url",
+   "fieldtype": "Data",
+   "label": "Teams Webhook URL",
+   "depends_on": "teams_enabled",
+   "mandatory_depends_on": "teams_enabled"
+  },
+  {
+   "fieldname": "section_message_template",
+   "fieldtype": "Section Break",
+   "label": "Message Template",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "subject_template",
+   "fieldtype": "Data",
+   "label": "Subject Template",
+   "default": "[{severity}] Alert: {rule_name}",
+   "description": "Use {rule_name}, {severity}, {count}, etc. as variables"
+  },
+  {
+   "fieldname": "message_template",
+   "fieldtype": "Text Editor",
+   "label": "Message Body Template",
+   "default": "<p><strong>Alert Rule:</strong> {rule_name}</p>\n<p><strong>Severity:</strong> {severity}</p>\n<p><strong>Description:</strong> {description}</p>\n<p><strong>Triggered At:</strong> {timestamp}</p>\n<p><strong>Event Count:</strong> {count}</p>",
+   "description": "HTML template for alert message body"
+  },
+  {
+   "fieldname": "include_log_details",
+   "fieldtype": "Check",
+   "label": "Include Log Details",
+   "default": "1",
+   "description": "Attach matching log entries to alert"
+  },
+  {
+   "fieldname": "section_schedule",
+   "fieldtype": "Section Break",
+   "label": "Schedule & Throttling",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "active_hours_only",
+   "fieldtype": "Check",
+   "label": "Active During Specific Hours Only",
+   "default": "0"
+  },
+  {
+   "fieldname": "active_start_time",
+   "fieldtype": "Time",
+   "label": "Start Time",
+   "depends_on": "active_hours_only"
+  },
+  {
+   "fieldname": "active_end_time",
+   "fieldtype": "Time",
+   "label": "End Time",
+   "depends_on": "active_hours_only"
+  },
+  {
+   "fieldname": "column_break_schedule",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "active_days",
+   "fieldtype": "Select",
+   "label": "Active Days",
+   "options": "All Days\nWeekdays Only\nWeekends Only\nCustom",
+   "default": "All Days"
+  },
+  {
+   "fieldname": "throttle_minutes",
+   "fieldtype": "Int",
+   "label": "Throttle (Minutes)",
+   "default": "15",
+   "description": "Minimum time between alerts for this rule"
+  },
+  {
+   "fieldname": "max_alerts_per_day",
+   "fieldtype": "Int",
+   "label": "Max Alerts Per Day",
+   "default": "50",
+   "description": "Maximum number of alerts per 24 hours"
+  },
+  {
+   "fieldname": "section_statistics",
+   "fieldtype": "Section Break",
+   "label": "Statistics",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "total_triggers",
+   "fieldtype": "Int",
+   "label": "Total Triggers",
+   "default": "0",
+   "read_only": 1,
+   "description": "Number of times rule conditions were met"
+  },
+  {
+   "fieldname": "total_alerts_sent",
+   "fieldtype": "Int",
+   "label": "Total Alerts Sent",
+   "default": "0",
+   "read_only": 1,
+   "description": "Number of alerts actually sent (after throttling)"
+  },
+  {
+   "fieldname": "last_alert_sent_at",
+   "fieldtype": "Datetime",
+   "label": "Last Alert Sent At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_stats",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "success_count",
+   "fieldtype": "Int",
+   "label": "Successful Alerts",
+   "default": "0",
+   "read_only": 1
+  },
+  {
+   "fieldname": "failure_count",
+   "fieldtype": "Int",
+   "label": "Failed Alerts",
+   "default": "0",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_audit",
+   "fieldtype": "Section Break",
+   "label": "Audit Trail",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "created_at",
+   "fieldtype": "Datetime",
+   "label": "Created At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "modified_at",
+   "fieldtype": "Datetime",
+   "label": "Modified At",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-10-23 11:47:00",
+ "modified_by": "Administrator",
+ "module": "CAP",
+ "name": "Alert Rule",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Compliance Officer",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Auditor",
+   "share": 0
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "rule_name",
+ "track_changes": 1
+}

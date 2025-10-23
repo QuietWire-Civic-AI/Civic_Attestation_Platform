@@ -1,0 +1,123 @@
+"_comment": "Project: QuietWire CAP (Civic AI Canon Platform) V 1.0.0 | Website: https://quietwire.ai | Authors: Ashraf Saleh Alhajj; Raasid (AI Companion) | SPDX-License-Identifier: Apache-2.0 | SPDX-FileCopyrightText: 2025 QuietWire | SPDX-FileContributor: Ashraf Saleh Alhajj | SPDX-FileContributor: Raasid (AI Companion)",
+ "actions": [],
+ "creation": "2025-10-23 02:30:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "rule_name",
+  "rule_type",
+  "column_break_1",
+  "is_enabled",
+  "priority",
+  "condition_section",
+  "condition_expression",
+  "condition_logic",
+  "action_section",
+  "action_type",
+  "action_config",
+  "column_break_2",
+  "threshold_value",
+  "threshold_operator"
+ ],
+ "fields": [
+  {
+   "fieldname": "rule_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Rule Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "rule_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Rule Type",
+   "options": "Pattern Match\nKeyword Detection\nSentiment Analysis\nEntity Recognition\nThreshold Check\nCustom Logic\nML Model",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "is_enabled",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Enabled",
+   "default": "1"
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Int",
+   "label": "Priority",
+   "default": "10",
+   "description": "Lower number = higher priority"
+  },
+  {
+   "fieldname": "condition_section",
+   "fieldtype": "Section Break",
+   "label": "Condition"
+  },
+  {
+   "fieldname": "condition_expression",
+   "fieldtype": "Text",
+   "label": "Condition Expression",
+   "description": "Pattern, keyword, or expression to match"
+  },
+  {
+   "fieldname": "condition_logic",
+   "fieldtype": "Select",
+   "label": "Condition Logic",
+   "options": "AND\nOR\nNOT\nXOR",
+   "default": "AND"
+  },
+  {
+   "fieldname": "action_section",
+   "fieldtype": "Section Break",
+   "label": "Action"
+  },
+  {
+   "fieldname": "action_type",
+   "fieldtype": "Select",
+   "label": "Action Type",
+   "options": "Block\nWarn\nFlag\nRedact\nModify\nLog\nNotify\nEscalate",
+   "default": "Flag"
+  },
+  {
+   "fieldname": "action_config",
+   "fieldtype": "JSON",
+   "label": "Action Configuration"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "threshold_value",
+   "fieldtype": "Float",
+   "label": "Threshold Value",
+   "description": "Numeric threshold for comparisons"
+  },
+  {
+   "fieldname": "threshold_operator",
+   "fieldtype": "Select",
+   "label": "Threshold Operator",
+   "options": "\n>\n>=\n<\n<=\n=\n!=",
+   "depends_on": "threshold_value"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-10-23 02:30:00.000000",
+ "modified_by": "Administrator",
+ "module": "CAP",
+ "name": "Policy Rule",
+ "naming_rule": "Random",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

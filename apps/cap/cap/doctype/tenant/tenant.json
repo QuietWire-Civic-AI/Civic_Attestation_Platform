@@ -1,0 +1,379 @@
+"_comment": "Project: QuietWire CAP (Civic AI Canon Platform) V 1.0.0 | Website: https://quietwire.ai | Authors: Ashraf Saleh Alhajj; Raasid (AI Companion) | SPDX-License-Identifier: Apache-2.0 | SPDX-FileCopyrightText: 2025 QuietWire | SPDX-FileContributor: Ashraf Saleh Alhajj | SPDX-FileContributor: Raasid (AI Companion)",
+  "autoname": "naming_series:",
+  "creation": "2025-10-20 13:11:25.000000",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "tenant_info_section",
+    "tenant_name",
+    "tenant_slug",
+    "column_break_3",
+    "domain",
+    "status",
+    "settings_section",
+    "max_users",
+    "storage_limit_gb",
+    "column_break_7",
+    "api_key",
+    "encryption_key",
+    "contact_section", 
+    "primary_contact",
+    "contact_email",
+    "column_break_11",
+    "billing_contact",
+    "billing_email",
+    "subscription_section",
+    "plan_type",
+    "subscription_start",
+    "column_break_15",
+    "subscription_end",
+    "billing_cycle",
+    "features_section",
+    "features",
+    "compliance_section",
+    "compliance_framework",
+    "data_retention_days",
+    "column_break_comp",
+    "audit_enabled",
+    "auto_archiving_enabled",
+    "monthly_stats_section",
+    "monthly_stats",
+    "security_section",
+    "two_factor_required",
+    "ip_whitelist",
+    "column_break_19",
+    "session_timeout",
+    "password_policy",
+    "system_section",
+    "naming_series",
+    "tenant_id",
+    "column_break_23",
+    "created_by",
+    "modified_by"
+  ],
+  "fields": [
+    {
+      "fieldname": "tenant_info_section",
+      "fieldtype": "Section Break",
+      "label": "معلومات المستأجر"
+    },
+    {
+      "fieldname": "tenant_name",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "اسم المستأجر",
+      "reqd": 1,
+      "unique": 1
+    },
+    {
+      "fieldname": "tenant_slug",
+      "fieldtype": "Data",
+      "label": "المعرف القصير",
+      "reqd": 1,
+      "unique": 1
+    },
+    {
+      "fieldname": "column_break_3",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "domain",
+      "fieldtype": "Data",
+      "label": "النطاق"
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "الحالة",
+      "options": "Active\nInactive\nSuspended\nTrial",
+      "default": "Trial"
+    },
+    {
+      "fieldname": "settings_section",
+      "fieldtype": "Section Break",
+      "label": "الإعدادات"
+    },
+    {
+      "fieldname": "max_users",
+      "fieldtype": "Int",
+      "label": "الحد الأقصى للمستخدمين",
+      "default": 10
+    },
+    {
+      "fieldname": "storage_limit_gb",
+      "fieldtype": "Float",
+      "label": "حد التخزين (GB)",
+      "default": 10.0
+    },
+    {
+      "fieldname": "column_break_7",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "api_key",
+      "fieldtype": "Password",
+      "label": "مفتاح API",
+      "read_only": 1
+    },
+    {
+      "fieldname": "encryption_key",
+      "fieldtype": "Password",
+      "label": "مفتاح التشفير",
+      "read_only": 1
+    },
+    {
+      "fieldname": "contact_section",
+      "fieldtype": "Section Break", 
+      "label": "معلومات الاتصال"
+    },
+    {
+      "fieldname": "primary_contact",
+      "fieldtype": "Data",
+      "label": "المسؤول الرئيسي"
+    },
+    {
+      "fieldname": "contact_email",
+      "fieldtype": "Data",
+      "label": "البريد الإلكتروني",
+      "options": "Email"
+    },
+    {
+      "fieldname": "column_break_11",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "billing_contact",
+      "fieldtype": "Data",
+      "label": "مسؤول الفواتير"
+    },
+    {
+      "fieldname": "billing_email",
+      "fieldtype": "Data",
+      "label": "بريد الفواتير",
+      "options": "Email"
+    },
+    {
+      "fieldname": "subscription_section",
+      "fieldtype": "Section Break",
+      "label": "الاشتراك"
+    },
+    {
+      "fieldname": "plan_type",
+      "fieldtype": "Select",
+      "label": "نوع الخطة",
+      "options": "Basic\nProfessional\nEnterprise\nTrial",
+      "default": "Trial"
+    },
+    {
+      "fieldname": "subscription_start",
+      "fieldtype": "Date",
+      "label": "تاريخ بداية الاشتراك"
+    },
+    {
+      "fieldname": "column_break_15",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "subscription_end",
+      "fieldtype": "Date",
+      "label": "تاريخ انتهاء الاشتراك"
+    },
+    {
+      "fieldname": "billing_cycle",
+      "fieldtype": "Select",
+      "label": "دورة الفوترة",
+      "options": "Monthly\nQuarterly\nYearly",
+      "default": "Monthly"
+    },
+    {
+      "fieldname": "features_section",
+      "fieldtype": "Section Break",
+      "label": "الميزات والحدود"
+    },
+    {
+      "fieldname": "features",
+      "fieldtype": "Table",
+      "label": "Features",
+      "options": "Tenant Feature"
+    },
+    {
+      "fieldname": "compliance_section",
+      "fieldtype": "Section Break",
+      "label": "إعدادات الامتثال",
+      "collapsible": 1
+    },
+    {
+      "fieldname": "compliance_framework",
+      "fieldtype": "Select",
+      "label": "إطار الامتثال",
+      "options": "\nGDPR\nHIPAA\nISO 27001\nSOC 2\nPCI DSS\nCustom"
+    },
+    {
+      "fieldname": "data_retention_days",
+      "fieldtype": "Int",
+      "label": "مدة الاحتفاظ بالبيانات (أيام)",
+      "default": 365,
+      "non_negative": 1
+    },
+    {
+      "fieldname": "column_break_comp",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "audit_enabled",
+      "fieldtype": "Check",
+      "label": "تفعيل تسجيل المراجعة",
+      "default": 1
+    },
+    {
+      "fieldname": "auto_archiving_enabled",
+      "fieldtype": "Check",
+      "label": "تفعيل الأرشفة التلقائية",
+      "default": 0
+    },
+    {
+      "fieldname": "monthly_stats_section",
+      "fieldtype": "Section Break",
+      "label": "الإحصائيات الشهرية",
+      "collapsible": 1
+    },
+    {
+      "fieldname": "monthly_stats",
+      "fieldtype": "Table",
+      "label": "Monthly Statistics",
+      "options": "Tenant Monthly Stat",
+      "read_only": 1
+    },
+    {
+      "fieldname": "security_section",
+      "fieldtype": "Section Break",
+      "label": "الأمان"
+    },
+    {
+      "fieldname": "two_factor_required",
+      "fieldtype": "Check",
+      "label": "المصادقة الثنائية مطلوبة",
+      "default": 1
+    },
+    {
+      "fieldname": "ip_whitelist",
+      "fieldtype": "Small Text",
+      "label": "قائمة IP المسموحة"
+    },
+    {
+      "fieldname": "column_break_19",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "session_timeout",
+      "fieldtype": "Int",
+      "label": "انتهاء الجلسة (دقيقة)",
+      "default": 480
+    },
+    {
+      "fieldname": "password_policy",
+      "fieldtype": "Select",
+      "label": "سياسة كلمة المرور",
+      "options": "Standard\nStrict\nHighSecurity",
+      "default": "Standard"
+    },
+    {
+      "fieldname": "system_section",
+      "fieldtype": "Section Break",
+      "label": "معلومات النظام"
+    },
+    {
+      "fieldname": "naming_series",
+      "fieldtype": "Select",
+      "label": "سلسلة التسمية",
+      "options": "TEN-.YYYY.-",
+      "default": "TEN-.YYYY.-"
+    },
+    {
+      "fieldname": "tenant_id",
+      "fieldtype": "Data",
+      "hidden": 1,
+      "label": "معرف المستأجر",
+      "read_only": 1
+    },
+    {
+      "fieldname": "column_break_23",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "created_by",
+      "fieldtype": "Link",
+      "label": "تم الإنشاء بواسطة",
+      "options": "User",
+      "read_only": 1
+    },
+    {
+      "fieldname": "modified_by",
+      "fieldtype": "Link",
+      "label": "تم التعديل بواسطة",
+      "options": "User",
+      "read_only": 1
+    }
+  ],
+  "index_web_pages_for_search": 1,
+  "links": [
+    {
+      "link_doctype": "User",
+      "link_fieldname": "tenant"
+    },
+    {
+      "link_doctype": "Policy",
+      "link_fieldname": "tenant"
+    },
+    {
+      "link_doctype": "Chat Session",
+      "link_fieldname": "tenant"
+    }
+  ],
+  "modified": "2025-10-20 13:11:25.000000",
+  "module": "CAP Core",
+  "name": "Tenant",
+  "naming_rule": "By \"Naming Series\" field",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "CAP Admin",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "CAP Auditor",
+      "share": 1
+    }
+  ],
+  "search_fields": "tenant_name,domain,status",
+  "show_name_in_global_search": 1,
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "title_field": "tenant_name",
+  "track_changes": 1
+}

@@ -1,0 +1,515 @@
+"_comment": "Project: QuietWire CAP (Civic AI Canon Platform) V 1.0.0 | Website: https://quietwire.ai | Authors: Ashraf Saleh Alhajj; Raasid (AI Companion) | SPDX-License-Identifier: Apache-2.0 | SPDX-FileCopyrightText: 2025 QuietWire | SPDX-FileContributor: Ashraf Saleh Alhajj | SPDX-FileContributor: Raasid (AI Companion)",
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "field:user",
+ "creation": "2025-10-23 07:49:22",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_info_section",
+  "user",
+  "full_name",
+  "display_name",
+  "avatar",
+  "column_break_basic_1",
+  "bio",
+  "department",
+  "job_title",
+  "phone",
+  "tenant_section",
+  "tenant",
+  "role_in_tenant",
+  "joined_tenant_on",
+  "column_break_tenant_1",
+  "tenant_status",
+  "tenant_permissions",
+  "ui_preferences_section",
+  "theme",
+  "language",
+  "font_size",
+  "dashboard_layout",
+  "column_break_ui_1",
+  "enable_animations",
+  "enable_sounds",
+  "enable_desktop_notifications",
+  "sidebar_collapsed",
+  "items_per_page",
+  "timezone",
+  "ai_preferences_section",
+  "preferred_ai_model",
+  "response_tone",
+  "response_detail_level",
+  "column_break_ai_1",
+  "enable_ai_suggestions",
+  "preferred_language_for_ai",
+  "enable_auto_translate",
+  "ai_context_length",
+  "enable_chat_history",
+  "notification_preferences_section",
+  "enable_email_alerts",
+  "email_frequency",
+  "enable_slack_alerts",
+  "slack_notification_level",
+  "column_break_notif_1",
+  "enable_teams_alerts",
+  "teams_notification_level",
+  "enable_browser_notifications",
+  "notification_sound",
+  "alert_on_violation",
+  "alert_on_compliance_event",
+  "statistics_section",
+  "total_chat_sessions",
+  "total_messages_sent",
+  "total_evidence_uploaded",
+  "total_violations_reported",
+  "column_break_stats_1",
+  "total_login_count",
+  "last_login",
+  "account_created_on",
+  "total_hours_active",
+  "last_activity"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_info_section",
+   "fieldtype": "Section Break",
+   "label": "Basic Information"
+  },
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "label": "User",
+   "options": "User",
+   "reqd": 1,
+   "unique": 1,
+   "description": "Link to Frappe User"
+  },
+  {
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "label": "Full Name",
+   "reqd": 1,
+   "description": "User's complete name"
+  },
+  {
+   "fieldname": "display_name",
+   "fieldtype": "Data",
+   "label": "Display Name",
+   "description": "Name shown in UI (nickname or preferred name)"
+  },
+  {
+   "fieldname": "avatar",
+   "fieldtype": "Attach Image",
+   "label": "Avatar",
+   "description": "Profile picture"
+  },
+  {
+   "fieldname": "column_break_basic_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bio",
+   "fieldtype": "Small Text",
+   "label": "Bio",
+   "description": "Short description about the user"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Data",
+   "label": "Department"
+  },
+  {
+   "fieldname": "job_title",
+   "fieldtype": "Data",
+   "label": "Job Title"
+  },
+  {
+   "fieldname": "phone",
+   "fieldtype": "Data",
+   "label": "Phone Number"
+  },
+  {
+   "fieldname": "tenant_section",
+   "fieldtype": "Section Break",
+   "label": "Tenant Association",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "tenant",
+   "fieldtype": "Link",
+   "label": "Tenant",
+   "options": "Tenant",
+   "description": "Associated tenant organization"
+  },
+  {
+   "fieldname": "role_in_tenant",
+   "fieldtype": "Select",
+   "label": "Role in Tenant",
+   "options": "Admin\nMember\nViewer\nGuest",
+   "default": "Member",
+   "description": "User's role within the tenant"
+  },
+  {
+   "fieldname": "joined_tenant_on",
+   "fieldtype": "Date",
+   "label": "Joined Tenant On",
+   "description": "Date when user joined the tenant"
+  },
+  {
+   "fieldname": "column_break_tenant_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "tenant_status",
+   "fieldtype": "Select",
+   "label": "Tenant Status",
+   "options": "Active\nSuspended\nPending\nInactive",
+   "default": "Active",
+   "description": "Current status in tenant"
+  },
+  {
+   "fieldname": "tenant_permissions",
+   "fieldtype": "Small Text",
+   "label": "Tenant Permissions",
+   "description": "JSON object of tenant-specific permissions"
+  },
+  {
+   "fieldname": "ui_preferences_section",
+   "fieldtype": "Section Break",
+   "label": "UI Preferences",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "theme",
+   "fieldtype": "Select",
+   "label": "Theme",
+   "options": "Light\nDark\nAuto",
+   "default": "Light",
+   "description": "UI color theme"
+  },
+  {
+   "fieldname": "language",
+   "fieldtype": "Select",
+   "label": "Preferred Language",
+   "options": "ar\nen",
+   "default": "ar",
+   "description": "Interface language"
+  },
+  {
+   "fieldname": "font_size",
+   "fieldtype": "Select",
+   "label": "Font Size",
+   "options": "Small\nMedium\nLarge",
+   "default": "Medium"
+  },
+  {
+   "fieldname": "dashboard_layout",
+   "fieldtype": "Select",
+   "label": "Dashboard Layout",
+   "options": "Compact\nStandard\nSpacious",
+   "default": "Standard"
+  },
+  {
+   "fieldname": "column_break_ui_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "enable_animations",
+   "fieldtype": "Check",
+   "label": "Enable Animations",
+   "default": 1
+  },
+  {
+   "fieldname": "enable_sounds",
+   "fieldtype": "Check",
+   "label": "Enable Sounds",
+   "default": 1
+  },
+  {
+   "fieldname": "enable_desktop_notifications",
+   "fieldtype": "Check",
+   "label": "Enable Desktop Notifications",
+   "default": 1
+  },
+  {
+   "fieldname": "sidebar_collapsed",
+   "fieldtype": "Check",
+   "label": "Sidebar Collapsed by Default",
+   "default": 0
+  },
+  {
+   "fieldname": "items_per_page",
+   "fieldtype": "Int",
+   "label": "Items Per Page",
+   "default": 20,
+   "description": "Number of items to show in lists"
+  },
+  {
+   "fieldname": "timezone",
+   "fieldtype": "Select",
+   "label": "Timezone",
+   "options": "UTC\nAsia/Riyadh\nAsia/Dubai\nAfrica/Cairo\nEurope/London\nAmerica/New_York",
+   "default": "Asia/Riyadh"
+  },
+  {
+   "fieldname": "ai_preferences_section",
+   "fieldtype": "Section Break",
+   "label": "AI Preferences",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "preferred_ai_model",
+   "fieldtype": "Link",
+   "label": "Preferred AI Model",
+   "options": "AI Model",
+   "description": "Default AI model for chat sessions"
+  },
+  {
+   "fieldname": "response_tone",
+   "fieldtype": "Select",
+   "label": "Response Tone",
+   "options": "Formal\nCasual\nTechnical\nFriendly",
+   "default": "Formal",
+   "description": "Preferred tone for AI responses"
+  },
+  {
+   "fieldname": "response_detail_level",
+   "fieldtype": "Select",
+   "label": "Response Detail Level",
+   "options": "Brief\nStandard\nDetailed\nComprehensive",
+   "default": "Standard"
+  },
+  {
+   "fieldname": "column_break_ai_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "enable_ai_suggestions",
+   "fieldtype": "Check",
+   "label": "Enable AI Suggestions",
+   "default": 1,
+   "description": "Show AI-powered suggestions"
+  },
+  {
+   "fieldname": "preferred_language_for_ai",
+   "fieldtype": "Select",
+   "label": "Preferred Language for AI",
+   "options": "ar\nen\nBilingual",
+   "default": "ar"
+  },
+  {
+   "fieldname": "enable_auto_translate",
+   "fieldtype": "Check",
+   "label": "Enable Auto Translate",
+   "default": 0,
+   "description": "Automatically translate responses"
+  },
+  {
+   "fieldname": "ai_context_length",
+   "fieldtype": "Int",
+   "label": "AI Context Length (messages)",
+   "default": 10,
+   "description": "Number of previous messages to include in context"
+  },
+  {
+   "fieldname": "enable_chat_history",
+   "fieldtype": "Check",
+   "label": "Enable Chat History",
+   "default": 1
+  },
+  {
+   "fieldname": "notification_preferences_section",
+   "fieldtype": "Section Break",
+   "label": "Notification Preferences",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "enable_email_alerts",
+   "fieldtype": "Check",
+   "label": "Enable Email Alerts",
+   "default": 1
+  },
+  {
+   "fieldname": "email_frequency",
+   "fieldtype": "Select",
+   "label": "Email Frequency",
+   "options": "Instant\nDaily\nWeekly\nDisabled",
+   "default": "Daily",
+   "depends_on": "eval:doc.enable_email_alerts==1"
+  },
+  {
+   "fieldname": "enable_slack_alerts",
+   "fieldtype": "Check",
+   "label": "Enable Slack Alerts",
+   "default": 0
+  },
+  {
+   "fieldname": "slack_notification_level",
+   "fieldtype": "Select",
+   "label": "Slack Notification Level",
+   "options": "Critical\nAll\nDisabled",
+   "default": "Critical",
+   "depends_on": "eval:doc.enable_slack_alerts==1"
+  },
+  {
+   "fieldname": "column_break_notif_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "enable_teams_alerts",
+   "fieldtype": "Check",
+   "label": "Enable MS Teams Alerts",
+   "default": 0
+  },
+  {
+   "fieldname": "teams_notification_level",
+   "fieldtype": "Select",
+   "label": "Teams Notification Level",
+   "options": "Critical\nAll\nDisabled",
+   "default": "Critical",
+   "depends_on": "eval:doc.enable_teams_alerts==1"
+  },
+  {
+   "fieldname": "enable_browser_notifications",
+   "fieldtype": "Check",
+   "label": "Enable Browser Notifications",
+   "default": 1
+  },
+  {
+   "fieldname": "notification_sound",
+   "fieldtype": "Check",
+   "label": "Notification Sound",
+   "default": 1
+  },
+  {
+   "fieldname": "alert_on_violation",
+   "fieldtype": "Check",
+   "label": "Alert on Violation",
+   "default": 1
+  },
+  {
+   "fieldname": "alert_on_compliance_event",
+   "fieldtype": "Check",
+   "label": "Alert on Compliance Event",
+   "default": 1
+  },
+  {
+   "fieldname": "statistics_section",
+   "fieldtype": "Section Break",
+   "label": "Usage Statistics",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "total_chat_sessions",
+   "fieldtype": "Int",
+   "label": "Total Chat Sessions",
+   "default": 0,
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_messages_sent",
+   "fieldtype": "Int",
+   "label": "Total Messages Sent",
+   "default": 0,
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_evidence_uploaded",
+   "fieldtype": "Int",
+   "label": "Total Evidence Uploaded",
+   "default": 0,
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_violations_reported",
+   "fieldtype": "Int",
+   "label": "Total Violations Reported",
+   "default": 0,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_stats_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_login_count",
+   "fieldtype": "Int",
+   "label": "Total Login Count",
+   "default": 0,
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_login",
+   "fieldtype": "Datetime",
+   "label": "Last Login",
+   "read_only": 1
+  },
+  {
+   "fieldname": "account_created_on",
+   "fieldtype": "Date",
+   "label": "Account Created On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_hours_active",
+   "fieldtype": "Float",
+   "label": "Total Hours Active",
+   "default": 0.0,
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_activity",
+   "fieldtype": "Datetime",
+   "label": "Last Activity",
+   "read_only": 1
+  }
+ ],
+ "links": [],
+ "modified": "2025-10-23 07:49:22",
+ "modified_by": "Administrator",
+ "module": "CAP",
+ "name": "User Profile",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Tenant Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "if_owner": 1,
+   "print": 1,
+   "read": 1,
+   "role": "All",
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1
+}
