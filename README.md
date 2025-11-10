@@ -1,11 +1,11 @@
-# Civic AI Canon Platform (CAP)
+# Civic Attestation Platform (CAP)
 
 [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/QuietWire-Civic-AI/Civic_Attestation_Platform)
 [![License](https://img.shields.io/badge/license-Apache--2.0-green.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.9+-blue.svg)](https://python.org)
 [![Frappe](https://img.shields.io/badge/frappe-15.x-orange.svg)](https://frappe.io)
 
-> **CAP** (Civic AI Canon Platform) is a comprehensive compliance and governance platform that integrates AI-powered chat capabilities with real-time policy enforcement and automated compliance monitoring.
+> **CAP** (Civic Attestation Platform) is a comprehensive compliance and governance platform that integrates AI-powered chat capabilities with real-time policy enforcement and automated compliance monitoring.
 
 ## 🚀 Features
 
